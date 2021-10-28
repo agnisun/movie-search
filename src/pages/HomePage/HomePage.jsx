@@ -1,0 +1,17 @@
+import React from "react";
+import { IntroSlider } from "../../components/IntroSlider/IntroSlider";
+import { NewMovies } from "../../components/NewMovies/NewMovies";
+import { NewSerials } from "../../components/NewSerials/NewSerials";
+import { Box } from "@chakra-ui/react";
+
+export const HomePage = () => {
+  return (
+    <Box>
+      <IntroSlider />
+      <Box pl={"56px"}>
+        <NewMovies />
+        <NewSerials />
+      </Box>
+    </Box>
+  );
+};
