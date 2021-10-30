@@ -24,11 +24,12 @@
 }
 
 .slick-dots li.slick-active button::before {
-    color: #fff
+    color: #fff;
+    opacity: 1;
 }
 
 .slick-dots li button::before {
-    font-size: 7px;
+    font-size: 9px;
     color: #fff;
     transition: all 0.3s ease-in-out;
 }

@@ -4,22 +4,15 @@ import Slider from "react-slick";
 import { useSelector } from "react-redux";
 import { NewSerialItem } from "./NewSerialItem";
 import arrowRight from "../../assets/arrow-right.svg";
+import { settings } from "./sliderSettings";
 
 export const NewSerials = () => {
   const dataSerials = useSelector((state) => state.movie.dataSerials.results);
   const newSerials = dataSerials && dataSerials.filter((film, idx) => idx < 10);
 
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-  };
-
   return (
     <Box as={"section"}>
-      <Box as={"h3"}>
+      <Box as={"h3"} fontSize={{ "2xl": "22px" }}>
         Featured TV shows <Image display={"inline-block"} src={arrowRight} />
       </Box>
       <Slider {...settings}>

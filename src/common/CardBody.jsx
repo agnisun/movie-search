@@ -19,11 +19,14 @@ export const CardBody = ({ genres, genre_ids, vote_average, title, image }) => {
         alignItems={"flex-start"}
         justifyContent={"flex-end"}
         h={"70%"}
-        p={"24px"}
+        // p={"24px"}
+        p={{ base: "16px" }}
       >
         <GenreInfo genres={genres} genre_ids={genre_ids} />
-        <Box fontSize={"16px"}>{setRating(vote_average)}</Box>
-        <Box fontSize={"24px"} lineHeight={"32px"}>
+        <Box fontSize={{ base: "12px", md: "16px", "2xl": "20px" }}>
+          {setRating(vote_average)}
+        </Box>
+        <Box fontSize={{ base: "16px", md: "18px", "2xl": "24px" }}>
           {formatTitle(title)}
         </Box>
       </Stack>

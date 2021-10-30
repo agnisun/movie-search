@@ -3,6 +3,7 @@ import fonts from "./fonts";
 import colors from "./colors";
 import styles from "./styles";
 import Container from "./components/Container";
+import { breakpoints } from "./breakpoints";
 
 export const theme = extendTheme({
   fonts,
@@ -11,4 +12,5 @@ export const theme = extendTheme({
   components: {
     Container,
   },
+  breakpoints,
 });

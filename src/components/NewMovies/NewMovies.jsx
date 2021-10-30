@@ -4,22 +4,15 @@ import Slider from "react-slick";
 import { NewMovieItem } from "./NewMovieItem";
 import { useSelector } from "react-redux";
 import arrowRight from "../../assets/arrow-right.svg";
+import { settings } from "../NewSerials/sliderSettings";
 
 export const NewMovies = () => {
   const data = useSelector((state) => state.movie.data.results);
   const newMovies = data && data.filter((movie, idx) => idx > 2 && idx < 18);
 
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 2,
-  };
-
   return (
     <Box as={"section"}>
-      <Box as={"h3"}>
+      <Box as={"h3"} fontSize={{ "2xl": "22px" }}>
         New releases <Image display={"inline-block"} src={arrowRight} />
       </Box>
       <Slider {...settings}>

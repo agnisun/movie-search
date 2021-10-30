@@ -4,7 +4,7 @@ export default {
       fontFamily: "body",
       fontSize: "18px",
       fontWeight: "500",
-      lineHeight: "24px",
+      lineHeight: "1.5",
       color: "white",
       background: "black",
     },
