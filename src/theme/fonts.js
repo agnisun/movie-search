@@ -1,3 +1,3 @@
-export default {
+export const fonts = {
   body: "Roboto, sans-serif",
 };

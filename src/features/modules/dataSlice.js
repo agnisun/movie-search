@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
-export const movieSlice = createSlice({
-  name: "movie",
+export const dataSlice = createSlice({
+  name: "data",
   initialState: {
     data: [],
     dataSerials: [],
@@ -25,5 +25,5 @@ export const movieSlice = createSlice({
 });
 
 export const { setData, setGenres, setConfig, setDataSerials } =
-  movieSlice.actions;
-export default movieSlice.reducer;
+  dataSlice.actions;
+export default dataSlice.reducer;

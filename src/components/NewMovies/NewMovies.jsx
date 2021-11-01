@@ -1,13 +1,13 @@
 import React from "react";
-import { Box, Image } from "@chakra-ui/react";
+import {Box, Image} from "@chakra-ui/react";
 import Slider from "react-slick";
-import { NewMovieItem } from "./NewMovieItem";
-import { useSelector } from "react-redux";
+import {NewMovieItem} from "./NewMovieItem";
+import {useSelector} from "react-redux";
 import arrowRight from "../../assets/arrow-right.svg";
-import { settings } from "../NewSerials/sliderSettings";
+import {settings} from "./sliderSettings";
 
 export const NewMovies = () => {
-  const data = useSelector((state) => state.movie.data.results);
+  const data = useSelector((state) => state.data.data.results);
   const newMovies = data && data.filter((movie, idx) => idx > 2 && idx < 18);
 
   return (

@@ -1,6 +1,6 @@
-import { Redirect, Route, Switch } from "react-router-dom";
-import { HomePage } from "../pages/HomePage/HomePage";
-import { MoviesPage } from "../pages/MoviesPage/MoviesPage";
+import {Redirect, Route, Switch} from "react-router-dom";
+import {HomePage} from "../pages/HomePage/HomePage";
+import {MoviesPage} from "../pages/MoviesPage/MoviesPage";
 
 export const Routes = () => {
   return (

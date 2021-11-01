@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Image, Stack } from "@chakra-ui/react";
-import { setRating } from "../core/setRating";
-import { formatTitle } from "../core/formatTitle";
+import {Box, Image} from "@chakra-ui/react";
+import {setRating} from "../core/setRating";
+import {formatTitle} from "../core/formatTitle";
 
 export const CardBodyDown = ({ vote_average, title, image, release_date }) => {
   return (

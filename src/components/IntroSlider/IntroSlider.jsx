@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Box } from "@chakra-ui/react";
+import React, {useEffect, useState} from "react";
+import {Box} from "@chakra-ui/react";
 import Slider from "react-slick";
 import "../../slider/slider.css";
-import { IntroSliderItem } from "./IntroSliderItem";
-import { useSelector } from "react-redux";
+import {IntroSliderItem} from "./IntroSliderItem";
+import {useSelector} from "react-redux";
 
 export const IntroSlider = () => {
-  const data = useSelector((state) => state.movie.data.results);
+  const data = useSelector((state) => state.data.data.results);
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
