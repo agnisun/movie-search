@@ -1,10 +1,11 @@
-import {configureStore} from "@reduxjs/toolkit";
-import dataReducer from "./modules/dataSlice";
-import movieReducer from "./modules/movieSlice";
+import { combineReducers, createStore } from "redux";
+import { dataReducer } from "./dataReducer";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { movieReducer } from "./movieReducer";
 
-export const store = configureStore({
-  reducer: {
-    data: dataReducer,
-    movie: movieReducer,
-  },
+const rootReducer = combineReducers({
+  data: dataReducer,
+  movie: movieReducer,
 });
+
+export const store = createStore(rootReducer, composeWithDevTools());

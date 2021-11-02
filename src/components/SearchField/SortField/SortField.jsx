@@ -1,10 +1,9 @@
-import React, {useState} from "react";
-import {Box, Flex, Select} from "@chakra-ui/react";
-import {UpDownIcon} from "@chakra-ui/icons";
-import {useDispatch, useSelector} from "react-redux";
-import {setSort} from "../../features/modules/movieSlice";
-import {SearchFieldTitle} from "./common/SearchFieldTitle";
-import {openTab} from "../../core/openTab";
+import React, { useState } from "react";
+import { Box, Flex, Select } from "@chakra-ui/react";
+import { UpDownIcon } from "@chakra-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { SearchFieldTitle } from "../SearchFieldTitle";
+import { openTab } from "../../../core/openTab";
 
 export const SortField = () => {
   const [tab, setTab] = useState(false);
@@ -12,7 +11,7 @@ export const SortField = () => {
   const dispatch = useDispatch();
 
   const handleSort = (e) => {
-    dispatch(setSort(e.target.value));
+    dispatch({ type: "SET_SORT", payload: e.target.value });
   };
 
   const handleTab = () => {

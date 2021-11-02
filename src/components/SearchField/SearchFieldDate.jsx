@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Flex, Input} from "@chakra-ui/react";
+import { Box, Flex, Input } from "@chakra-ui/react";
 
 export const SearchFieldDate = ({ text }) => {
   return (

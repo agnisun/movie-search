@@ -1,13 +1,13 @@
 import React from "react";
-import {Box, Image} from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import Slider from "react-slick";
-import {useSelector} from "react-redux";
-import {NewSerialItem} from "./NewSerialItem";
+import { useSelector } from "react-redux";
+import { NewSerialItem } from "./NewSerialItem";
 import arrowRight from "../../assets/arrow-right.svg";
-import {settings} from "./sliderSettings";
+import { settings } from "./sliderSettings";
 
 export const NewSerials = () => {
-  const dataSerials = useSelector((state) => state.data.dataSerials.results);
+  const dataSerials = useSelector((state) => state.data.serials.results);
   const newSerials = dataSerials && dataSerials.filter((film, idx) => idx < 10);
 
   return (

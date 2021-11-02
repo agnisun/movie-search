@@ -1,9 +1,9 @@
 import React from "react";
-import {Box, Button, Heading, Stack, Text} from "@chakra-ui/react";
-import {useSelector} from "react-redux";
-import {setRating} from "../../core/setRating";
-import {formatOverview} from "../../core/formatOverview";
-import {GenreInfo} from "../../common/GenreInfo";
+import { Box, Button, Heading, Stack, Text } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import { setRating } from "../../core/setRating";
+import { formatOverview } from "../../core/formatOverview";
+import { GenreInfo } from "../../common/GenreInfo";
 
 export const IntroSliderItem = ({
   film: { title, overview, genre_ids, vote_average, backdrop_path },
