@@ -26,7 +26,7 @@ export const SerialsCards = () => {
           >
             {serials &&
               serials.map((serial) => (
-                <SerialsCard key={serial.id} movie={serial} />
+                <SerialsCard key={serial.id} data={serial} />
               ))}
           </Grid>
         </Flex>

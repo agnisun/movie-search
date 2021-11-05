@@ -5,7 +5,7 @@ import { MoviesCards } from "../../components/MoviesCards/MoviesCards";
 export const MoviesPage = () => {
   return (
     <Box minH={"100vh"}>
-      <Box pt={{base: "100px", "2md": "0"}} pl={{ base: "0", "2md": "56px" }}>
+      <Box pt={{ base: "100px", "2md": "0" }} pl={{ base: "0", "2md": "56px" }}>
         <MoviesCards />
       </Box>
     </Box>

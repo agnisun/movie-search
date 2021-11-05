@@ -2,7 +2,7 @@
 @import "../../node_modules/slick-carousel/slick/slick-theme.css";
 
 .slick-next {
-    right: 16px;
+    right: 26px;
     z-index: 10;
 }
 
@@ -12,11 +12,11 @@
 }
 
 .slick-next::before {
-    font-size: 24px;
+    font-size: 33px;
 }
 
 .slick-prev::before {
-    font-size: 24px;
+    font-size: 33px;
 }
 
 .slick-dots {

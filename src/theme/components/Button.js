@@ -32,7 +32,7 @@ export const Button = {
       _hover: {
         background: "#4A5568",
         border: "1px solid #4A5568",
-      }
+      },
     },
     circleActive: {
       weight: "50px",
@@ -41,9 +41,8 @@ export const Button = {
       border: "1px solid #3182CE",
       background: "#4A5568",
       _hover: {
-        background: "#718096"
-      }
+        background: "#718096",
+      },
     },
   },
 };
-

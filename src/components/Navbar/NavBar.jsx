@@ -16,7 +16,7 @@ export const NavBar = () => {
       left={"0"}
       position={{ base: "fixed", "2md": "absolute" }}
       w={{ base: "100%", "2md": "56px" }}
-      h={{base: "auto", "2md": "100%"}}
+      h={{ base: "auto", "2md": "100%" }}
       minH={{ base: "56px", "2md": "100vh" }}
       backdropFilter={"blur(24px)"}
       background={"rgba(29, 29, 29, 0.5)"}
