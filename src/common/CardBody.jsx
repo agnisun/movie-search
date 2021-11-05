@@ -3,11 +3,16 @@ import { GenreInfo } from "./GenreInfo";
 import { Box, Image, Stack } from "@chakra-ui/react";
 import { setRating } from "../core/setRating";
 import { formatTitle } from "../core/formatTitle";
+import noImage from "../assets/no-image.png";
 
 export const CardBody = ({ genres, genre_ids, vote_average, title, image }) => {
   return (
     <>
-      <Image src={`http://image.tmdb.org/t/p/original${image}`} />
+      {image ? (
+        <Image src={`http://image.tmdb.org/t/p/original${image}`} />
+      ) : (
+        <Image src={noImage} alt={""} maxW={"none"} w={"100%"} />
+      )}
       <Stack
         background={
           "linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%)"

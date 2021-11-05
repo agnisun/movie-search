@@ -8,7 +8,7 @@ export const HomePage = () => {
   return (
     <Box>
       <IntroSlider />
-      <Box pl={"56px"}>
+      <Box pl={{ base: "0", "2md": "56px" }}>
         <NewMovies />
         <NewSerials />
       </Box>

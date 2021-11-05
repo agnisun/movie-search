@@ -23,15 +23,27 @@ export const Button = {
       background: "blue.500",
       color: "white",
     },
+    circle: {
+      width: "50px",
+      height: "50px",
+      borderRadius: "50%",
+      border: "1px solid #fff",
+      background: "transparent",
+      _hover: {
+        background: "#4A5568",
+        border: "1px solid #4A5568",
+      }
+    },
+    circleActive: {
+      weight: "50px",
+      height: "50px",
+      borderRadius: "50%",
+      border: "1px solid #3182CE",
+      background: "#4A5568",
+      _hover: {
+        background: "#718096"
+      }
+    },
   },
 };
 
-/*
-fontWeight={"400"}
-      borderRadius={"20px"}
-      h={"30px"}
-      p={"0 10px"}
-      m={"0 5px 5px 0"}
-      fontSize={"14px"}
-*\
- */

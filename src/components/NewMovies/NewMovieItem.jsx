@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { CardBody } from "../../common/CardBody";
 
@@ -9,7 +9,7 @@ export const NewMovieItem = ({
   const genres = useSelector((state) => state.data.genres);
 
   return (
-    <Box position={"relative"} m={"0 10px 0 0"}>
+    <Box position={"relative"} m={"0 10px 0 0"} h={"100%"}>
       <CardBody
         image={poster_path}
         title={title}

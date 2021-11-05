@@ -6,10 +6,16 @@ import { Box } from "@chakra-ui/react";
 import { NavBar } from "./components/Navbar/NavBar";
 
 export const App = () => {
-  //TODO: новая страница продукта
-  //TODO: Eslint подключить
-  //TODO: Довести до ума что имеется
-  //TODO: сортировка moviesPage реализовать
+  // TODO: доделать страница продукта (добавить трейлер + еще информации)
+  // TODO: сортировка moviesPage реализовать
+  // TODO: верстка карточек
+  // TODO: Favourite page сделать
+  // TODO: CardDetails модальное окно
+  // TODO: Оптимизация
+  // TODO: Запросы в отдельный файл (разобраться)
+  // TODO: lazy load (разобраться)
+  //Проблемы: верстка image
+  //Проблемы: Eslint подключить
   const API_KEY = "44fdd1155b4c53983e30b1f7090adf5d";
   const dispatch = useDispatch();
 

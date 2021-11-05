@@ -11,17 +11,24 @@ export const NavBar = () => {
   return (
     <Box
       overflowX={"hidden"}
-      zIndex={"9"}
+      zIndex={{ base: "11", "2md": "9" }}
       top={"0"}
       left={"0"}
-      position={"absolute"}
-      w={"56px"}
-      h={"100%"}
+      position={{ base: "fixed", "2md": "absolute" }}
+      w={{ base: "100%", "2md": "56px" }}
+      h={{base: "auto", "2md": "100%"}}
+      minH={{ base: "56px", "2md": "100vh" }}
       backdropFilter={"blur(24px)"}
       background={"rgba(29, 29, 29, 0.5)"}
       boxShadow={"0px 40px 40px 8px rgba(0, 0, 0, 0.16)"}
     >
-      <Stack alignItems={"center"} py={"40px"} spacing={"90px"}>
+      <Stack
+        justifyContent={{ base: "space-between", "2md": "flex-start" }}
+        direction={{ base: "row", "2md": "column" }}
+        alignItems={"center"}
+        p={{ base: "10px 20px", "2md": "40px 0" }}
+        spacing={{ base: "0", "2md": "90px" }}
+      >
         <Box px={"5px"}>
           <Image src={logo} />
         </Box>
@@ -36,10 +43,14 @@ export const NavBar = () => {
           </Link>
         </Box>
         <Box p={"8px"}>
-          <Image src={serials} />
+          <Link to={"/tv"}>
+            <Image src={serials} />
+          </Link>
         </Box>
         <Box p={"8px"}>
-          <Image src={star} />
+          <Link to={"/favourite"}>
+            <Image src={star} />
+          </Link>
         </Box>
       </Stack>
     </Box>
