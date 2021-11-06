@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Box, Container, Grid, Heading } from "@chakra-ui/react";
-import { MovieCard } from "../MoviesCards/MovieCard";
-import { FavouriteCard } from "./FavouriteCard";
 
 export const FavouriteCards = () => {
   const [favourite, setFavourite] = useState();

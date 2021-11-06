@@ -1,13 +1,15 @@
-import { combineReducers, createStore } from "redux";
-import { dataReducer } from "./dataReducer";
+import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { movieReducer } from "./movieReducer";
-import { favouriteReducer } from "./favouriteReducer";
+import createSagaMiddleware from "redux-saga";
+import { rootReducer } from "./root.reducer";
+import { rootWatcher } from "./root.saga";
 
-const rootReducer = combineReducers({
-  data: dataReducer,
-  movie: movieReducer,
-  favourite: favouriteReducer,
-});
+const sagaMiddleware = createSagaMiddleware();
+const middlewareEnhancer = applyMiddleware(sagaMiddleware);
 
-export const store = createStore(rootReducer, composeWithDevTools());
+export const store = createStore(
+  rootReducer,
+  composeWithDevTools(middlewareEnhancer)
+);
+
+sagaMiddleware.run(rootWatcher);

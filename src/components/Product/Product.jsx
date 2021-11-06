@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Box,
-  Button,
   Container,
   Flex,
-  Heading,
   HStack,
-  IconButton,
   Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 import { RatedCircle } from "../../common/RatedCircle";
 import { PlayIcon } from "../../theme/icons/PlayIcon";
 import { ProductTitle } from "./ProductTitle";

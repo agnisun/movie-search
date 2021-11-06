@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  Image,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import { Link, useParams } from "react-router-dom";
+import { Box } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
 import { Product } from "../../components/Product/Product";
 
 export const ProductMoviePage = () => {

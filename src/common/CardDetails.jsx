@@ -1,34 +1,18 @@
 import React from "react";
 import {
-  Box,
   IconButton,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
   useToast,
-  VStack,
 } from "@chakra-ui/react";
 import { DragHandleIcon } from "@chakra-ui/icons";
-import { useDispatch } from "react-redux";
 import { StarIcon } from "../theme/icons/StarIcon";
+import { addToFavourite } from "../core/addToFavourite";
 
 export const CardDetails = ({ id, title }) => {
-  const dispatch = useDispatch();
   const toast = useToast();
-
-  const handleDetails = () => {
-    dispatch({ type: "ADD_FAVOURITE", payload: id });
-
-    toast({
-      position: "top-right",
-      title: "Success.",
-      description: `${title} was added to your favourite list`,
-      status: "success",
-      duration: 9000,
-      isClosable: true,
-    });
-  };
 
   return (
     <Menu isLazy>
@@ -52,7 +36,10 @@ export const CardDetails = ({ id, title }) => {
         top={"0"}
         right={"-32px"}
       >
-        <MenuItem justifyContent={"center"} onClick={handleDetails}>
+        <MenuItem
+          justifyContent={"center"}
+          onClick={() => addToFavourite(title, toast)}
+        >
           <StarIcon color={"black"} />
           Favourite
         </MenuItem>

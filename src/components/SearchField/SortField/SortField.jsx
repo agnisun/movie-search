@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 import { Box, Flex, Select } from "@chakra-ui/react";
 import { UpDownIcon } from "@chakra-ui/icons";
-import { useDispatch, useSelector } from "react-redux";
 import { SearchFieldTitle } from "../SearchFieldTitle";
 import { openTab } from "../../../core/openTab";
 
 export const SortField = () => {
   const [tab, setTab] = useState(false);
-  const sortBy = useSelector((state) => state.movie.sort);
-  const dispatch = useDispatch();
-
-  const handleSort = (e) => {
-    dispatch({ type: "SET_SORT", payload: e.target.value });
-  };
 
   const handleTab = () => {
     openTab(setTab);
@@ -32,7 +25,7 @@ export const SortField = () => {
       </Flex>
       <Box d={tab ? "block" : "none"}>
         <SearchFieldTitle text={"Sort results by"} />
-        <Select bg={"gray.400"} value={sortBy} onChange={handleSort}>
+        <Select bg={"gray.400"}>
           <option value="PopularityDescending">Popularity descending</option>
           <option value="PopularityAscending">Popularity ascending</option>
           <option value="RatingDescending">Rating descending</option>

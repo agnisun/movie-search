@@ -15,8 +15,6 @@ export const ProductSerialPage = () => {
       .then((data) => setSerial(data));
   }, []);
 
-  console.log(serial);
-
   return (
     <Box
       minH={"100vh"}

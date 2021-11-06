@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { CardBody } from "../../common/CardBody";
 import { CardDetails } from "../../common/CardDetails";
@@ -21,7 +21,7 @@ export const NewMovieItem = ({
           genres={genres}
         />
       </Link>
-      <CardDetails />
+      <CardDetails id={id} title={title} />
     </Box>
   );
 };

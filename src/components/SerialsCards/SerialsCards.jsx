@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Container, Flex, Grid, Heading } from "@chakra-ui/react";
 import { SearchField } from "../SearchField/SearchField";
-import { MovieCard } from "../MoviesCards/MovieCard";
 import { useSelector } from "react-redux";
 import { SerialsCard } from "./SerialsCard";
 
