@@ -7,7 +7,7 @@ import { SearchFieldDate } from "../SearchFieldDate";
 import { FilterFieldAge } from "./FilterFieldAge";
 import { FilterFieldGenre } from "./FilterFieldGenre";
 
-export const FilterField = () => {
+export const FilterField = ({ genres }) => {
   const [tab, setTab] = useState(false);
 
   const handleTab = () => {
@@ -39,7 +39,7 @@ export const FilterField = () => {
         </Box>
         <Box>
           <SearchFieldTitle text={"Genres"} />
-          <FilterFieldGenre />
+          <FilterFieldGenre genres={genres} />
         </Box>
         <Box mb={"10px"}>
           <SearchFieldTitle text={"Certification"} />

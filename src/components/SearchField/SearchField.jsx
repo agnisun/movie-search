@@ -3,7 +3,7 @@ import { Box, Button } from "@chakra-ui/react";
 import { SortField } from "./SortField/SortField";
 import { FilterField } from "./FilterField/FilterField";
 
-export const SearchField = () => {
+export const SearchField = ({ genres }) => {
   return (
     <Box
       minW={{ base: "100%", "2md": "260px" }}
@@ -13,7 +13,7 @@ export const SearchField = () => {
       mb={{ base: "50px", "2md": "0" }}
     >
       <SortField />
-      <FilterField />
+      <FilterField genres={genres} />
       <Button colorScheme={"blue"} w={"100%"}>
         Search
       </Button>

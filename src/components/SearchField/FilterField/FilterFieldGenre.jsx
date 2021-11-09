@@ -1,10 +1,8 @@
 import React from "react";
 import { SearchFieldButton } from "../SearchFieldButton";
 import { Flex } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
 
-export const FilterFieldGenre = () => {
-  const genres = useSelector((state) => state.data.genres);
+export const FilterFieldGenre = ({ genres }) => {
   const handleGenre = (e) => {
     //  ....
   };

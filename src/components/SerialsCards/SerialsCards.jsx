@@ -6,6 +6,7 @@ import { SerialsCard } from "./SerialsCard";
 
 export const SerialsCards = () => {
   const data = useSelector((state) => state.data.serials.results);
+  const genres = useSelector((state) => state.data.genresSerials);
   const serials = data && data.filter((serial, idx) => idx < 60);
 
   return (
@@ -17,7 +18,7 @@ export const SerialsCards = () => {
           alignItems={"flex-start"}
           flexDir={{ base: "column", "2md": "row" }}
         >
-          <SearchField />
+          <SearchField genres={genres} />
           <Grid
             flex={"1 1 auto"}
             templateColumns="repeat(auto-fill, minmax(200px, 1fr))"

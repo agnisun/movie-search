@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export const IntroSliderItem = ({
   film: { title, overview, genre_ids, vote_average, backdrop_path, id },
 }) => {
-  const genres = useSelector((state) => state.data.genres);
+  const genres = useSelector((state) => state.data.genresMovies);
   const config = useSelector((state) => state.data.config);
   const imageUrl = config && config.images.base_url;
   const imageSize = config && config.images.backdrop_sizes[3];

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export const NavBar = () => {
   return (
     <Box
-      overflowX={"hidden"}
+      overflow={"hidden"}
       zIndex={{ base: "11", "2md": "9" }}
       top={"0"}
       left={"0"}

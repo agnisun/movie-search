@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export const SerialsCard = ({
   data: { name, vote_average, poster_path, genre_ids, first_air_date, id },
 }) => {
-  const genres = useSelector((state) => state.data.genres);
+  const genres = useSelector((state) => state.data.genresSerials);
 
   return (
     <GridItem

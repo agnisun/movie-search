@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export const NewMovieItem = ({
   movie: { title, vote_average, poster_path, genre_ids, id },
 }) => {
-  const genres = useSelector((state) => state.data.genres);
+  const genres = useSelector((state) => state.data.genresMovies);
 
   return (
     <Box position={"relative"} m={"0 10px 0 0"} h={"100%"}>

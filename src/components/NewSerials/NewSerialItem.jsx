@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export const NewSerialItem = ({
   serial: { name, vote_average, genre_ids, poster_path, id },
 }) => {
-  const genres = useSelector((state) => state.data.genres);
+  const genres = useSelector((state) => state.data.genresSerials);
 
   return (
     <Box position={"relative"}>

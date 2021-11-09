@@ -7,26 +7,26 @@ import { NavBar } from "./components/Navbar/NavBar";
 import { dataRequestAction } from "./features/modules/data/data.actions";
 
 export const App = () => {
-  // TODO: доделать страница продукта (добавить трейлер + еще информации)
+  // TODO: доделать страница продукта (убрать трейлер если отсутствует + скролл каста)
   // TODO: сортировка moviesPage реализовать
   // TODO: верстка карточек
   // TODO: Favourite page сделать
-  // TODO: CardDetails модальное окно логика (favourite list)
   // TODO: Оптимизация
-  // TODO: Запросы в отдельный файл (разобраться)
   // TODO: lazy load (разобраться)
   //Проблемы: верстка image
   //Проблемы: Eslint подключить
 
   const dispatch = useDispatch();
   const setData = () => dispatch(dataRequestAction());
-  const setGenres = () => dispatch(dataRequestAction());
+  const setGenresMovies = () => dispatch(dataRequestAction());
+  const setGenresSerials = () => dispatch(dataRequestAction());
   const setConfig = () => dispatch(dataRequestAction());
   const setSerials = () => dispatch(dataRequestAction());
 
   useEffect(() => {
     setData();
-    setGenres();
+    setGenresMovies();
+    setGenresSerials();
     setConfig();
     setSerials();
   }, []);

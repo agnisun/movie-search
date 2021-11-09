@@ -3,11 +3,12 @@ import {
   DATA_REQUEST,
   setConfigAction,
   setDataAction,
-  setGenresAction,
+  setGenresMoviesAction,
+  setGenresSerialsAction,
   setSerialsAction,
 } from "./data.actions";
 
-const API_KEY = "44fdd1155b4c53983e30b1f7090adf5d";
+export const API_KEY = "44fdd1155b4c53983e30b1f7090adf5d";
 
 function* setData() {
   const fetchData = () =>
@@ -20,15 +21,26 @@ function* setData() {
   yield put(setDataAction(json));
 }
 
-function* setGenre() {
-  const fetchGenres = () =>
+function* setGenresMovies() {
+  const fetchGenresMovies = () =>
     fetch(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
     );
-  const genres = yield call(fetchGenres);
+  const genres = yield call(fetchGenresMovies);
   const json = yield call(() => genres.json());
 
-  yield put(setGenresAction(json));
+  yield put(setGenresMoviesAction(json));
+}
+
+function* setGenresSerials() {
+  const fetchGenresSerials = () =>
+    fetch(
+      `https://api.themoviedb.org/3/genre/tv/list?api_key=${API_KEY}&language=en-US`
+    );
+  const genres = yield call(fetchGenresSerials);
+  const json = yield call(() => genres.json());
+
+  yield put(setGenresSerialsAction(json));
 }
 
 function* setConfig() {
@@ -53,7 +65,8 @@ function* setSerials() {
 
 export function* dataWatcher() {
   yield takeLatest(DATA_REQUEST, setData);
-  yield takeLatest(DATA_REQUEST, setGenre);
+  yield takeLatest(DATA_REQUEST, setGenresMovies);
+  yield takeLatest(DATA_REQUEST, setGenresSerials);
   yield takeLatest(DATA_REQUEST, setConfig);
   yield takeLatest(DATA_REQUEST, setSerials);
 }

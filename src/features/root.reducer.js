@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
 import { dataReducer } from "./modules/data/data.reducers";
+import { productReducer } from "./modules/product/product.reducers";
 
 export const rootReducer = combineReducers({
   data: dataReducer,
-  // movie: movieReducer,
+  product: productReducer,
   // favourite: favouriteReducer,
 });

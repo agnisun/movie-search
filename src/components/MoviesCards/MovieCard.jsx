@@ -8,7 +8,7 @@ import { CardDetails } from "../../common/CardDetails";
 export const MovieCard = ({
   movie: { title, vote_average, poster_path, genre_ids, release_date, id },
 }) => {
-  const genres = useSelector((state) => state.data.genres);
+  const genres = useSelector((state) => state.data.genresMovies);
 
   return (
     <GridItem
