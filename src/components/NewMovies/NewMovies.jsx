@@ -1,10 +1,10 @@
 import React from "react";
-import { Box, Image } from "@chakra-ui/react";
+import {Box, Image} from "@chakra-ui/react";
 import Slider from "react-slick";
-import { NewMovieItem } from "./NewMovieItem";
-import { useSelector } from "react-redux";
+import {NewMovieItem} from "./NewMovieItem";
+import {useSelector} from "react-redux";
 import arrowRight from "../../assets/arrow-right.svg";
-import { settings } from "./sliderSettings";
+import {settings} from "./sliderSettings";
 
 export const NewMovies = () => {
   const data = useSelector((state) => state.data.data.results);

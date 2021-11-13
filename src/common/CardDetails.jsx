@@ -1,18 +1,30 @@
 import React from "react";
-import {
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  useToast,
-} from "@chakra-ui/react";
-import { DragHandleIcon } from "@chakra-ui/icons";
-import { StarIcon } from "../theme/icons/StarIcon";
-import { addToFavourite } from "../core/addToFavourite";
+import {Box, IconButton, Menu, MenuButton, MenuItem, MenuList, useToast,} from "@chakra-ui/react";
+import {DragHandleIcon, StarIcon} from "@chakra-ui/icons";
+import {addToFavourite} from "../core/addToFavourite";
+import {useDispatch, useSelector} from "react-redux";
+import {addFavouriteAction, removeFavouriteAction,} from "../features/modules/favourite/favourite.actions";
+import {setStatusAction} from "../features/modules/product/product.actions";
 
 export const CardDetails = ({ id, title }) => {
+  const dispatch = useDispatch();
   const toast = useToast();
+  const favouriteList = useSelector((state) => state.favourite.favouriteList);
+  const isFavourite = favouriteList.indexOf(id) > -1 ? true : false;
+  const colorVariant = isFavourite ? "red.500" : "black";
+
+  const toggleFavourite = () => {
+    if (!isFavourite) {
+      dispatch(addFavouriteAction(id));
+      localStorage.setItem(id, id);
+    } else {
+      dispatch(removeFavouriteAction(id));
+      localStorage.removeItem(id);
+    }
+
+    dispatch(setStatusAction());
+    addToFavourite(title, isFavourite, toast);
+  };
 
   return (
     <Menu isLazy>
@@ -36,12 +48,9 @@ export const CardDetails = ({ id, title }) => {
         top={"0"}
         right={"-32px"}
       >
-        <MenuItem
-          justifyContent={"center"}
-          onClick={() => addToFavourite(title, toast)}
-        >
-          <StarIcon color={"black"} />
-          Favourite
+        <MenuItem justifyContent={"center"} onClick={toggleFavourite}>
+          <StarIcon mr={"5px"} fontSize={"10px"} color={colorVariant} />
+          <Box as={"span"}>Favourite</Box>
         </MenuItem>
       </MenuList>
     </Menu>

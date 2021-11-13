@@ -1,4 +1,4 @@
-import { AGE_FILTER, GENRES_FILTER, SET_SORT } from "./search.actions";
+import {AGE_FILTER, GENRES_FILTER, SET_SORT} from "./search.actions";
 
 const initialState = {
   sort: "PopularityDescending",

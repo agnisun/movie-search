@@ -1,9 +1,9 @@
 import React from "react";
-import { GridItem } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { CardBodyDown } from "../../common/CardBodyDown";
-import { Link } from "react-router-dom";
-import { CardDetails } from "../../common/CardDetails";
+import {GridItem} from "@chakra-ui/react";
+import {useSelector} from "react-redux";
+import {CardBodyDown} from "../../common/CardBodyDown";
+import {Link} from "react-router-dom";
+import {CardDetails} from "../../common/CardDetails";
 
 export const MovieCard = ({
   movie: { title, vote_average, poster_path, genre_ids, release_date, id },

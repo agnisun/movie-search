@@ -1,10 +1,12 @@
-export const addToFavourite = (title, toast) => {
+export const addToFavourite = (title, status, toast) => {
   toast({
     position: "top-right",
     title: "Success.",
-    description: `${title} was added to your favourite list`,
-    status: "success",
-    duration: 9000,
+    description: `${title} ${
+      !status ? "was added to" : "was removed from"
+    } your favourite list`,
+    status: !status ? "success" : "error",
+    duration: 3000,
     isClosable: true,
   });
 };

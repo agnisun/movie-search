@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Box, Flex, Select } from "@chakra-ui/react";
-import { UpDownIcon } from "@chakra-ui/icons";
-import { SearchFieldTitle } from "../SearchFieldTitle";
-import { openTab } from "../../../core/openTab";
+import React, {useState} from "react";
+import {Box, Flex, Select} from "@chakra-ui/react";
+import {UpDownIcon} from "@chakra-ui/icons";
+import {SearchFieldTitle} from "../SearchFieldTitle";
+import {openTab} from "../../../core/openTab";
 
 export const SortField = () => {
   const [tab, setTab] = useState(false);

@@ -1,9 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { CardBodyDown } from "../../common/CardBodyDown";
-import { GridItem } from "@chakra-ui/react";
-import { CardDetails } from "../../common/CardDetails";
-import { Link } from "react-router-dom";
+import {useSelector} from "react-redux";
+import {CardBodyDown} from "../../common/CardBodyDown";
+import {GridItem} from "@chakra-ui/react";
+import {CardDetails} from "../../common/CardDetails";
+import {Link} from "react-router-dom";
 
 export const SerialsCard = ({
   data: { name, vote_average, poster_path, genre_ids, first_air_date, id },

@@ -1,11 +1,6 @@
-import { call, put, takeLatest } from "redux-saga/effects";
-import { API_KEY } from "../data/data.sagas";
-import {
-  getVideosAction,
-  PRODUCT_REQUEST,
-  setCreditsAction,
-  setProductAction,
-} from "./product.actions";
+import {call, put, takeLatest} from "redux-saga/effects";
+import {API_KEY} from "../data/data.sagas";
+import {getVideosAction, PRODUCT_REQUEST, setCreditsAction, setProductAction,} from "./product.actions";
 
 function* setProduct({ id, product }) {
   const fetchData = () =>

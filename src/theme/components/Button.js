@@ -35,7 +35,7 @@ export const Button = {
       },
     },
     circleActive: {
-      weight: "50px",
+      width: "50px",
       height: "50px",
       borderRadius: "50%",
       border: "1px solid #3182CE",

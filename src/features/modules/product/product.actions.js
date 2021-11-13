@@ -2,6 +2,7 @@ export const PRODUCT_REQUEST = "PRODUCT_REQUEST";
 export const SET_PRODUCT = "SET_PRODUCT";
 export const SET_CREDITS = "SET_CREDITS";
 export const GET_VIDEOS = "GET_VIDEOS";
+export const SET_STATUS = "SET_STATUS";
 
 export const productRequestAction = (id, product) => ({
   type: PRODUCT_REQUEST,
@@ -9,5 +10,6 @@ export const productRequestAction = (id, product) => ({
   product,
 });
 export const setProductAction = (payload) => ({ type: SET_PRODUCT, payload });
+export const setStatusAction = () => ({ type: SET_STATUS });
 export const setCreditsAction = (payload) => ({ type: SET_CREDITS, payload });
 export const getVideosAction = (payload) => ({ type: GET_VIDEOS, payload });

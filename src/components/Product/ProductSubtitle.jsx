@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from "react";
-import {
-  Box,
-  Flex,
-  IconButton,
-  Stack,
-  useDisclosure,
-  useToast,
-} from "@chakra-ui/react";
-import { formatDate } from "../../core/formatDate";
-import { getGenres } from "../../core/getGenres";
-import { getTime } from "../../core/getTime";
-import { RatedCircle } from "../../common/RatedCircle";
-import { PlayIcon } from "../../theme/icons/PlayIcon";
-import { ProductModal } from "./ProductModal";
-import { useSelector } from "react-redux";
-import { addToFavourite } from "../../core/addToFavourite";
-import { StarIcon } from "../../theme/icons/StarIcon";
+import React, {useEffect, useState} from "react";
+import {Box, Flex, IconButton, Stack, useDisclosure, useToast,} from "@chakra-ui/react";
+import {formatDate} from "../../core/formatDate";
+import {getGenres} from "../../core/getGenres";
+import {getTime} from "../../core/getTime";
+import {RatedCircle} from "../../common/RatedCircle";
+import {PlayIcon} from "../../theme/icons/PlayIcon";
+import {ProductModal} from "./ProductModal";
+import {useDispatch, useSelector} from "react-redux";
+import {addToFavourite} from "../../core/addToFavourite";
+import {addFavouriteAction, removeFavouriteAction,} from "../../features/modules/favourite/favourite.actions";
+import {setStatusAction} from "../../features/modules/product/product.actions";
+import {StarIcon} from "@chakra-ui/icons";
 
 export const ProductSubtitle = ({
   genres,
   vote_average,
   releaseDate,
   productRunTime,
-  title,
+  productTitle,
+  isFavourite,
 }) => {
+  const dispatch = useDispatch();
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const videos = useSelector((state) => state.product.videos);
   const [trailer, setTrailer] = useState({});
+  const product = useSelector((state) => state.product.product);
+  const videos = useSelector((state) => state.product.videos);
+  const buttonVariant = !isFavourite ? "circle" : "circleActive";
 
   useEffect(() => {
     if (videos.id) {
@@ -37,6 +36,19 @@ export const ProductSubtitle = ({
       setTrailer(finalTrailer);
     }
   }, [videos]);
+
+  const toggleFavourite = () => {
+    if (!isFavourite) {
+      dispatch(addFavouriteAction(product.id));
+      localStorage.setItem(product.id, product.id);
+    } else {
+      dispatch(removeFavouriteAction(product.id));
+      localStorage.removeItem(product.id);
+    }
+
+    dispatch(setStatusAction());
+    addToFavourite(productTitle, isFavourite, toast);
+  };
 
   return (
     <>
@@ -74,8 +86,8 @@ export const ProductSubtitle = ({
             <Box ml={"10px"}>User score</Box>
           </Flex>
           <IconButton
-            onClick={() => addToFavourite(title, toast)}
-            variant={"circle"}
+            onClick={toggleFavourite}
+            variant={buttonVariant}
             aria-label="Add to favourite"
             icon={<StarIcon />}
           />

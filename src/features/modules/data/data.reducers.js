@@ -1,11 +1,4 @@
-import {
-  DATA_REQUEST,
-  SET_CONFIG,
-  SET_DATA,
-  SET_GENRES_MOVIES,
-  SET_GENRES_SERIALS,
-  SET_SERIALS,
-} from "./data.actions";
+import {DATA_REQUEST, SET_CONFIG, SET_DATA, SET_GENRES_MOVIES, SET_GENRES_SERIALS, SET_SERIALS,} from "./data.actions";
 
 const initialState = {
   data: [],
@@ -13,7 +6,6 @@ const initialState = {
   genresSerials: [],
   config: null,
   serials: [],
-  details: [],
 };
 
 export const dataReducer = (state = initialState, action) => {

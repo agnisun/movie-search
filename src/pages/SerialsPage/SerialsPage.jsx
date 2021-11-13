@@ -1,6 +1,6 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
-import { SerialsCards } from "../../components/SerialsCards/SerialsCards";
+import {Box} from "@chakra-ui/react";
+import {SerialsCards} from "../../components/SerialsCards/SerialsCards";
 
 export const SerialsPage = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, HStack, Image } from "@chakra-ui/react";
+import {Box, HStack, Image} from "@chakra-ui/react";
 import noImage from "../../assets/no-image.png";
 
 export const ProductCasts = ({ casts }) => {

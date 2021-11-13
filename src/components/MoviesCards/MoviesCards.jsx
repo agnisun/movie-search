@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Container, Flex, Grid, Heading } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { MovieCard } from "./MovieCard";
-import { SearchField } from "../SearchField/SearchField";
+import {Box, Container, Flex, Grid, Heading} from "@chakra-ui/react";
+import {useSelector} from "react-redux";
+import {MovieCard} from "./MovieCard";
+import {SearchField} from "../SearchField/SearchField";
 
 export const MoviesCards = () => {
   const data = useSelector((state) => state.data.data.results);

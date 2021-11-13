@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { Box } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
-import { Product } from "../../components/Product/Product";
-import { useDispatch, useSelector } from "react-redux";
-import { productRequestAction } from "../../features/modules/product/product.actions";
+import React, {useEffect} from "react";
+import {Box} from "@chakra-ui/react";
+import {useParams} from "react-router-dom";
+import {Product} from "../../components/Product/Product";
+import {useDispatch, useSelector} from "react-redux";
+import {productRequestAction,} from "../../features/modules/product/product.actions";
 
 export const ProductMoviePage = () => {
   const { id } = useParams();

@@ -1,6 +1,6 @@
 import React from "react";
-import { SearchFieldButton } from "../SearchFieldButton";
-import { Flex } from "@chakra-ui/react";
+import {SearchFieldButton} from "../SearchFieldButton";
+import {Flex} from "@chakra-ui/react";
 
 export const FilterFieldGenre = ({ genres }) => {
   const handleGenre = (e) => {

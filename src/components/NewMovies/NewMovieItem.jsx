@@ -1,12 +1,12 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { CardBody } from "../../common/CardBody";
-import { CardDetails } from "../../common/CardDetails";
-import { Link } from "react-router-dom";
+import {Box} from "@chakra-ui/react";
+import {useSelector} from "react-redux";
+import {CardBody} from "../../common/CardBody";
+import {CardDetails} from "../../common/CardDetails";
+import {Link} from "react-router-dom";
 
 export const NewMovieItem = ({
-  movie: { title, vote_average, poster_path, genre_ids, id },
+  movie: { title, vote_average, poster_path, genre_ids, id, isFavourite },
 }) => {
   const genres = useSelector((state) => state.data.genresMovies);
 

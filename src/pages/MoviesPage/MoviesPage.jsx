@@ -1,6 +1,6 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
-import { MoviesCards } from "../../components/MoviesCards/MoviesCards";
+import {Box} from "@chakra-ui/react";
+import {MoviesCards} from "../../components/MoviesCards/MoviesCards";
 
 export const MoviesPage = () => {
   return (

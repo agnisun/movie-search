@@ -1,8 +1,17 @@
-import React, { useState } from "react";
-import { Box, Container, Grid, Heading } from "@chakra-ui/react";
+import React from "react";
+import {Box, Container, Grid, Heading} from "@chakra-ui/react";
+import {useSelector} from "react-redux";
+import {FavouriteCard} from "./FavouriteCard";
 
 export const FavouriteCards = () => {
-  const [favourite, setFavourite] = useState();
+  const favoriteList = useSelector((state) => state.favourite.favouriteList);
+  const data = useSelector((state) => state.data.data.results);
+  const serials = useSelector((state) => state.data.serials.results);
+  const favourites =
+    serials &&
+    data &&
+    favoriteList &&
+    data.concat(serials).filter((el) => favoriteList.indexOf(el.id) > -1);
 
   return (
     <Box>
@@ -13,8 +22,10 @@ export const FavouriteCards = () => {
           templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
           gap={"20px"}
         >
-          {/*{movies &&*/}
-          {/*movies.map((movie) => <FavouriteCard key={movie.id} movie={movie} />)}*/}
+          {favourites &&
+            favourites.map((product) => (
+              <FavouriteCard key={product.id} product={product} />
+            ))}
         </Grid>
       </Container>
     </Box>

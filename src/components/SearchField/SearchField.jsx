@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Button } from "@chakra-ui/react";
-import { SortField } from "./SortField/SortField";
-import { FilterField } from "./FilterField/FilterField";
+import {Box, Button} from "@chakra-ui/react";
+import {SortField} from "./SortField/SortField";
+import {FilterField} from "./FilterField/FilterField";
 
 export const SearchField = ({ genres }) => {
   return (
