@@ -9,7 +9,7 @@ export const CardBodyDown = ({ vote_average, title, image, release_date }) => {
     <>
       <Box pos={"relative"}>
         <Image
-          src={image ? `http://image.tmdb.org/t/p/original${image}` : noImage}
+          src={image ? `http://image.tmdb.org/t/p/w300${image}` : noImage}
           minH={"315px"}
         />
         <Box pos={"absolute"} bottom={"-25px"} left={"5px"}>

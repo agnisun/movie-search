@@ -9,7 +9,7 @@ export const SearchField = ({ genres }) => {
       minW={{ base: "100%", "2md": "260px" }}
       w={{ base: "100%", "2md": "260px" }}
       color={"black"}
-      mr={"30px"}
+      mr={{base: "0", "2md": "30px"}}
       mb={{ base: "50px", "2md": "0" }}
     >
       <SortField />

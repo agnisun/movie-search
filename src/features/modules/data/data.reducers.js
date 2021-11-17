@@ -1,26 +1,35 @@
-import {DATA_REQUEST, SET_CONFIG, SET_DATA, SET_GENRES_MOVIES, SET_GENRES_SERIALS, SET_SERIALS,} from "./data.actions";
+import {
+  DATA_REQUEST,
+  GET_CONFIG,
+  GET_GENRES_MOVIES,
+  GET_GENRES_SERIALS,
+  GET_MOVIES,
+  GET_SERIALS,
+} from "./data.actions";
 
 const initialState = {
-  data: [],
+  movies: {},
   genresMovies: [],
   genresSerials: [],
   config: null,
-  serials: [],
+  serials: {},
+  isLoading: false,
+  error: false,
 };
 
 export const dataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_DATA:
-      return { ...state, data: action.payload };
     case DATA_REQUEST:
-      return { ...state };
-    case SET_GENRES_MOVIES:
+      return { ...state, isLoading: true };
+    case GET_MOVIES:
+      return { ...state, movies: action.payload };
+    case GET_GENRES_MOVIES:
       return { ...state, genresMovies: action.payload.genres };
-    case SET_GENRES_SERIALS:
+    case GET_GENRES_SERIALS:
       return { ...state, genresSerials: action.payload.genres };
-    case SET_CONFIG:
+    case GET_CONFIG:
       return { ...state, config: action.payload };
-    case SET_SERIALS:
+    case GET_SERIALS:
       return { ...state, serials: action.payload };
 
     default:

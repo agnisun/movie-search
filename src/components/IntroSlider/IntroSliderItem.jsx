@@ -7,17 +7,17 @@ import {GenreInfo} from "../../common/GenreInfo";
 import {Link} from "react-router-dom";
 
 export const IntroSliderItem = ({
-  film: { title, overview, genre_ids, vote_average, backdrop_path, id },
+  movie: { title, overview, genre_ids, vote_average, backdrop_path, id },
 }) => {
   const genres = useSelector((state) => state.data.genresMovies);
   const config = useSelector((state) => state.data.config);
   const imageUrl = config && config.images.base_url;
-  const imageSize = config && config.images.backdrop_sizes[3];
+  const imageSize = config && config.images.backdrop_sizes[2];
 
   return (
     <Box
-      bg={`url(${imageUrl}${imageSize}${backdrop_path}) center / cover no-repeat`}
-      minH={{ base: "80vh", "3xl": "60vh" }}
+      bg={`url(${imageUrl}${imageSize}${backdrop_path}) center top / cover no-repeat`}
+      minH={{ base: "100vh", md: "800px", "3xl": "60vh" }}
       position={"relative"}
     >
       <Box
@@ -33,7 +33,7 @@ export const IntroSliderItem = ({
         zIndex={"2"}
         maxW={"620px"}
         position={"absolute"}
-        top={"168px"}
+        top={{base: "110px", lg: "168px"}}
         left={{ base: "30px", "2md": "75px", lg: "190px" }}
       >
         <Stack

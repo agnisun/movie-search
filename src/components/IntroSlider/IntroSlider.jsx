@@ -6,14 +6,14 @@ import {IntroSliderItem} from "./IntroSliderItem";
 import {useSelector} from "react-redux";
 
 export const IntroSlider = () => {
-  const data = useSelector((state) => state.data.data.results);
+  const movies = useSelector((state) => state.data.movies.results);
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
-    if (data) {
-      setPopular([data[0], data[1], data[2]]);
+    if (movies) {
+      setPopular([movies[0], movies[1], movies[2]]);
     }
-  }, [data]);
+  }, [movies]);
 
   const settings = {
     dots: true,
@@ -28,8 +28,8 @@ export const IntroSlider = () => {
   return (
     <Box as={"section"}>
       <Slider {...settings}>
-        {popular.map((film, idx) => (
-          <IntroSliderItem key={idx} film={film} />
+        {popular.map((movie, idx) => (
+          <IntroSliderItem key={idx} movie={movie} />
         ))}
       </Slider>
     </Box>

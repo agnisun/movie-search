@@ -1,16 +1,26 @@
-import {GET_VIDEOS, PRODUCT_REQUEST, SET_CREDITS, SET_PRODUCT, SET_STATUS,} from "./product.actions";
+import {
+  GET_CREDITS,
+  GET_PRODUCT,
+  GET_VIDEOS,
+  PRODUCT_REQUEST,
+  SET_CREDITS,
+  SET_PRODUCT,
+  SET_STATUS,
+} from "./product.actions";
 
 const initialState = {
   product: {},
   credits: {},
   videos: {},
+  isLoading: false,
+  error: false
 };
 
 export const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case PRODUCT_REQUEST:
-      return { ...state };
-    case SET_PRODUCT:
+      return { ...state, isLoading: true };
+    case GET_PRODUCT:
       const localValue = +localStorage.getItem(`${action.payload.id}`);
 
       return {
@@ -28,7 +38,7 @@ export const productReducer = (state = initialState, action) => {
           isFavourite: !state.product.isFavourite,
         },
       };
-    case SET_CREDITS:
+    case GET_CREDITS:
       return { ...state, credits: action.payload };
     case GET_VIDEOS:
       return { ...state, videos: action.payload };

@@ -5,9 +5,9 @@ import {MovieCard} from "./MovieCard";
 import {SearchField} from "../SearchField/SearchField";
 
 export const MoviesCards = () => {
-  const data = useSelector((state) => state.data.data.results);
+  const moviesData = useSelector((state) => state.data.movies.results);
   const genres = useSelector((state) => state.data.genresMovies);
-  const movies = data && data.filter((movie, idx) => idx < 60);
+  const movies = moviesData && moviesData.filter((movie, idx) => idx < 60);
 
   return (
     <Box>
@@ -15,7 +15,7 @@ export const MoviesCards = () => {
         <Heading py={"24px"}>Movies</Heading>
         <Flex
           w={"100%"}
-          alignItems={"flex-start"}
+          alignItems={{base: "center", "2md": "flex-start"}}
           flexDir={{ base: "column", "2md": "row" }}
         >
           <SearchField genres={genres} />

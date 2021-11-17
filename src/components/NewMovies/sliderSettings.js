@@ -6,24 +6,17 @@ export const settings = {
   slidesToScroll: 2,
   responsive: [
     {
-      breakpoint: 1550,
-      settings: {
-        slidesToShow: 5,
-        slidesToScroll: 2,
-      },
-    },
-    {
-      breakpoint: 1250,
+      breakpoint: 1640,
       settings: {
         slidesToShow: 4,
         slidesToScroll: 2,
       },
     },
     {
-      breakpoint: 950,
+      breakpoint: 1180,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToScroll: 2,
       },
     },
     {
@@ -33,5 +26,12 @@ export const settings = {
         slidesToScroll: 1,
       },
     },
+    // {
+    //   breakpoint: 480,
+    //   settings: {
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //   },
+    // },
   ],
 };

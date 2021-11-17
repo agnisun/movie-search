@@ -1,72 +1,69 @@
-import {call, put, takeLatest} from "redux-saga/effects";
+import {all, call, put, takeLatest} from "redux-saga/effects";
 import {
   DATA_REQUEST,
-  setConfigAction,
-  setDataAction,
-  setGenresMoviesAction,
-  setGenresSerialsAction,
-  setSerialsAction,
+  getConfigAction,
+  getGenresMoviesAction,
+  getGenresSerialsAction,
+  getMoviesAction,
+  getSerialsAction,
 } from "./data.actions";
 
 export const API_KEY = "44fdd1155b4c53983e30b1f7090adf5d";
 
-function* setData() {
-  const fetchData = () =>
-    fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc`
-    );
-  const data = yield call(fetchData);
-  const json = yield call(() => data.json());
-
-  yield put(setDataAction(json));
+function fetchProducts(product) {
+  return fetch(
+    `https://api.themoviedb.org/3/${product}/popular?api_key=${API_KEY}&language=en-US&page=${1}`
+  ).then((response) => response.json());
 }
 
-function* setGenresMovies() {
-  const fetchGenresMovies = () =>
-    fetch(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
-    );
-  const genres = yield call(fetchGenresMovies);
-  const json = yield call(() => genres.json());
-
-  yield put(setGenresMoviesAction(json));
+function fetchGenres(product) {
+  return fetch(
+    `https://api.themoviedb.org/3/genre/${product}/list?api_key=${API_KEY}&language=en-US`
+  ).then((response) => response.json());
 }
 
-function* setGenresSerials() {
-  const fetchGenresSerials = () =>
-    fetch(
-      `https://api.themoviedb.org/3/genre/tv/list?api_key=${API_KEY}&language=en-US`
-    );
-  const genres = yield call(fetchGenresSerials);
-  const json = yield call(() => genres.json());
-
-  yield put(setGenresSerialsAction(json));
+function fetchConfig() {
+  return fetch(
+    `https://api.themoviedb.org/3/configuration?api_key=${API_KEY}`
+  ).then((response) => response.json());
 }
 
-function* setConfig() {
-  const fetchConfig = () =>
-    fetch(`https://api.themoviedb.org/3/configuration?api_key=${API_KEY}`);
+function* getMovies() {
+  const movies = yield call(fetchProducts, "movie");
+
+  yield put(getMoviesAction(movies));
+}
+
+function* getSerials() {
+  const serials = yield call(fetchProducts, "tv");
+
+  yield put(getSerialsAction(serials));
+}
+
+function* getMoviesGenre() {
+  const genres = yield call(fetchGenres, "movie");
+
+  yield put(getGenresMoviesAction(genres));
+}
+
+function* getSerialsGenre() {
+  const genres = yield call(fetchGenres, "tv");
+
+  yield put(getGenresSerialsAction(genres));
+}
+
+function* getConfig() {
   const config = yield call(fetchConfig);
-  const json = yield call(() => config.json());
 
-  yield put(setConfigAction(json));
+  yield put(getConfigAction(config));
 }
 
-function* setSerials() {
-  const fetchSerials = () =>
-    fetch(
-      `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&sort_by=popularity.desc`
-    );
-  const serials = yield call(fetchSerials);
-  const json = yield call(() => serials.json());
-
-  yield put(setSerialsAction(json));
-}
-
-export function* dataWatcher() {
-  yield takeLatest(DATA_REQUEST, setData);
-  yield takeLatest(DATA_REQUEST, setGenresMovies);
-  yield takeLatest(DATA_REQUEST, setGenresSerials);
-  yield takeLatest(DATA_REQUEST, setConfig);
-  yield takeLatest(DATA_REQUEST, setSerials);
+export function* watcherData() {
+  yield all([
+    takeLatest(DATA_REQUEST, getMovies),
+    takeLatest(DATA_REQUEST, getSerials),
+    takeLatest(DATA_REQUEST, getMoviesGenre),
+    takeLatest(DATA_REQUEST, getSerialsGenre),
+    takeLatest(DATA_REQUEST, getConfig),
+  ]);
 }

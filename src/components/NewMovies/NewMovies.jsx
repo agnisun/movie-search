@@ -5,22 +5,26 @@ import {NewMovieItem} from "./NewMovieItem";
 import {useSelector} from "react-redux";
 import arrowRight from "../../assets/arrow-right.svg";
 import {settings} from "./sliderSettings";
+import {Link} from "react-router-dom";
 
 export const NewMovies = () => {
-  const data = useSelector((state) => state.data.data.results);
-  const newMovies = data && data.filter((movie, idx) => idx > 2 && idx < 18);
+  const movies = useSelector((state) => state.data.movies.results);
+  const newMovies =
+    movies && movies.filter((movie, idx) => idx > 2 && idx < 18);
 
   return (
     <Box as={"section"}>
       <Box as={"h3"} fontSize={{ "2xl": "22px" }}>
-        New releases <Image display={"inline-block"} src={arrowRight} />
+        <Link to={"/movies"}>
+          New releases <Image display={"inline-block"} src={arrowRight} />
+        </Link>
       </Box>
-      <Slider {...settings}>
-        {data &&
+        <Slider {...settings}>
+          {movies &&
           newMovies.map((movie) => (
             <NewMovieItem key={movie.id} movie={movie} />
           ))}
-      </Slider>
+        </Slider>
     </Box>
   );
 };

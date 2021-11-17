@@ -5,13 +5,13 @@ import {FavouriteCard} from "./FavouriteCard";
 
 export const FavouriteCards = () => {
   const favoriteList = useSelector((state) => state.favourite.favouriteList);
-  const data = useSelector((state) => state.data.data.results);
+  const movies = useSelector((state) => state.data.movies.results);
   const serials = useSelector((state) => state.data.serials.results);
   const favourites =
     serials &&
-    data &&
+    movies &&
     favoriteList &&
-    data.concat(serials).filter((el) => favoriteList.indexOf(el.id) > -1);
+    movies.concat(serials).filter((el) => favoriteList.indexOf(el.id) > -1);
 
   return (
     <Box>

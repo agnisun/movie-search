@@ -6,7 +6,7 @@ import {Box} from "@chakra-ui/react";
 
 export const HomePage = () => {
   return (
-    <Box>
+    <Box minH={"100vh"}>
       <IntroSlider />
       <Box pl={{ base: "0", "2md": "56px" }}>
         <NewMovies />

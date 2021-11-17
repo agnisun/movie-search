@@ -9,7 +9,7 @@ export const CardBody = ({ genres, genre_ids, vote_average, title, image }) => {
   return (
     <>
       {image ? (
-        <Image src={`http://image.tmdb.org/t/p/original${image}`} />
+        <Image w={"100%"} minH={{base: "300px", "3md": "470px"}} src={`http://image.tmdb.org/t/p/w300${image}`} />
       ) : (
         <Image src={noImage} alt={""} maxW={"none"} w={"100%"} />
       )}
