@@ -1,4 +1,5 @@
 export const settings = {
+  swipe: false,
   dots: false,
   infinite: false,
   speed: 500,
@@ -22,6 +23,7 @@ export const settings = {
     {
       breakpoint: 600,
       settings: {
+        swipe: true,
         slidesToShow: 1,
         slidesToScroll: 1,
       },

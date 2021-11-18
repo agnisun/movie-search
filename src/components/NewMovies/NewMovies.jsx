@@ -9,8 +9,6 @@ import {Link} from "react-router-dom";
 
 export const NewMovies = () => {
   const movies = useSelector((state) => state.data.movies.results);
-  const newMovies =
-    movies && movies.filter((movie, idx) => idx > 2 && idx < 18);
 
   return (
     <Box as={"section"}>
@@ -21,7 +19,7 @@ export const NewMovies = () => {
       </Box>
         <Slider {...settings}>
           {movies &&
-          newMovies.map((movie) => (
+          movies.map((movie) => (
             <NewMovieItem key={movie.id} movie={movie} />
           ))}
         </Slider>

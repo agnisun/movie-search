@@ -2,8 +2,17 @@ import React from "react";
 import {Box, Button} from "@chakra-ui/react";
 import {SortField} from "./SortField/SortField";
 import {FilterField} from "./FilterField/FilterField";
+import {useDispatch, useSelector} from "react-redux";
+import {moviesSearchRequestAction} from "../../features/modules/searchMovies/searchMovies.actions";
 
-export const SearchField = ({ genres }) => {
+export const SearchField = () => {
+  const dispatch = useDispatch()
+  const sort = useSelector(state => state.search.sort)
+  
+  const handleSearch = () => {
+    dispatch(moviesSearchRequestAction(sort))
+  }
+  
   return (
     <Box
       minW={{ base: "100%", "2md": "260px" }}
@@ -13,8 +22,8 @@ export const SearchField = ({ genres }) => {
       mb={{ base: "50px", "2md": "0" }}
     >
       <SortField />
-      <FilterField genres={genres} />
-      <Button colorScheme={"blue"} w={"100%"}>
+      <FilterField />
+      <Button onClick={handleSearch} colorScheme={"blue"} w={"100%"}>
         Search
       </Button>
     </Box>

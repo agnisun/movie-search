@@ -9,7 +9,6 @@ import {Link} from "react-router-dom";
 
 export const NewSerials = () => {
   const serials = useSelector((state) => state.data.serials.results);
-  const newSerials = serials && serials.filter((film, idx) => idx < 10);
 
   return (
     <Box as={"section"}>
@@ -19,8 +18,8 @@ export const NewSerials = () => {
         </Link>
       </Box>
       <Slider {...settings}>
-          {newSerials &&
-          newSerials.map((serial) => (
+          {serials &&
+          serials.map((serial) => (
             <NewSerialItem key={serial.id} serial={serial} />
           ))}
       </Slider>

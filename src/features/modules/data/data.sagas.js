@@ -10,9 +10,15 @@ import {
 
 export const API_KEY = "44fdd1155b4c53983e30b1f7090adf5d";
 
-function fetchProducts(product) {
+function fetchNewMovies() {
   return fetch(
-    `https://api.themoviedb.org/3/${product}/popular?api_key=${API_KEY}&language=en-US&page=${1}`
+  `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`
+  ).then((response) => response.json());
+}
+
+function fetchSerials() {
+  return fetch(
+    `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=1`
   ).then((response) => response.json());
 }
 
@@ -29,13 +35,13 @@ function fetchConfig() {
 }
 
 function* getMovies() {
-  const movies = yield call(fetchProducts, "movie");
+  const movies = yield call(fetchNewMovies);
 
   yield put(getMoviesAction(movies));
 }
 
 function* getSerials() {
-  const serials = yield call(fetchProducts, "tv");
+  const serials = yield call(fetchSerials);
 
   yield put(getSerialsAction(serials));
 }

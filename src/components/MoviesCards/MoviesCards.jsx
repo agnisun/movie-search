@@ -1,13 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Box, Container, Flex, Grid, Heading} from "@chakra-ui/react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {MovieCard} from "./MovieCard";
 import {SearchField} from "../SearchField/SearchField";
+import {moviesSearchRequestAction} from "../../features/modules/searchMovies/searchMovies.actions";
 
 export const MoviesCards = () => {
-  const moviesData = useSelector((state) => state.data.movies.results);
-  const genres = useSelector((state) => state.data.genresMovies);
-  const movies = moviesData && moviesData.filter((movie, idx) => idx < 60);
+  const dispatch = useDispatch()
+  const sort = useSelector(state => state.search.sort)
+  
+  useEffect(() => {
+    dispatch(moviesSearchRequestAction(sort))
+  }, [])
+  
+  const movies = useSelector((state) => state.search.movies.results);
 
   return (
     <Box>
@@ -18,7 +24,7 @@ export const MoviesCards = () => {
           alignItems={{base: "center", "2md": "flex-start"}}
           flexDir={{ base: "column", "2md": "row" }}
         >
-          <SearchField genres={genres} />
+          <SearchField />
           <Grid
             flex={"1 1 auto"}
             templateColumns="repeat(auto-fill, minmax(200px, 1fr))"

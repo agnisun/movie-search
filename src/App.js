@@ -9,10 +9,8 @@ import ScrollToTop from "./common/ScrollToTop";
 import {addFavouriteAction} from "./features/modules/favourite/favourite.actions";
 
 export const App = () => {
-  // TODO: Homepage now playing запрос
-  // TODO: сортировка moviesPage реализовать
+  // TODO: filter moviesPage реализовать
   // TODO: сделать поиск
-  // TODO: Redux saga переписать
   // TODO: Redux saga бесконечный скролл
   // TODO: Оптимизация
   // TODO: lazy load (разобраться)
