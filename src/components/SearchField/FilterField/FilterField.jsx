@@ -9,6 +9,8 @@ import {FilterFieldGenre} from "./FilterFieldGenre";
 
 export const FilterField = () => {
   const [tab, setTab] = useState(false);
+  //&release_date.gte=2017-12-31&release_date.lte=2020-1-1
+  // date format 2020-01-01
 
   const handleTab = () => {
     openTab(setTab);
@@ -29,12 +31,8 @@ export const FilterField = () => {
       <Box d={tab ? "block" : "none"}>
         <Box mb={"10px"}>
           <SearchFieldTitle text={"Release dates"} />
-          <Checkbox mb={"10px"} defaultIsChecked>
-            Search all releases?
-          </Checkbox>
           <Stack dir={"column"}>
-            <SearchFieldDate text={"from"} />
-            <SearchFieldDate text={"to"} />
+            <SearchFieldDate />
           </Stack>
         </Box>
         <Box>

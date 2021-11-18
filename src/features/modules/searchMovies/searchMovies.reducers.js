@@ -1,13 +1,16 @@
 import {
+  FILTER_RELEASE,
   GET_MOVIES_SEARCH,
   MOVIES_SEARCH_REQUEST, SET_SORT,
 } from "./searchMovies.actions";
+import {currentDate} from "../../../core/currentDate";
 
 const initialState = {
-  movies: [],
+  movies: {},
   sort: "popularity.desc",
   genres: [],
   age: [],
+  release: ["", currentDate(1)],
   isLoading: false,
   error: false,
 };
@@ -20,6 +23,8 @@ export const searchReducer = (state = initialState, action) => {
       return {...state, movies: action.payload}
     case SET_SORT:
       return {...state, sort: action.payload}
+    case FILTER_RELEASE:
+      return {...state, release: action.payload}
 
     default:
       return state;

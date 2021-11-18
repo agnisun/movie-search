@@ -8,9 +8,10 @@ import {moviesSearchRequestAction} from "../../features/modules/searchMovies/sea
 export const SearchField = () => {
   const dispatch = useDispatch()
   const sort = useSelector(state => state.search.sort)
+  const release = useSelector(state => state.search.release)
   
   const handleSearch = () => {
-    dispatch(moviesSearchRequestAction(sort))
+    dispatch(moviesSearchRequestAction(sort, release))
   }
   
   return (

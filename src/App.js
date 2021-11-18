@@ -9,7 +9,8 @@ import ScrollToTop from "./common/ScrollToTop";
 import {addFavouriteAction} from "./features/modules/favourite/favourite.actions";
 
 export const App = () => {
-  // TODO: filter moviesPage реализовать
+  // TODO: filter moviesPage реализовать добавить значения в discover запрос
+  // TODO: add to favourite фильмы не с первой страницы
   // TODO: сделать поиск
   // TODO: Redux saga бесконечный скролл
   // TODO: Оптимизация
@@ -18,7 +19,7 @@ export const App = () => {
 
   const dispatch = useDispatch();
   const localStorage = window.localStorage;
-
+  
   useEffect(() => {
     dispatch(dataRequestAction());
 
