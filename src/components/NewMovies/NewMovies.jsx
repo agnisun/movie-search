@@ -17,12 +17,10 @@ export const NewMovies = () => {
           New releases <Image display={"inline-block"} src={arrowRight} />
         </Link>
       </Box>
-        <Slider {...settings}>
-          {movies &&
-          movies.map((movie) => (
-            <NewMovieItem key={movie.id} movie={movie} />
-          ))}
-        </Slider>
+      <Slider {...settings}>
+        {movies &&
+          movies.map((movie) => <NewMovieItem key={movie.id} movie={movie} />)}
+      </Slider>
     </Box>
   );
 };

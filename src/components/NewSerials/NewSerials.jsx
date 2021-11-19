@@ -14,11 +14,11 @@ export const NewSerials = () => {
     <Box as={"section"}>
       <Box as={"h3"} fontSize={{ "2xl": "22px" }}>
         <Link to={"/tv"}>
-        Featured TV shows <Image display={"inline-block"} src={arrowRight} />
+          Featured TV shows <Image display={"inline-block"} src={arrowRight} />
         </Link>
       </Box>
       <Slider {...settings}>
-          {serials &&
+        {serials &&
           serials.map((serial) => (
             <NewSerialItem key={serial.id} serial={serial} />
           ))}

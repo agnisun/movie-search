@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Box, Checkbox, Flex, Stack} from "@chakra-ui/react";
+import {Box, Flex, Stack} from "@chakra-ui/react";
 import {UpDownIcon} from "@chakra-ui/icons";
 import {SearchFieldTitle} from "../SearchFieldTitle";
 import {openTab} from "../../../core/openTab";
@@ -9,8 +9,6 @@ import {FilterFieldGenre} from "./FilterFieldGenre";
 
 export const FilterField = () => {
   const [tab, setTab] = useState(false);
-  //&release_date.gte=2017-12-31&release_date.lte=2020-1-1
-  // date format 2020-01-01
 
   const handleTab = () => {
     openTab(setTab);

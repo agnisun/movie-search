@@ -8,15 +8,15 @@ import {setSortAction} from "../../../features/modules/searchMovies/searchMovies
 
 export const SortField = () => {
   const [tab, setTab] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleTab = () => {
     openTab(setTab);
   };
-  
+
   const setSortValue = (e) => {
-    dispatch(setSortAction(e.target.value))
-  }
+    dispatch(setSortAction(e.target.value));
+  };
 
   return (
     <Box p={"20px 15px"} bg={"#fff"} borderRadius={"10px"} mb={"20px"}>

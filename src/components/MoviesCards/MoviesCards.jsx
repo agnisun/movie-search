@@ -3,18 +3,16 @@ import {Box, Container, Flex, Grid, Heading} from "@chakra-ui/react";
 import {useDispatch, useSelector} from "react-redux";
 import {MovieCard} from "./MovieCard";
 import {SearchField} from "../SearchField/SearchField";
-import {moviesSearchRequestAction} from "../../features/modules/searchMovies/searchMovies.actions";
+import {moviesSearchDefaultAction} from "../../features/modules/searchMovies/searchMovies.actions";
 
 export const MoviesCards = () => {
-  const dispatch = useDispatch()
-  const sort = useSelector(state => state.search.sort)
-  const release = useSelector(state => state.search.release)
-  
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(moviesSearchRequestAction(sort, release))
-  }, [])
-  
-  const movies = useSelector((state) => state.search.movies.results);
+    dispatch(moviesSearchDefaultAction());
+  }, []);
+
+  const movies = useSelector((state) => state.searchMovies.movies.results);
 
   return (
     <Box>
@@ -22,7 +20,7 @@ export const MoviesCards = () => {
         <Heading py={"24px"}>Movies</Heading>
         <Flex
           w={"100%"}
-          alignItems={{base: "center", "2md": "flex-start"}}
+          alignItems={{ base: "center", "2md": "flex-start" }}
           flexDir={{ base: "column", "2md": "row" }}
         >
           <SearchField />

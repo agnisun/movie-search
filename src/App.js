@@ -4,7 +4,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import {Routes} from "./services/routes";
 import {Box} from "@chakra-ui/react";
 import {NavBar} from "./components/Navbar/NavBar";
-import {dataRequestAction,} from "./features/modules/data/data.actions";
+import {dataRequestAction} from "./features/modules/data/data.actions";
 import ScrollToTop from "./common/ScrollToTop";
 import {addFavouriteAction} from "./features/modules/favourite/favourite.actions";
 
@@ -19,7 +19,7 @@ export const App = () => {
 
   const dispatch = useDispatch();
   const localStorage = window.localStorage;
-  
+
   useEffect(() => {
     dispatch(dataRequestAction());
 

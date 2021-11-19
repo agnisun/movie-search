@@ -1,5 +1,7 @@
 import {
   DATA_REQUEST,
+  GET_CERTIFICATION_MOVIES,
+  GET_CERTIFICATION_SERIALS,
   GET_CONFIG,
   GET_GENRES_MOVIES,
   GET_GENRES_SERIALS,
@@ -12,6 +14,8 @@ const initialState = {
   genresMovies: [],
   genresSerials: [],
   config: null,
+  certificationMovies: null,
+  certificationSerials: null,
   serials: {},
   isLoading: false,
   error: false,
@@ -29,6 +33,10 @@ export const dataReducer = (state = initialState, action) => {
       return { ...state, genresSerials: action.payload.genres };
     case GET_CONFIG:
       return { ...state, config: action.payload };
+    case GET_CERTIFICATION_MOVIES:
+      return { ...state, certificationMovies: action.payload.certifications };
+    case GET_CERTIFICATION_SERIALS:
+      return { ...state, certificationSerials: action.payload.certifications };
     case GET_SERIALS:
       return { ...state, serials: action.payload };
 

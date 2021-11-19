@@ -33,7 +33,7 @@ export const IntroSliderItem = ({
         zIndex={"2"}
         maxW={"620px"}
         position={"absolute"}
-        top={{base: "110px", lg: "168px"}}
+        top={{ base: "110px", lg: "168px" }}
         left={{ base: "30px", "2md": "75px", lg: "190px" }}
       >
         <Stack

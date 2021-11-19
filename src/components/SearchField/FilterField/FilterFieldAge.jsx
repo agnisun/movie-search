@@ -1,19 +1,22 @@
 import React from "react";
 import {SearchFieldButton} from "../SearchFieldButton";
 import {Flex} from "@chakra-ui/react";
+import {useSelector} from "react-redux";
 
 export const FilterFieldAge = () => {
-  const certification = ["NR", "0+", "6+", "12+", "16+", "18+"];
-
-  const handleAge = () => {
-    //...
-  };
+  const certification = useSelector((state) => state.data.certificationMovies);
 
   return (
     <Flex flexWrap={"wrap"}>
-      {certification.map((item, idx) => (
-        <SearchFieldButton key={idx} click={handleAge} id={idx} text={item} />
-      ))}
+      {certification &&
+        certification.US.sort((a, b) => a.order - b.order).map((item, idx) => (
+          <SearchFieldButton
+            key={idx}
+            id={item.order}
+            text={item.certification}
+            variant={"age"}
+          />
+        ))}
     </Flex>
   );
 };

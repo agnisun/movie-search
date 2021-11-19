@@ -1,19 +1,11 @@
-import {
-  GET_CREDITS,
-  GET_PRODUCT,
-  GET_VIDEOS,
-  PRODUCT_REQUEST,
-  SET_CREDITS,
-  SET_PRODUCT,
-  SET_STATUS,
-} from "./product.actions";
+import {GET_CREDITS, GET_PRODUCT, GET_VIDEOS, PRODUCT_REQUEST, SET_STATUS,} from "./product.actions";
 
 const initialState = {
   product: {},
   credits: {},
   videos: {},
   isLoading: false,
-  error: false
+  error: false,
 };
 
 export const productReducer = (state = initialState, action) => {

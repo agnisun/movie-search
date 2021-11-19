@@ -10,7 +10,8 @@ export const CardBodyDown = ({ vote_average, title, image, release_date }) => {
       <Box pos={"relative"}>
         <Image
           src={image ? `http://image.tmdb.org/t/p/w300${image}` : noImage}
-          h={"315px"} w={"100%"}
+          h={"315px"}
+          w={"100%"}
         />
         <Box pos={"absolute"} bottom={"-25px"} left={"5px"}>
           <RatedCircle size={"45px"} value={vote_average} />

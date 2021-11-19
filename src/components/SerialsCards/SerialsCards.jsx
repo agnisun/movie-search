@@ -15,7 +15,7 @@ export const SerialsCards = () => {
         <Heading py={"24px"}>TV Shows</Heading>
         <Flex
           w={"100%"}
-          alignItems={{base: "center", "2md": "flex-start"}}
+          alignItems={{ base: "center", "2md": "flex-start" }}
           flexDir={{ base: "column", "2md": "row" }}
         >
           <SearchField genres={genres} />
