@@ -1,18 +1,17 @@
-import {useEffect} from "react";
-import {useDispatch} from "react-redux";
-import {BrowserRouter as Router} from "react-router-dom";
-import {Routes} from "./services/routes";
-import {Box} from "@chakra-ui/react";
-import {NavBar} from "./components/Navbar/NavBar";
-import {dataRequestAction} from "./features/modules/data/data.actions";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Routes } from "./services/routes";
+import { Box } from "@chakra-ui/react";
+import { NavBar } from "./components/Navbar/NavBar";
+import { dataRequestAction } from "./features/modules/data/data.actions";
 import ScrollToTop from "./common/ScrollToTop";
-import {addFavouriteAction} from "./features/modules/favourite/favourite.actions";
+import { addFavouriteAction } from "./features/modules/favourite/favourite.actions";
 
 export const App = () => {
-  // TODO: filter moviesPage реализовать добавить значения в discover запрос
+  // TODO: serialsPage по типу moviesPage
   // TODO: add to favourite фильмы не с первой страницы
   // TODO: сделать поиск
-  // TODO: Redux saga бесконечный скролл
   // TODO: Оптимизация
   // TODO: lazy load (разобраться)
   //Проблемы: Eslint подключить

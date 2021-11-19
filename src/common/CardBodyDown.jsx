@@ -1,7 +1,7 @@
 import React from "react";
-import {Box, Image} from "@chakra-ui/react";
-import {formatTitle} from "../core/formatTitle";
-import {RatedCircle} from "./RatedCircle";
+import { Box, Image } from "@chakra-ui/react";
+import { formatTitle } from "../core/formatTitle";
+import { RatedCircle } from "./RatedCircle";
 import noImage from "../assets/no-image.png";
 
 export const CardBodyDown = ({ vote_average, title, image, release_date }) => {
@@ -10,7 +10,7 @@ export const CardBodyDown = ({ vote_average, title, image, release_date }) => {
       <Box pos={"relative"}>
         <Image
           src={image ? `http://image.tmdb.org/t/p/w300${image}` : noImage}
-          h={"315px"}
+          h={{ base: "515px", "2sm": "330px", "3sm": "315px" }}
           w={"100%"}
         />
         <Box pos={"absolute"} bottom={"-25px"} left={"5px"}>

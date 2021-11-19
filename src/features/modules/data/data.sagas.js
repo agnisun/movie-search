@@ -1,4 +1,5 @@
-import {all, call, put, takeLatest} from "redux-saga/effects";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { API_KEY, language } from "../../../services/api";
 import {
   DATA_REQUEST,
   getCertificationMoviesAction,
@@ -10,36 +11,36 @@ import {
   getSerialsAction,
 } from "./data.actions";
 
-export const API_KEY = "44fdd1155b4c53983e30b1f7090adf5d";
+const URL = "https://api.themoviedb.org/3/";
 
 function fetchNewMovies() {
   return fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`
+    `${URL}movie/now_playing?api_key=${API_KEY}${language}&page=1`
   ).then((response) => response.json());
 }
 
 function fetchSerials() {
-  return fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=1`
-  ).then((response) => response.json());
+  return fetch(`${URL}tv/popular?api_key=${API_KEY}${language}&page=1`).then(
+    (response) => response.json()
+  );
 }
 
 function fetchGenres(product) {
   return fetch(
-    `https://api.themoviedb.org/3/genre/${product}/list?api_key=${API_KEY}&language=en-US`
+    `${URL}genre/${product}/list?api_key=${API_KEY}${language}`
   ).then((response) => response.json());
 }
 
 function fetchConfig() {
-  return fetch(
-    `https://api.themoviedb.org/3/configuration?api_key=${API_KEY}`
-  ).then((response) => response.json());
+  return fetch(`${URL}configuration?api_key=${API_KEY}`).then((response) =>
+    response.json()
+  );
 }
 
 function fetchCertification(product) {
-  return fetch(
-    `https://api.themoviedb.org/3/certification/${product}/list?api_key=${API_KEY}`
-  ).then((response) => response.json());
+  return fetch(`${URL}certification/${product}/list?api_key=${API_KEY}`).then(
+    (response) => response.json()
+  );
 }
 
 function* getMovies() {

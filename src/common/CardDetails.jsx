@@ -1,10 +1,21 @@
 import React from "react";
-import {Box, IconButton, Menu, MenuButton, MenuItem, MenuList, useToast,} from "@chakra-ui/react";
-import {DragHandleIcon, StarIcon} from "@chakra-ui/icons";
-import {addToFavourite} from "../core/addToFavourite";
-import {useDispatch, useSelector} from "react-redux";
-import {addFavouriteAction, removeFavouriteAction,} from "../features/modules/favourite/favourite.actions";
-import {setStatusAction} from "../features/modules/product/product.actions";
+import {
+  Box,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  useToast,
+} from "@chakra-ui/react";
+import { DragHandleIcon, StarIcon } from "@chakra-ui/icons";
+import { addToFavourite } from "../core/addToFavourite";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addFavouriteAction,
+  removeFavouriteAction,
+} from "../features/modules/favourite/favourite.actions";
+import { setStatusAction } from "../features/modules/product/product.actions";
 
 export const CardDetails = ({ id, title }) => {
   const dispatch = useDispatch();

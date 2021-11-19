@@ -8,9 +8,11 @@ import {
   GET_MOVIES_SEARCH,
   MOVIES_SEARCH_DEFAULT,
   MOVIES_SEARCH_REQUEST,
+  NEXT_PAGE,
+  PREV_PAGE,
   SET_SORT,
 } from "./searchMovies.actions";
-import {currentDate} from "../../../core/currentDate";
+import { currentDate } from "../../../core/currentDate";
 
 const initialState = {
   movies: {},
@@ -60,6 +62,22 @@ export const searchMoviesReducer = (state = initialState, action) => {
       return {
         ...state,
         certification: state.certification.sort((a, b) => a.order - b.order),
+      };
+    case NEXT_PAGE:
+      return {
+        ...state,
+        movies: {
+          ...state.movies,
+          page: action.payload,
+        },
+      };
+    case PREV_PAGE:
+      return {
+        ...state,
+        movies: {
+          ...state.movies,
+          page: action.payload,
+        },
       };
 
     default:

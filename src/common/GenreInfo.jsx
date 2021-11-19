@@ -1,6 +1,6 @@
 import React from "react";
-import {Box} from "@chakra-ui/react";
-import {setGenre} from "../core/setGenre";
+import { Box } from "@chakra-ui/react";
+import { setGenre } from "../core/setGenre";
 
 export const GenreInfo = ({ genres, genre_ids }) => {
   return (

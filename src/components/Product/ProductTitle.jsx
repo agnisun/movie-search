@@ -1,6 +1,6 @@
 import React from "react";
-import {Box, Heading, Stack} from "@chakra-ui/react";
-import {getYear} from "../../core/getYear";
+import { Box, Heading, Stack } from "@chakra-ui/react";
+import { getYear } from "../../core/getYear";
 
 export const ProductTitle = ({ title, release_date }) => {
   return (

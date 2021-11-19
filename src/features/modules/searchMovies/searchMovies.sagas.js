@@ -1,11 +1,16 @@
-import {all, call, put, takeLatest} from "redux-saga/effects";
-import {getMoviesSearchAction, MOVIES_SEARCH_DEFAULT, MOVIES_SEARCH_REQUEST,} from "./searchMovies.actions";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { API_KEY, language } from "../../../services/api";
+import {
+  getMoviesSearchAction,
+  MOVIES_SEARCH_DEFAULT,
+  MOVIES_SEARCH_REQUEST,
+} from "./searchMovies.actions";
 
-export const API_KEY = "44fdd1155b4c53983e30b1f7090adf5d";
+const URL = "https://api.themoviedb.org/3/discover/movie?api_key=";
 
-function fetchMovieSearch(sort, release, genres, certification) {
+function fetchMovieSearch(sort, release, genres, certification, page) {
   return fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${sort}&page=1${
+    `${URL}${API_KEY}${language}&sort_by=${sort}&page=${page}${
       release[0]
         ? "&release_date.gte=" + release[0] + "&release_date.lte=" + release[1]
         : "&release_date.lte=" + release[1]
@@ -18,26 +23,28 @@ function fetchMovieSearch(sort, release, genres, certification) {
   ).then((response) => response.json());
 }
 
-function fetchDefaultSearch() {
+function fetchDefaultSearch(page) {
   return fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=1`
+    `${URL}${API_KEY}${language}&sort_by=popularity.desc&page=${page}`
   ).then((response) => response.json());
 }
 
-function* getMoviesSearch({ sort, release, genres, certification }) {
+function* getMoviesSearch({ sort, release, genres, certification, page }) {
   const movies = yield call(
     fetchMovieSearch,
     sort,
     release,
     genres,
-    certification
+    certification,
+    page
   );
+  console.log(movies);
 
   yield put(getMoviesSearchAction(movies));
 }
 
-function* getDefaultSearch() {
-  const movies = yield call(fetchDefaultSearch);
+function* getDefaultSearch({ page }) {
+  const movies = yield call(fetchDefaultSearch, page);
 
   yield put(getMoviesSearchAction(movies));
 }

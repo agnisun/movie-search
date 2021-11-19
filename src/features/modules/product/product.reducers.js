@@ -1,4 +1,10 @@
-import {GET_CREDITS, GET_PRODUCT, GET_VIDEOS, PRODUCT_REQUEST, SET_STATUS,} from "./product.actions";
+import {
+  GET_CREDITS,
+  GET_PRODUCT,
+  GET_VIDEOS,
+  PRODUCT_REQUEST,
+  SET_STATUS,
+} from "./product.actions";
 
 const initialState = {
   product: {},

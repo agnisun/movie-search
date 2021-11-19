@@ -1,10 +1,10 @@
-import {Redirect, Route, Switch} from "react-router-dom";
-import {HomePage} from "../pages/HomePage/HomePage";
-import {MoviesPage} from "../pages/MoviesPage/MoviesPage";
-import {SerialsPage} from "../pages/SerialsPage/SerialsPage";
-import {ProductMoviePage} from "../pages/ProductMoviePage/ProductMoviePage";
-import {FavouritePage} from "../pages/FavouritePage/FavouritePage";
-import {ProductSerialPage} from "../pages/ProductSerialPage/ProductSerialPage";
+import { Redirect, Route, Switch } from "react-router-dom";
+import { HomePage } from "../pages/HomePage/HomePage";
+import { MoviesPage } from "../pages/MoviesPage/MoviesPage";
+import { SerialsPage } from "../pages/SerialsPage/SerialsPage";
+import { ProductMoviePage } from "../pages/ProductMoviePage/ProductMoviePage";
+import { FavouritePage } from "../pages/FavouritePage/FavouritePage";
+import { ProductSerialPage } from "../pages/ProductSerialPage/ProductSerialPage";
 
 export const Routes = () => {
   return (

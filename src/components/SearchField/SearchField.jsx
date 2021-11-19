@@ -1,9 +1,9 @@
 import React from "react";
-import {Box, Button} from "@chakra-ui/react";
-import {SortField} from "./SortField/SortField";
-import {FilterField} from "./FilterField/FilterField";
-import {useDispatch, useSelector} from "react-redux";
-import {moviesSearchRequestAction} from "../../features/modules/searchMovies/searchMovies.actions";
+import { Box, Button } from "@chakra-ui/react";
+import { SortField } from "./SortField/SortField";
+import { FilterField } from "./FilterField/FilterField";
+import { useDispatch, useSelector } from "react-redux";
+import { moviesSearchRequestAction } from "../../features/modules/searchMovies/searchMovies.actions";
 
 export const SearchField = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,10 @@ export const SearchField = () => {
   );
 
   const handleSearch = () => {
-    dispatch(moviesSearchRequestAction(sort, release, genres, certification));
+    window.scrollTo(0, 0);
+    dispatch(
+      moviesSearchRequestAction(sort, release, genres, certification, 1)
+    );
   };
 
   return (

@@ -1,9 +1,9 @@
 import React from "react";
-import {Box} from "@chakra-ui/react";
-import {useSelector} from "react-redux";
-import {CardBody} from "../../common/CardBody";
-import {CardDetails} from "../../common/CardDetails";
-import {Link} from "react-router-dom";
+import { Box } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import { CardBody } from "../../common/CardBody";
+import { CardDetails } from "../../common/CardDetails";
+import { Link } from "react-router-dom";
 
 export const NewSerialItem = ({
   serial: { name, vote_average, genre_ids, poster_path, id },

@@ -1,28 +1,35 @@
-import {all, call, put, takeLatest} from "redux-saga/effects";
-import {API_KEY} from "../data/data.sagas";
-import {getCreditsAction, getProductAction, getVideosAction, PRODUCT_REQUEST,} from "./product.actions";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { API_KEY, language } from "../../../services/api";
+import {
+  getCreditsAction,
+  getProductAction,
+  getVideosAction,
+  PRODUCT_REQUEST,
+} from "./product.actions";
+
+const URL = "https://api.themoviedb.org/3/";
 
 function fetchProduct(id, product) {
-  return fetch(
-    `https://api.themoviedb.org/3/${product}/${id}?api_key=${API_KEY}&language=en-US`
-  ).then((response) => response.json());
+  return fetch(`${URL}${product}/${id}?api_key=${API_KEY}${language}`).then(
+    (response) => response.json()
+  );
 }
 
 function fetchCredits(id, product) {
   if (product === "movie") {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+      `${URL}movie/${id}/credits?api_key=${API_KEY}${language}`
     ).then((response) => response.json());
   } else {
     return fetch(
-      `https://api.themoviedb.org/3/tv/${id}/aggregate_credits?api_key=${API_KEY}&language=en-US`
+      `${URL}tv/${id}/aggregate_credits?api_key=${API_KEY}${language}`
     ).then((response) => response.json());
   }
 }
 
 function fetchVideos(id, product) {
   return fetch(
-    `https://api.themoviedb.org/3/${product}/${id}/videos?api_key=${API_KEY}&language=en-US`
+    `${URL}${product}/${id}/videos?api_key=${API_KEY}${language}`
   ).then((response) => response.json());
 }
 

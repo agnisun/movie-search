@@ -1,16 +1,26 @@
-import React, {useEffect, useState} from "react";
-import {Box, Flex, IconButton, Stack, useDisclosure, useToast,} from "@chakra-ui/react";
-import {formatDate} from "../../core/formatDate";
-import {getGenres} from "../../core/getGenres";
-import {getTime} from "../../core/getTime";
-import {RatedCircle} from "../../common/RatedCircle";
-import {PlayIcon} from "../../theme/icons/PlayIcon";
-import {ProductModal} from "./ProductModal";
-import {useDispatch, useSelector} from "react-redux";
-import {addToFavourite} from "../../core/addToFavourite";
-import {addFavouriteAction, removeFavouriteAction,} from "../../features/modules/favourite/favourite.actions";
-import {setStatusAction} from "../../features/modules/product/product.actions";
-import {StarIcon} from "@chakra-ui/icons";
+import React, { useEffect, useState } from "react";
+import {
+  Box,
+  Flex,
+  IconButton,
+  Stack,
+  useDisclosure,
+  useToast,
+} from "@chakra-ui/react";
+import { formatDate } from "../../core/formatDate";
+import { getGenres } from "../../core/getGenres";
+import { getTime } from "../../core/getTime";
+import { RatedCircle } from "../../common/RatedCircle";
+import { PlayIcon } from "../../theme/icons/PlayIcon";
+import { ProductModal } from "./ProductModal";
+import { useDispatch, useSelector } from "react-redux";
+import { addToFavourite } from "../../core/addToFavourite";
+import {
+  addFavouriteAction,
+  removeFavouriteAction,
+} from "../../features/modules/favourite/favourite.actions";
+import { setStatusAction } from "../../features/modules/product/product.actions";
+import { StarIcon } from "@chakra-ui/icons";
 
 export const ProductSubtitle = ({
   genres,

@@ -1,5 +1,5 @@
 export const Container = {
   baseStyle: {
-    maxWidth: "1680px",
+    maxWidth: "1580px",
   },
 };

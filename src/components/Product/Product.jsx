@@ -1,14 +1,14 @@
-import React, {useEffect} from "react";
-import {Box, Container, Flex, Image} from "@chakra-ui/react";
-import {ProductTitle} from "./ProductTitle";
-import {ProductSubtitle} from "./ProductSubtitle";
-import {ProductInfo} from "./ProductInfo";
-import {useDispatch, useSelector} from "react-redux";
-import {ProductCasts} from "./ProductCasts";
-import {ProductDetails} from "./ProductDetails";
+import React, { useEffect } from "react";
+import { Box, Container, Flex, Image } from "@chakra-ui/react";
+import { ProductTitle } from "./ProductTitle";
+import { ProductSubtitle } from "./ProductSubtitle";
+import { ProductInfo } from "./ProductInfo";
+import { useDispatch, useSelector } from "react-redux";
+import { ProductCasts } from "./ProductCasts";
+import { ProductDetails } from "./ProductDetails";
 import noImage from "../../assets/no-image.png";
-import {ProductBackground} from "./ProductBackground";
-import {setStatusAction} from "../../features/modules/product/product.actions";
+import { ProductBackground } from "./ProductBackground";
+import { setStatusAction } from "../../features/modules/product/product.actions";
 
 export const Product = ({
   data: {

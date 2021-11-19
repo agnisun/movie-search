@@ -8,15 +8,26 @@ export const FILTER_REMOVE_GENRES = "FILTER_REMOVE_GENRES";
 export const FILTER_ADD_AGE = "FILTER_ADD_AGE";
 export const FILTER_REMOVE_AGE = "FILTER_REMOVE_AGE";
 export const FILTER_SORT_AGES = "FILTER_SORT_AGES";
+export const NEXT_PAGE = "NEXT_PAGE";
+export const PREV_PAGE = "PREV_PAGE";
 
 export const moviesSearchRequestAction = (
   sort,
   release,
   genres,
-  certification
-) => ({ type: MOVIES_SEARCH_REQUEST, sort, release, genres, certification });
-export const moviesSearchDefaultAction = () => ({
+  certification,
+  page
+) => ({
+  type: MOVIES_SEARCH_REQUEST,
+  sort,
+  release,
+  genres,
+  certification,
+  page,
+});
+export const moviesSearchDefaultAction = (page) => ({
   type: MOVIES_SEARCH_DEFAULT,
+  page,
 });
 export const getMoviesSearchAction = (payload) => ({
   type: GET_MOVIES_SEARCH,
@@ -44,3 +55,5 @@ export const removeAgeFilterAction = (payload) => ({
   payload,
 });
 export const sortAgesFilterAction = () => ({ type: FILTER_SORT_AGES });
+export const nextPageAction = (payload) => ({ type: NEXT_PAGE, payload });
+export const prevPageAction = (payload) => ({ type: PREV_PAGE, payload });
