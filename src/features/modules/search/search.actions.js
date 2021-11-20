@@ -1,6 +1,6 @@
-export const MOVIES_SEARCH_REQUEST = "MOVIES_SEARCH_REQUEST";
-export const MOVIES_SEARCH_DEFAULT = "MOVIES_SEARCH_DEFAULT";
-export const GET_MOVIES_SEARCH = "GET_MOVIES_SEARCH";
+export const SEARCH_REQUEST = "SEARCH_REQUEST";
+export const SEARCH_DEFAULT = "SEARCH_DEFAULT";
+export const GET_PRODUCTS = "GET_PRODUCTS";
 export const SET_SORT = "SET_SORT";
 export const FILTER_RELEASE = "FILTER_RELEASE";
 export const FILTER_ADD_GENRES = "FILTER_ADD_GENRES";
@@ -11,26 +11,29 @@ export const FILTER_SORT_AGES = "FILTER_SORT_AGES";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const PREV_PAGE = "PREV_PAGE";
 
-export const moviesSearchRequestAction = (
+export const searchRequestAction = (
+  product,
   sort,
   release,
   genres,
   certification,
   page
 ) => ({
-  type: MOVIES_SEARCH_REQUEST,
+  type: SEARCH_REQUEST,
+  product,
   sort,
   release,
   genres,
   certification,
   page,
 });
-export const moviesSearchDefaultAction = (page) => ({
-  type: MOVIES_SEARCH_DEFAULT,
+export const searchDefaultAction = (product, page) => ({
+  type: SEARCH_DEFAULT,
+  product,
   page,
 });
-export const getMoviesSearchAction = (payload) => ({
-  type: GET_MOVIES_SEARCH,
+export const getProductsAction = (payload) => ({
+  type: GET_PRODUCTS,
   payload,
 });
 export const setSortAction = (payload) => ({ type: SET_SORT, payload });

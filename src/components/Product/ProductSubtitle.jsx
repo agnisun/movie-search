@@ -21,6 +21,7 @@ import {
 } from "../../features/modules/favourite/favourite.actions";
 import { setStatusAction } from "../../features/modules/product/product.actions";
 import { StarIcon } from "@chakra-ui/icons";
+import { getContentRaiting } from "../../core/getContentRaiting";
 
 export const ProductSubtitle = ({
   genres,
@@ -37,6 +38,9 @@ export const ProductSubtitle = ({
   const product = useSelector((state) => state.product.product);
   const videos = useSelector((state) => state.product.videos);
   const buttonVariant = !isFavourite ? "circle" : "circleActive";
+  const contentRaiting = useSelector(
+    (state) => state.product.content_raiting.results
+  );
 
   useEffect(() => {
     if (videos.id) {
@@ -69,10 +73,16 @@ export const ProductSubtitle = ({
         fontWeight={"400"}
         fontSize={"14px"}
         align={"center"}
+        flexWrap={"wrap"}
         justifyContent={{ base: "center", "3md": "flex-start" }}
       >
-        <Box>{formatDate(releaseDate)}</Box>
-        <Box>{getGenres(genres)}</Box>
+        {getContentRaiting(contentRaiting, "US") && (
+          <Box opacity={"0.6"} p={"3px"} border={"1px solid white"}>
+            {getContentRaiting(contentRaiting, "US")}
+          </Box>
+        )}
+        {formatDate(releaseDate) && <Box>{formatDate(releaseDate)}</Box>}
+        {getGenres(genres) && <Box>{getGenres(genres)}</Box>}
         {productRunTime && <Box>{getTime(productRunTime)}</Box>}
       </Stack>
       <Flex

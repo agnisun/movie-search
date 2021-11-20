@@ -1,6 +1,7 @@
 import {
   GET_CREDITS,
   GET_PRODUCT,
+  GET_RAITING,
   GET_VIDEOS,
   PRODUCT_REQUEST,
   SET_STATUS,
@@ -10,6 +11,7 @@ const initialState = {
   product: {},
   credits: {},
   videos: {},
+  content_raiting: "",
   isLoading: false,
   error: false,
 };
@@ -40,6 +42,8 @@ export const productReducer = (state = initialState, action) => {
       return { ...state, credits: action.payload };
     case GET_VIDEOS:
       return { ...state, videos: action.payload };
+    case GET_RAITING:
+      return { ...state, content_raiting: action.payload };
 
     default:
       return state;

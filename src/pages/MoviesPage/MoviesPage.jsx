@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import { MoviesCards } from "../../components/MoviesCards/MoviesCards";
+import { ProductsCards } from "../../components/ProductsCards/ProductsCards";
 
 export const MoviesPage = () => {
   return (
@@ -10,7 +10,7 @@ export const MoviesPage = () => {
       pl={{ base: "0", "2md": "56px" }}
       pb={"50px"}
     >
-      <MoviesCards />
+      <ProductsCards product={"movie"} />
     </Box>
   );
 };

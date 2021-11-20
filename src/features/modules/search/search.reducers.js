@@ -5,17 +5,17 @@ import {
   FILTER_REMOVE_AGE,
   FILTER_REMOVE_GENRES,
   FILTER_SORT_AGES,
-  GET_MOVIES_SEARCH,
-  MOVIES_SEARCH_DEFAULT,
-  MOVIES_SEARCH_REQUEST,
+  GET_PRODUCTS,
   NEXT_PAGE,
   PREV_PAGE,
+  SEARCH_DEFAULT,
+  SEARCH_REQUEST,
   SET_SORT,
-} from "./searchMovies.actions";
+} from "./search.actions";
 import { currentDate } from "../../../core/currentDate";
 
 const initialState = {
-  movies: {},
+  products: {},
   sort: "popularity.desc",
   genres: [],
   certification: [],
@@ -24,14 +24,14 @@ const initialState = {
   error: false,
 };
 
-export const searchMoviesReducer = (state = initialState, action) => {
+export const searchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case MOVIES_SEARCH_REQUEST:
+    case SEARCH_REQUEST:
       return { ...state, isLoading: true };
-    case MOVIES_SEARCH_DEFAULT:
+    case SEARCH_DEFAULT:
       return initialState;
-    case GET_MOVIES_SEARCH:
-      return { ...state, movies: action.payload };
+    case GET_PRODUCTS:
+      return { ...state, products: action.payload };
     case SET_SORT:
       return { ...state, sort: action.payload };
     case FILTER_RELEASE:
@@ -66,16 +66,16 @@ export const searchMoviesReducer = (state = initialState, action) => {
     case NEXT_PAGE:
       return {
         ...state,
-        movies: {
-          ...state.movies,
+        products: {
+          ...state.products,
           page: action.payload,
         },
       };
     case PREV_PAGE:
       return {
         ...state,
-        movies: {
-          ...state.movies,
+        products: {
+          ...state.products,
           page: action.payload,
         },
       };

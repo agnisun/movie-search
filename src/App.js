@@ -9,6 +9,7 @@ import ScrollToTop from "./common/ScrollToTop";
 import { addFavouriteAction } from "./features/modules/favourite/favourite.actions";
 
 export const App = () => {
+  // TODO: умный searchReducer сделать
   // TODO: serialsPage по типу moviesPage
   // TODO: add to favourite фильмы не с первой страницы
   // TODO: сделать поиск

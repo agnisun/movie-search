@@ -7,7 +7,7 @@ import {
   removeAgeFilterAction,
   removeGenresFilterAction,
   sortAgesFilterAction,
-} from "../../features/modules/searchMovies/searchMovies.actions";
+} from "../../features/modules/search/search.actions";
 
 export const SearchFieldButton = ({ text, id, variant }) => {
   const [active, setActive] = useState(false);

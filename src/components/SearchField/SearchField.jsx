@@ -3,21 +3,20 @@ import { Box, Button } from "@chakra-ui/react";
 import { SortField } from "./SortField/SortField";
 import { FilterField } from "./FilterField/FilterField";
 import { useDispatch, useSelector } from "react-redux";
-import { moviesSearchRequestAction } from "../../features/modules/searchMovies/searchMovies.actions";
+import { searchRequestAction } from "../../features/modules/search/search.actions";
 
-export const SearchField = () => {
+export const SearchField = ({ product }) => {
   const dispatch = useDispatch();
-  const sort = useSelector((state) => state.searchMovies.sort);
-  const release = useSelector((state) => state.searchMovies.release);
-  const genres = useSelector((state) => state.searchMovies.genres);
-  const certification = useSelector(
-    (state) => state.searchMovies.certification
-  );
+  const sort = useSelector((state) => state.search.sort);
+  const release = useSelector((state) => state.search.release);
+  const genres = useSelector((state) => state.search.genres);
+  const certification = useSelector((state) => state.search.certification);
+  console.log(product);
 
   const handleSearch = () => {
     window.scrollTo(0, 0);
     dispatch(
-      moviesSearchRequestAction(sort, release, genres, certification, 1)
+      searchRequestAction(product, sort, release, genres, certification, 1)
     );
   };
 
@@ -30,7 +29,7 @@ export const SearchField = () => {
       mb={{ base: "50px", "2md": "0" }}
     >
       <SortField />
-      <FilterField />
+      <FilterField product={product} />
       <Button onClick={handleSearch} colorScheme={"blue"} w={"100%"}>
         Search
       </Button>
