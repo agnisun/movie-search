@@ -4,12 +4,12 @@ import { Box, Image, Stack } from "@chakra-ui/react";
 import { setRating } from "../core/setRating";
 import { formatTitle } from "../core/formatTitle";
 import noImage from "../assets/no-image.png";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 export const CardBody = ({ genres, genre_ids, vote_average, title, image }) => {
   const config = useSelector((state) => state.data.config);
   const imageUrl = config && config.images.base_url;
-  
+
   return (
     <>
       {image ? (
@@ -19,7 +19,11 @@ export const CardBody = ({ genres, genre_ids, vote_average, title, image }) => {
           src={`${imageUrl}w300${image}`}
         />
       ) : (
-        <Image src={noImage} alt={""} minH={{ base: "300px", "3md": "470px" }} />
+        <Image
+          src={noImage}
+          alt={""}
+          minH={{ base: "300px", "3md": "470px" }}
+        />
       )}
       <Stack
         background={

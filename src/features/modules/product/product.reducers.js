@@ -1,11 +1,4 @@
-import {
-  GET_CREDITS,
-  GET_PRODUCT,
-  GET_RAITING,
-  GET_VIDEOS,
-  PRODUCT_REQUEST,
-  SET_STATUS,
-} from "./product.actions";
+import {GET_CREDITS, GET_PRODUCT, GET_RAITING, GET_VIDEOS, PRODUCT_REQUEST, SET_STATUS,} from "./product.actions";
 
 const initialState = {
   product: {},
@@ -21,7 +14,7 @@ export const productReducer = (state = initialState, action) => {
     case PRODUCT_REQUEST:
       return { ...state };
     case GET_PRODUCT:
-      const localValue = +localStorage.getItem(`${action.payload.id}`);
+      const localValue = localStorage.getItem(`${action.payload.id}`);
 
       return {
         ...state,
