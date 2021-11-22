@@ -34,6 +34,9 @@ export const Product = ({
     isFavourite,
   },
 }) => {
+  const config = useSelector((state) => state.data.config);
+  const imageUrl = config && config.images.base_url;
+  const imageSize = config && config.images.backdrop_sizes[2];
   const credits = useSelector((state) => state.product.credits);
   const casts = credits.cast && credits.cast.filter((el, idx) => idx < 16);
   const releaseDate = first_air_date ? first_air_date : release_date;
@@ -56,7 +59,7 @@ export const Product = ({
         pos={"relative"}
         bg={
           backdrop_path &&
-          `url(https://image.tmdb.org/t/p/original/${backdrop_path}) right -200px top / cover no-repeat`
+          `url(${imageUrl}${imageSize}/${backdrop_path}) right -200px top / cover no-repeat`
         }
         pl={{ base: "0", "2md": "56px" }}
         pt={{ base: "100px", "2md": "30px" }}

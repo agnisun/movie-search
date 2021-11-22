@@ -20,16 +20,16 @@ const initialState = {
   genres: [],
   certification: [],
   release: ["", currentDate(1)],
-  isLoading: false,
+  loading: false,
   error: false,
 };
 
 export const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_REQUEST:
-      return { ...state, isLoading: true };
+      return { ...state };
     case SEARCH_DEFAULT:
-      return initialState;
+      return {...initialState};
     case GET_PRODUCTS:
       return { ...state, products: action.payload };
     case SET_SORT:

@@ -17,14 +17,14 @@ const initialState = {
   certificationMovies: null,
   certificationSerials: null,
   serials: {},
-  isLoading: false,
+  loading: false,
   error: false,
 };
 
 export const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case DATA_REQUEST:
-      return { ...state, isLoading: true };
+      return { ...state };
     case GET_MOVIES:
       return { ...state, movies: action.payload };
     case GET_GENRES_MOVIES:

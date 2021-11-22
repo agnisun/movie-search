@@ -12,14 +12,14 @@ const initialState = {
   credits: {},
   videos: {},
   content_raiting: "",
-  isLoading: false,
+  loading: false,
   error: false,
 };
 
 export const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case PRODUCT_REQUEST:
-      return { ...state, isLoading: true };
+      return { ...state };
     case GET_PRODUCT:
       const localValue = +localStorage.getItem(`${action.payload.id}`);
 

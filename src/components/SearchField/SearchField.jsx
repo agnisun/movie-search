@@ -11,7 +11,6 @@ export const SearchField = ({ product }) => {
   const release = useSelector((state) => state.search.release);
   const genres = useSelector((state) => state.search.genres);
   const certification = useSelector((state) => state.search.certification);
-  console.log(product);
 
   const handleSearch = () => {
     window.scrollTo(0, 0);

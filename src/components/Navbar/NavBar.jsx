@@ -38,7 +38,7 @@ export const NavBar = () => {
           </Link>
         </Box>
         <Box p={"8px"}>
-          <Link to={"/movies"}>
+          <Link to={"/movie"}>
             <Image src={movies} />
           </Link>
         </Box>

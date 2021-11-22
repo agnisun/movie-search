@@ -10,8 +10,8 @@ export const Routes = () => {
   return (
     <Switch>
       <Route path={"/"} exact component={HomePage} />
-      <Route path={"/movies"} exact component={MoviesPage} />
-      <Route path={"/movies/:id"} exact component={ProductMoviePage} />
+      <Route path={"/movie"} exact component={MoviesPage} />
+      <Route path={"/movie/:id"} exact component={ProductMoviePage} />
       <Route path={"/tv"} exact component={SerialsPage} />
       <Route path={"/tv/:id"} exact component={ProductSerialPage} />
       <Route path={"/favourite"} exact component={FavouritePage} />
