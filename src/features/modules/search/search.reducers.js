@@ -12,7 +12,7 @@ import {
   SEARCH_REQUEST,
   SET_SORT,
 } from "./search.actions";
-import { currentDate } from "../../../core/currentDate";
+import {currentDate} from "../../../core/currentDate";
 
 const initialState = {
   products: {},
@@ -20,6 +20,7 @@ const initialState = {
   genres: [],
   certification: [],
   release: ["", currentDate(1)],
+  changing: false,
   loading: false,
   error: false,
 };
@@ -33,30 +34,30 @@ export const searchReducer = (state = initialState, action) => {
     case GET_PRODUCTS:
       return { ...state, products: action.payload };
     case SET_SORT:
-      return { ...state, sort: action.payload };
+      return { ...state, sort: action.payload, changing: true };
     case FILTER_RELEASE:
-      return { ...state, release: action.payload };
+      return { ...state, release: action.payload, changing: true };
     case FILTER_ADD_GENRES:
       return {
         ...state,
-        genres: [...state.genres, action.payload],
+        genres: [...state.genres, action.payload], changing: true,
       };
     case FILTER_REMOVE_GENRES:
       return {
         ...state,
-        genres: state.genres.filter((el) => el !== action.payload),
+        genres: state.genres.filter((el) => el !== action.payload), changing: true,
       };
     case FILTER_ADD_AGE:
       return {
         ...state,
-        certification: [...state.certification, action.payload],
+        certification: [...state.certification, action.payload], changing: true,
       };
     case FILTER_REMOVE_AGE:
       return {
         ...state,
         certification: state.certification.filter(
           (el) => el.value !== action.payload
-        ),
+        ), changing: true,
       };
     case FILTER_SORT_AGES:
       return {

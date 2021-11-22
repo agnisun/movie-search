@@ -45,11 +45,11 @@ export const Product = ({
   const productRunTime = episode_run_time ? episode_run_time[0] : runtime;
   const productOverview = overview ? overview : "No description";
   const dispatch = useDispatch();
-  const localValue = +localStorage.getItem(`${id}`);
+  const localValue = localStorage.getItem(id);
 
   useEffect(() => {
     if (localValue) {
-      dispatch(setStatusAction());
+      dispatch(setStatusAction(true));
     }
   }, []);
 

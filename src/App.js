@@ -5,30 +5,19 @@ import { Routes } from "./services/routes";
 import { Box } from "@chakra-ui/react";
 import { NavBar } from "./components/Navbar/NavBar";
 import { dataRequestAction } from "./features/modules/data/data.actions";
-import ScrollToTop from "./common/ScrollToTop";
-import { addFavouriteAction } from "./features/modules/favourite/favourite.actions";
+import {ScrollToTop} from "./common/ScrollToTop";
 
 export const App = () => {
-  // TODO: newProducts homepage одинаковые
-  // TODO: add to favourite фильмы не с первой страницы
-  // TODO: сделать поиск
+  // TODO: slider homepage новый flickity
+  // TODO: сделать поиск CurrentSearch
   // TODO: Оптимизация
   // TODO: lazy load (разобраться)
-  //Проблемы: Eslint подключить
+  // TODO: Eslint
 
   const dispatch = useDispatch();
-  const localStorage = window.localStorage;
 
   useEffect(() => {
     dispatch(dataRequestAction());
-
-    for (let i = 0; i < localStorage.length; i++) {
-      const favourite = +localStorage.getItem(localStorage.key(i));
-
-      if (!isNaN(favourite)) {
-        dispatch(addFavouriteAction(favourite));
-      }
-    }
   }, []);
 
   return (

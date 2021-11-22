@@ -14,9 +14,10 @@ export const ProductCard = ({
     name,
     first_air_date,
   },
+  product,
 }) => {
   const productTitle = name ? name : title;
-  const productUrl = name ? "tv" : "movies";
+  const productUrl = name ? "tv" : "movie";
   const releaseDate = first_air_date ? first_air_date : release_date;
 
   return (
@@ -34,7 +35,7 @@ export const ProductCard = ({
           vote_average={vote_average}
         />
       </Link>
-      <CardDetails title={title} id={id} />
+      <CardDetails product={product} />
     </GridItem>
   );
 };

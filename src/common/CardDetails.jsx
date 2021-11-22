@@ -1,42 +1,22 @@
 import React from "react";
-import {
-  Box,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  useToast,
-} from "@chakra-ui/react";
-import { DragHandleIcon, StarIcon } from "@chakra-ui/icons";
-import { addToFavourite } from "../core/addToFavourite";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addFavouriteAction,
-  removeFavouriteAction,
-} from "../features/modules/favourite/favourite.actions";
-import { setStatusAction } from "../features/modules/product/product.actions";
+import {Box, IconButton, Menu, MenuButton, MenuItem, MenuList, useToast,} from "@chakra-ui/react";
+import {DragHandleIcon, StarIcon} from "@chakra-ui/icons";
+import {useDispatch} from "react-redux";
+import {setStatusAction} from "../features/modules/product/product.actions";
+import {toggleFavourite} from "../core/toggleFavourite";
 
-export const CardDetails = ({ id, title }) => {
+export const CardDetails = ({ product,setFavourites }) => {
   const dispatch = useDispatch();
   const toast = useToast();
-  const favouriteList = useSelector((state) => state.favourite.favouriteList);
-  const isFavourite = favouriteList.indexOf(id) > -1 ? true : false;
+  const isFavourite = window.localStorage.getItem(product.id) ? true : false;
+  const productTitle = product.name ? product.name : product.title;
   const colorVariant = isFavourite ? "red.500" : "black";
-
-  const toggleFavourite = () => {
-    if (!isFavourite) {
-      dispatch(addFavouriteAction(id));
-      localStorage.setItem(id, id);
-    } else {
-      dispatch(removeFavouriteAction(id));
-      localStorage.removeItem(id);
-    }
-
-    dispatch(setStatusAction());
-    addToFavourite(title, isFavourite, toast);
-  };
-
+  const setStatus = () => dispatch(setStatusAction())
+  
+  const handleFavourite = () => {
+    toggleFavourite(product, setStatus, isFavourite, productTitle, toast, setFavourites)
+  }
+  
   return (
     <Menu isLazy>
       <MenuButton
@@ -59,7 +39,7 @@ export const CardDetails = ({ id, title }) => {
         top={"0"}
         right={"-32px"}
       >
-        <MenuItem justifyContent={"center"} onClick={toggleFavourite}>
+        <MenuItem justifyContent={"center"} onClick={handleFavourite}>
           <StarIcon mr={"5px"} fontSize={"10px"} color={colorVariant} />
           <Box as={"span"}>Favourite</Box>
         </MenuItem>

@@ -1,27 +1,16 @@
-import React, { useEffect, useState } from "react";
-import {
-  Box,
-  Flex,
-  IconButton,
-  Stack,
-  useDisclosure,
-  useToast,
-} from "@chakra-ui/react";
-import { formatDate } from "../../core/formatDate";
-import { getGenres } from "../../core/getGenres";
-import { getTime } from "../../core/getTime";
-import { RatedCircle } from "../../common/RatedCircle";
-import { PlayIcon } from "../../theme/icons/PlayIcon";
-import { ProductModal } from "./ProductModal";
-import { useDispatch, useSelector } from "react-redux";
-import { addToFavourite } from "../../core/addToFavourite";
-import {
-  addFavouriteAction,
-  removeFavouriteAction,
-} from "../../features/modules/favourite/favourite.actions";
-import { setStatusAction } from "../../features/modules/product/product.actions";
-import { StarIcon } from "@chakra-ui/icons";
-import { getContentRaiting } from "../../core/getContentRaiting";
+import React, {useEffect, useState} from "react";
+import {Box, Flex, IconButton, Stack, useDisclosure, useToast,} from "@chakra-ui/react";
+import {formatDate} from "../../core/formatDate";
+import {getGenres} from "../../core/getGenres";
+import {getTime} from "../../core/getTime";
+import {RatedCircle} from "../../common/RatedCircle";
+import {PlayIcon} from "../../theme/icons/PlayIcon";
+import {ProductModal} from "./ProductModal";
+import {useDispatch, useSelector} from "react-redux";
+import {StarIcon} from "@chakra-ui/icons";
+import {getContentRaiting} from "../../core/getContentRaiting";
+import {toggleFavourite} from "../../core/toggleFavourite";
+import {setStatusAction} from "../../features/modules/product/product.actions";
 
 export const ProductSubtitle = ({
   genres,
@@ -41,6 +30,7 @@ export const ProductSubtitle = ({
   const contentRaiting = useSelector(
     (state) => state.product.content_raiting.results
   );
+  const setStatus = () => dispatch(setStatusAction())
 
   useEffect(() => {
     if (videos.id) {
@@ -50,19 +40,10 @@ export const ProductSubtitle = ({
       setTrailer(finalTrailer);
     }
   }, [videos]);
-
-  const toggleFavourite = () => {
-    if (!isFavourite) {
-      dispatch(addFavouriteAction(product.id));
-      localStorage.setItem(product.id, product.id);
-    } else {
-      dispatch(removeFavouriteAction(product.id));
-      localStorage.removeItem(product.id);
-    }
-
-    dispatch(setStatusAction());
-    addToFavourite(productTitle, isFavourite, toast);
-  };
+  
+  const handleFavourite = () => {
+    toggleFavourite(product, setStatus, isFavourite, productTitle, toast)
+  }
 
   return (
     <>
@@ -106,7 +87,7 @@ export const ProductSubtitle = ({
             <Box ml={"10px"}>User score</Box>
           </Flex>
           <IconButton
-            onClick={toggleFavourite}
+            onClick={handleFavourite}
             variant={buttonVariant}
             aria-label="Add to favourite"
             icon={<StarIcon />}

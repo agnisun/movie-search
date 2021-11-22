@@ -11,6 +11,7 @@ export const SearchField = ({ product }) => {
   const release = useSelector((state) => state.search.release);
   const genres = useSelector((state) => state.search.genres);
   const certification = useSelector((state) => state.search.certification);
+  const isChanging = useSelector((state) => state.search.changing);
 
   const handleSearch = () => {
     window.scrollTo(0, 0);
@@ -29,7 +30,12 @@ export const SearchField = ({ product }) => {
     >
       <SortField />
       <FilterField product={product} />
-      <Button onClick={handleSearch} colorScheme={"blue"} w={"100%"}>
+      <Button
+        disabled={!isChanging}
+        onClick={handleSearch}
+        colorScheme={"blue"}
+        w={"100%"}
+      >
         Search
       </Button>
     </Box>

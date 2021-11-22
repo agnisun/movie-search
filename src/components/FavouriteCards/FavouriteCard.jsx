@@ -16,6 +16,8 @@ export const FavouriteCard = ({
     vote_average,
     first_air_date,
   },
+  product,
+  setFavourites,
 }) => {
   const genres = useSelector((state) => state.data.genresSerials);
   const releaseDate = first_air_date ? first_air_date : release_date;
@@ -28,7 +30,7 @@ export const FavouriteCard = ({
       overflow={"hidden"}
       pos={"relative"}
     >
-      <Link to={`/${name ? "tv" : "movies"}/${id}`}>
+      <Link to={`/${name ? "tv" : "movie"}/${id}`}>
         <CardBodyDown
           release_date={releaseDate}
           image={poster_path}
@@ -38,7 +40,7 @@ export const FavouriteCard = ({
           genres={genres}
         />
       </Link>
-      <CardDetails title={productTitle} id={id} />
+      <CardDetails setFavourites={setFavourites} product={product} />
     </GridItem>
   );
 };
