@@ -5,7 +5,7 @@ import { Product } from "../../components/Product/Product";
 import { productRequestAction } from "../../features/modules/product/product.actions";
 import { useDispatch, useSelector } from "react-redux";
 
-export const ProductSerialPage = () => {
+const ProductSerialPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -21,3 +21,5 @@ export const ProductSerialPage = () => {
     </Box>
   );
 };
+
+export default ProductSerialPage

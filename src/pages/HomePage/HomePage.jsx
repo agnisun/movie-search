@@ -3,7 +3,7 @@ import { IntroSlider } from "../../components/IntroSlider/IntroSlider";
 import { Box } from "@chakra-ui/react";
 import { NewProducts } from "../../components/NewProducts/NewProducts";
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <Box minH={"100vh"}>
       <IntroSlider />
@@ -14,3 +14,5 @@ export const HomePage = () => {
     </Box>
   );
 };
+
+export default HomePage

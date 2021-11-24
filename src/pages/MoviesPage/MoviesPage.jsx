@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@chakra-ui/react";
 import { ProductsCards } from "../../components/ProductsCards/ProductsCards";
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   return (
     <Box
       minH={"100vh"}
@@ -14,3 +14,5 @@ export const MoviesPage = () => {
     </Box>
   );
 };
+
+export default MoviesPage
