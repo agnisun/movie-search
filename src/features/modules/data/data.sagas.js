@@ -1,5 +1,5 @@
-import {all, call, put, takeLatest} from "redux-saga/effects";
-import {API_KEY, language} from "../../../services/api";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { API_KEY, language } from "../../../services/api";
 import {
   DATA_REQUEST,
   getCertificationMoviesAction,

@@ -22,7 +22,7 @@ export const ProductCard = ({
 
   return (
     <GridItem
-      background={"white"}
+      bg={"rgba(255, 255, 255, .1);"}
       borderRadius={"10px"}
       overflow={"hidden"}
       pos={"relative"}

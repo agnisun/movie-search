@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import { FavouriteCards } from "../../components/FavouriteCards/FavouriteCards";
+import { SearchCards } from "./SearchCards";
 
-const FavouritePage = () => {
+const SearchPage = () => {
   return (
     <Box
       minH={"100vh"}
@@ -10,9 +10,9 @@ const FavouritePage = () => {
       pl={{ base: "0", "2md": "56px" }}
       pb={"50px"}
     >
-      <FavouriteCards />
+      <SearchCards />
     </Box>
   );
 };
 
-export default FavouritePage;
+export default SearchPage;

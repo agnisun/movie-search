@@ -22,4 +22,4 @@ const ProductSerialPage = () => {
   );
 };
 
-export default ProductSerialPage
+export default ProductSerialPage;

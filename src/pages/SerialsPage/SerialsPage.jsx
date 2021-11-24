@@ -15,4 +15,4 @@ const SerialsPage = () => {
   );
 };
 
-export default SerialsPage
+export default SerialsPage;

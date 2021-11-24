@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import {Button} from "@chakra-ui/react";
-import {useDispatch} from "react-redux";
+import React, { useState } from "react";
+import { Button } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 import {
   addAgeFilterAction,
   addGenresFilterAction,

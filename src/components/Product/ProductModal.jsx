@@ -1,5 +1,12 @@
 import React from "react";
-import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay,} from "@chakra-ui/react";
+import {
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+} from "@chakra-ui/react";
 
 export const ProductModal = ({ trailer: { key }, isOpen, onClose }) => {
   return (

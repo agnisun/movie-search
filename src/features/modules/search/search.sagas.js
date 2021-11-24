@@ -1,6 +1,10 @@
-import {all, call, put, takeLatest} from "redux-saga/effects";
-import {API_KEY, language} from "../../../services/api";
-import {getProductsAction, SEARCH_DEFAULT, SEARCH_REQUEST,} from "./search.actions";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { API_KEY, language } from "../../../services/api";
+import {
+  getProductsAction,
+  SEARCH_DEFAULT,
+  SEARCH_REQUEST,
+} from "./search.actions";
 
 const URL = "https://api.themoviedb.org/3/discover/";
 

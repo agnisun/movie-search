@@ -22,4 +22,4 @@ const ProductMoviePage = () => {
   );
 };
 
-export default ProductMoviePage
+export default ProductMoviePage;
