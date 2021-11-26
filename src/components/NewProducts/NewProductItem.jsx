@@ -16,12 +16,8 @@ export const NewProductItem = ({
   const productTitle = name ? name : title;
 
   return (
-    <Box
-      position={"relative"}
-      m={{ base: "0 5px", "2md": "0 10px 0 0" }}
-      h={"100%"}
-    >
-      <Link to={`${product}/${id}`}>
+    <Box position={"relative"} m={{ base: "0 5px", "2md": "0 10px 0 0" }}>
+      <Link to={`/${product}/${id}`}>
         <CardBody
           image={poster_path}
           title={productTitle}

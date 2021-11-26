@@ -17,7 +17,7 @@ export const CardBodyDown = ({ vote_average, title, image, release_date }) => {
           <RatedCircle size={"45px"} value={vote_average} />
         </Box>
       </Box>
-      <Box m={"0"} color={"black"} p={"30px 15px 10px"}>
+      <Box m={"0"} color={"white"} p={"30px 15px 10px"}>
         <Box mb={"5px"}>{formatTitle(title)}</Box>
         <Box color={"grey"} fontSize={"14px"}>
           {release_date}

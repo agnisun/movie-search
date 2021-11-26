@@ -11,7 +11,9 @@ export const NewProducts = ({ product }) => {
   const headingTitle =
     product === "movie" ? "New releases " : "Featured TV shows ";
   const products = useSelector((state) =>
-    product === "movie" ? state.data.movies.results : state.data.serials.results
+    product === "movie"
+      ? state.nowPlaying.movies.results
+      : state.nowPlaying.serials.results
   );
 
   return (

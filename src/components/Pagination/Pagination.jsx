@@ -1,8 +1,12 @@
 import React from "react";
-import {Box, Flex, IconButton} from "@chakra-ui/react";
-import {ChevronLeftIcon, ChevronRightIcon} from "@chakra-ui/icons";
-import {nextPageAction, prevPageAction, searchRequestAction,} from "../../features/modules/search/search.actions";
-import {useDispatch, useSelector} from "react-redux";
+import { Box, Flex, IconButton } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import {
+  nextPageAction,
+  prevPageAction,
+  searchRequestAction,
+} from "../../features/modules/search/search.actions";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Pagination = ({ product }) => {
   const dispatch = useDispatch();
@@ -53,7 +57,7 @@ export const Pagination = ({ product }) => {
     }
   };
 
-  return (
+  return totalPages !== 0 ? (
     <Flex justifyContent={"center"}>
       <IconButton
         disabled={page <= 1}
@@ -75,5 +79,5 @@ export const Pagination = ({ product }) => {
         icon={<ChevronRightIcon />}
       />
     </Flex>
-  );
+  ) : null;
 };

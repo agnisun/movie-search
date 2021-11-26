@@ -5,6 +5,7 @@ import home from "../../assets/home.svg";
 import movies from "../../assets/movies.svg";
 import serials from "../../assets/serials.svg";
 import star from "../../assets/star.svg";
+import search from "../../assets/search.svg";
 import { Link } from "react-router-dom";
 
 export const NavBar = () => {
@@ -35,6 +36,11 @@ export const NavBar = () => {
         <Box p={"8px"}>
           <Link to={"/"}>
             <Image src={home} />
+          </Link>
+        </Box>
+        <Box p={"8px"}>
+          <Link to={"/search/movie"}>
+            <Image src={search} />
           </Link>
         </Box>
         <Box p={"8px"}>

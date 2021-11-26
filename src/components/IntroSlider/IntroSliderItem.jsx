@@ -59,7 +59,7 @@ export const IntroSliderItem = ({
           >
             {formatOverview(overview)}
           </Text>
-          <Link to={`/movies/${id}`}>
+          <Link to={`/movie/${id}`}>
             <Button
               position={"absolute"}
               left={"0"}

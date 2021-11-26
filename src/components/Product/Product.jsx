@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Box, Container, Flex, Image } from "@chakra-ui/react";
 import { ProductTitle } from "./ProductTitle";
 import { ProductSubtitle } from "./ProductSubtitle";
 import { ProductInfo } from "./ProductInfo";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { ProductCasts } from "./ProductCasts";
 import { ProductDetails } from "./ProductDetails";
 import noImage from "../../assets/no-image.png";
 import { ProductBackground } from "./ProductBackground";
-import { setStatusAction } from "../../features/modules/product/product.actions";
 
 export const Product = ({
   data: {
@@ -31,7 +30,6 @@ export const Product = ({
     revenue,
     status,
     id,
-    isFavourite,
   },
 }) => {
   const config = useSelector((state) => state.data.config);
@@ -44,14 +42,6 @@ export const Product = ({
   const productTitle = name ? name : title;
   const productRunTime = episode_run_time ? episode_run_time[0] : runtime;
   const productOverview = overview ? overview : "No description";
-  const dispatch = useDispatch();
-  const localValue = localStorage.getItem(id);
-
-  useEffect(() => {
-    if (localValue) {
-      dispatch(setStatusAction(true));
-    }
-  }, []);
 
   return (
     <Box>
@@ -98,7 +88,7 @@ export const Product = ({
                 releaseDate={releaseDate}
                 productRunTime={productRunTime}
                 productTitle={productTitle}
-                isFavourite={isFavourite}
+                id={id}
               />
               <ProductInfo
                 crew={credits.crew}

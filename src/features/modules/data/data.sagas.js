@@ -1,5 +1,5 @@
-import {all, call, put, takeLatest} from "redux-saga/effects";
-import {API_KEY, language} from "../../../services/api";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { API_KEY, language } from "../../../services/api";
 import {
   DATA_REQUEST,
   getCertificationMoviesAction,
@@ -7,23 +7,9 @@ import {
   getConfigAction,
   getGenresMoviesAction,
   getGenresSerialsAction,
-  getMoviesAction,
-  getSerialsAction,
 } from "./data.actions";
 
 const URL = "https://api.themoviedb.org/3/";
-
-function fetchNewMovies() {
-  return fetch(
-    `${URL}movie/now_playing?api_key=${API_KEY}${language}&page=1`
-  ).then((response) => response.json());
-}
-
-function fetchSerials() {
-  return fetch(`${URL}tv/popular?api_key=${API_KEY}${language}&page=1`).then(
-    (response) => response.json()
-  );
-}
 
 function fetchGenres(product) {
   return fetch(
@@ -41,18 +27,6 @@ function fetchCertification(product) {
   return fetch(`${URL}certification/${product}/list?api_key=${API_KEY}`).then(
     (response) => response.json()
   );
-}
-
-function* getMovies() {
-  const movies = yield call(fetchNewMovies);
-
-  yield put(getMoviesAction(movies));
-}
-
-function* getSerials() {
-  const serials = yield call(fetchSerials);
-
-  yield put(getSerialsAction(serials));
 }
 
 function* getMoviesGenre() {
@@ -87,8 +61,6 @@ function* getCertificationSerials() {
 
 export function* watcherData() {
   yield all([
-    takeLatest(DATA_REQUEST, getMovies),
-    takeLatest(DATA_REQUEST, getSerials),
     takeLatest(DATA_REQUEST, getMoviesGenre),
     takeLatest(DATA_REQUEST, getSerialsGenre),
     takeLatest(DATA_REQUEST, getConfig),

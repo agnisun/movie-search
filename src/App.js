@@ -1,18 +1,20 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes } from "./services/routes";
 import { Box } from "@chakra-ui/react";
 import { NavBar } from "./components/Navbar/NavBar";
+import { ScrollToTop } from "./common/ScrollToTop";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { dataRequestAction } from "./features/modules/data/data.actions";
-import ScrollToTop from "./common/ScrollToTop";
 
 export const App = () => {
-  // TODO: add to favourite фильмы не с первой страницы
-  // TODO: сделать поиск
+  // TODO: для searchPage инфити скролл сделать
+  // TODO: slider swipe
+  // TODO: сделать поиск SingleSearch
   // TODO: Оптимизация
-  // TODO: lazy load (разобраться)
+  // TODO: lazy load (разобраться) images
   // TODO: Eslint
+  //Проблемы: slider react-router попробовать другой слайдер
 
   const dispatch = useDispatch();
 

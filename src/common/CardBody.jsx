@@ -15,17 +15,18 @@ export const CardBody = ({ genres, genre_ids, vote_average, title, image }) => {
       {image ? (
         <Image
           w={"100%"}
-          minH={{ base: "300px", "3md": "470px" }}
+          h={{ base: "275px", sm: "370px", "3md": "470px" }}
           src={`${imageUrl}w300${image}`}
         />
       ) : (
         <Image
           src={noImage}
           alt={""}
-          minH={{ base: "300px", "3md": "470px" }}
+          h={{ base: "280px", sm: "370px", "3md": "470px" }}
         />
       )}
       <Stack
+        pointerEvents={"none"}
         background={
           "linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%)"
         }

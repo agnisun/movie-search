@@ -4,9 +4,10 @@ import Slider from "react-slick";
 import "../../slider/slider.css";
 import { IntroSliderItem } from "./IntroSliderItem";
 import { useSelector } from "react-redux";
+import { settings } from "./sliderSettings";
 
 export const IntroSlider = () => {
-  const movies = useSelector((state) => state.data.movies.results);
+  const movies = useSelector((state) => state.nowPlaying.movies.results);
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
@@ -14,16 +15,6 @@ export const IntroSlider = () => {
       setPopular([movies[0], movies[1], movies[2]]);
     }
   }, [movies]);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-  };
 
   return (
     <Box as={"section"}>

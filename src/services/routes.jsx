@@ -1,21 +1,45 @@
+import React, { lazy, Suspense } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { HomePage } from "../pages/HomePage/HomePage";
-import { MoviesPage } from "../pages/MoviesPage/MoviesPage";
-import { SerialsPage } from "../pages/SerialsPage/SerialsPage";
-import { ProductMoviePage } from "../pages/ProductMoviePage/ProductMoviePage";
-import { FavouritePage } from "../pages/FavouritePage/FavouritePage";
-import { ProductSerialPage } from "../pages/ProductSerialPage/ProductSerialPage";
+import { PageLoad } from "../components/PageLoad/PageLoad";
+import SearchMoviePage from "../pages/SearchMoviePage/SearchMoviePage";
 
 export const Routes = () => {
+  const Homepage = lazy(() => import("../pages/HomePage/HomePage"));
+  const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage"));
+  const SerialsPage = lazy(() => import("../pages/SerialsPage/SerialsPage"));
+  const ProductMoviePage = lazy(() =>
+    import("../pages/ProductMoviePage/ProductMoviePage")
+  );
+  const ProductSerialPage = lazy(() =>
+    import("../pages/ProductSerialPage/ProductSerialPage")
+  );
+  const SearchMoviePage = lazy(() =>
+    import("../pages/SearchMoviePage/SearchMoviePage")
+  );
+  const SearchSerialPage = lazy(() =>
+    import("../pages/SearchSerialPage/SearchSerialPage")
+  );
+  const FavouritePage = lazy(() =>
+    import("../pages/FavouritePage/FavouritePage")
+  );
+
   return (
-    <Switch>
-      <Route path={"/"} exact component={HomePage} />
-      <Route path={"/movie"} exact component={MoviesPage} />
-      <Route path={"/movie/:id"} exact component={ProductMoviePage} />
-      <Route path={"/tv"} exact component={SerialsPage} />
-      <Route path={"/tv/:id"} exact component={ProductSerialPage} />
-      <Route path={"/favourite"} exact component={FavouritePage} />
-      <Redirect to={"/"} />
-    </Switch>
+    <Suspense fallback={<PageLoad />}>
+      <Switch>
+        <Route path={"/"} exact render={() => <Homepage />} />
+        <Route path={"/movie"} exact render={() => <MoviesPage />} />
+        <Route path={"/movie/:id"} exact render={() => <ProductMoviePage />} />
+        <Route path={"/tv"} exact render={() => <SerialsPage />} />
+        <Route path={"/tv/:id"} exact render={() => <ProductSerialPage />} />
+        <Route
+          path={"/search/movie"}
+          exact
+          render={() => <SearchMoviePage />}
+        />
+        <Route path={"/search/tv"} exact render={() => <SearchSerialPage />} />
+        <Route path={"/favourite"} exact render={() => <FavouritePage />} />
+        <Redirect to={"/"} />
+      </Switch>
+    </Suspense>
   );
 };

@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 import { ProductsCards } from "../../components/ProductsCards/ProductsCards";
+import { useDispatch } from "react-redux";
+import { searchDefaultAction } from "../../features/modules/search/search.actions";
 
-export const SerialsPage = () => {
+const SerialsPage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(searchDefaultAction("tv", 1));
+  }, []);
+
   return (
     <Box
       minH={"100vh"}
@@ -14,3 +22,5 @@ export const SerialsPage = () => {
     </Box>
   );
 };
+
+export default SerialsPage;
