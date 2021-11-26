@@ -21,8 +21,6 @@ const initialState = {
   certification: [],
   release: ["", currentDate(1)],
   changing: false,
-  loading: false,
-  error: false,
 };
 
 export const searchReducer = (state = initialState, action) => {

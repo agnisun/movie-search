@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 import { ProductsCards } from "../../components/ProductsCards/ProductsCards";
+import { searchDefaultAction } from "../../features/modules/search/search.actions";
+import { useDispatch } from "react-redux";
 
 const MoviesPage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(searchDefaultAction("movie", 1));
+  }, []);
+
   return (
     <Box
       minH={"100vh"}

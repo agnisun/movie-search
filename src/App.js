@@ -8,8 +8,9 @@ import { useEffect } from "react";
 import { dataRequestAction } from "./features/modules/data/data.actions";
 
 export const App = () => {
+  // TODO: для searchPage инфити скролл сделать
   // TODO: slider swipe
-  // TODO: сделать поиск CurrentSearch
+  // TODO: сделать поиск SingleSearch
   // TODO: Оптимизация
   // TODO: lazy load (разобраться) images
   // TODO: Eslint

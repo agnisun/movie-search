@@ -7,8 +7,11 @@ import serials from "../../assets/serials.svg";
 import star from "../../assets/star.svg";
 import search from "../../assets/search.svg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const NavBar = () => {
+  const searchQuery = useSelector((state) => state.singleSearch.searchQuery);
+
   return (
     <Box
       overflow={"hidden"}
@@ -39,7 +42,7 @@ export const NavBar = () => {
           </Link>
         </Box>
         <Box p={"8px"}>
-          <Link to={"/search"}>
+          <Link to={"/search/movie"}>
             <Image src={search} />
           </Link>
         </Box>

@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IntroSlider } from "../../components/IntroSlider/IntroSlider";
 import { Box } from "@chakra-ui/react";
 import { NewProducts } from "../../components/NewProducts/NewProducts";
+import { useDispatch } from "react-redux";
+import { nowPlayingRequestAction } from "../../features/modules/nowPlaying/nowPlaying.actions";
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(nowPlayingRequestAction());
+  }, []);
+
   return (
     <Box minH={"100vh"}>
       <IntroSlider />

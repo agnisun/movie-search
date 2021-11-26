@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Container, Grid, Heading } from "@chakra-ui/react";
-import { FavouriteCard } from "./FavouriteCard";
 import { useSelector } from "react-redux";
+import { ProductCard } from "../ProductsCards/ProductCard";
 
 export const FavouriteCards = () => {
   const favouriteList = useSelector((state) => state.favourite.favouriteList);
@@ -16,13 +16,12 @@ export const FavouriteCards = () => {
           </Box>
         </Box>
         <Grid
-          flex={"1 1 auto"}
           templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
           gap={"20px"}
         >
           {favouriteList &&
             favouriteList.map((product) => (
-              <FavouriteCard key={product.id} product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
         </Grid>
       </Container>

@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { PageLoad } from "../components/PageLoad/PageLoad";
-import SearchPage from "../pages/SearchPage/SearchPage";
+import SearchMoviePage from "../pages/SearchMoviePage/SearchMoviePage";
 
 export const Routes = () => {
   const Homepage = lazy(() => import("../pages/HomePage/HomePage"));
@@ -13,7 +13,12 @@ export const Routes = () => {
   const ProductSerialPage = lazy(() =>
     import("../pages/ProductSerialPage/ProductSerialPage")
   );
-  const SearchPage = lazy(() => import("../pages/SearchPage/SearchPage"));
+  const SearchMoviePage = lazy(() =>
+    import("../pages/SearchMoviePage/SearchMoviePage")
+  );
+  const SearchSerialPage = lazy(() =>
+    import("../pages/SearchSerialPage/SearchSerialPage")
+  );
   const FavouritePage = lazy(() =>
     import("../pages/FavouritePage/FavouritePage")
   );
@@ -26,7 +31,12 @@ export const Routes = () => {
         <Route path={"/movie/:id"} exact render={() => <ProductMoviePage />} />
         <Route path={"/tv"} exact render={() => <SerialsPage />} />
         <Route path={"/tv/:id"} exact render={() => <ProductSerialPage />} />
-        <Route path={"/search"} exact render={() => <SearchPage />} />
+        <Route
+          path={"/search/movie"}
+          exact
+          render={() => <SearchMoviePage />}
+        />
+        <Route path={"/search/tv"} exact render={() => <SearchSerialPage />} />
         <Route path={"/favourite"} exact render={() => <FavouritePage />} />
         <Redirect to={"/"} />
       </Switch>

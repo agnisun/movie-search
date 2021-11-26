@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { settings } from "./sliderSettings";
 
 export const IntroSlider = () => {
-  const movies = useSelector((state) => state.data.movies.results);
+  const movies = useSelector((state) => state.nowPlaying.movies.results);
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
