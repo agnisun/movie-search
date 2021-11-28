@@ -1,7 +1,7 @@
 import React from "react";
-import { SearchFieldButton } from "../SearchFieldButton";
-import { Flex } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import {SearchFieldButton} from "../SearchFieldButton";
+import {Flex} from "@chakra-ui/react";
+import {useSelector} from "react-redux";
 
 export const FilterFieldAge = ({ product }) => {
   const certification = useSelector((state) =>

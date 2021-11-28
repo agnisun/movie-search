@@ -1,11 +1,11 @@
 import React from "react";
-import { Box, Image } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import {Box, Image} from "@chakra-ui/react";
+import {Link} from "react-router-dom";
 import arrowRight from "../../assets/arrow-right.svg";
 import Slider from "react-slick";
-import { settings } from "./sliderSettings";
-import { useSelector } from "react-redux";
-import { NewProductItem } from "./NewProductItem";
+import {settings} from "./sliderSettings";
+import {useSelector} from "react-redux";
+import {NewProductItem} from "./NewProductItem";
 
 export const NewProducts = ({ product }) => {
   const headingTitle =

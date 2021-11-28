@@ -1,8 +1,4 @@
-import {
-  GET_MOVIES,
-  GET_SERIALS,
-  NOW_PLAYING_REQUEST,
-} from "./nowPlaying.actions";
+import {GET_MOVIES, GET_SERIALS, NOW_PLAYING_REQUEST,} from "./nowPlaying.actions";
 
 const initialState = {
   movies: {},

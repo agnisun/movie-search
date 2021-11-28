@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { CardBody } from "../../common/CardBody";
-import { CardDetails } from "../../common/CardDetails";
-import { Box } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import {Link} from "react-router-dom";
+import {CardBody} from "../../common/CardBody";
+import {CardDetails} from "../../common/CardDetails";
+import {Box} from "@chakra-ui/react";
+import {useSelector} from "react-redux";
 
 export const NewProductItem = ({
   product,

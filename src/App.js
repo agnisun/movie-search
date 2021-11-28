@@ -1,16 +1,14 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import { Routes } from "./services/routes";
-import { Box } from "@chakra-ui/react";
-import { NavBar } from "./components/Navbar/NavBar";
-import { ScrollToTop } from "./common/ScrollToTop";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { dataRequestAction } from "./features/modules/data/data.actions";
+import {BrowserRouter as Router} from "react-router-dom";
+import {Routes} from "./services/routes";
+import {Box} from "@chakra-ui/react";
+import {NavBar} from "./components/Navbar/NavBar";
+import {ScrollToTop} from "./common/ScrollToTop";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
+import {dataRequestAction} from "./features/modules/data/data.actions";
 
 export const App = () => {
-  // TODO: для searchPage инфити скролл сделать
   // TODO: slider swipe
-  // TODO: сделать поиск SingleSearch
   // TODO: Оптимизация
   // TODO: lazy load (разобраться) images
   // TODO: Eslint

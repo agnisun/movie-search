@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Image } from "@chakra-ui/react";
-import { formatTitle } from "../core/formatTitle";
-import { RatedCircle } from "./RatedCircle";
+import {Box, Image} from "@chakra-ui/react";
+import {formatTitle} from "../core/formatTitle";
+import {RatedCircle} from "./RatedCircle";
 import noImage from "../assets/no-image.png";
 
 export const CardBodyDown = ({ vote_average, title, image, release_date }) => {

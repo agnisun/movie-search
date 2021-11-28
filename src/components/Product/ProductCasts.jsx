@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, HStack, Image } from "@chakra-ui/react";
+import {Box, HStack, Image} from "@chakra-ui/react";
 import noImage from "../../assets/no-image.png";
 
-export const ProductCasts = ({ casts }) => {
+export const ProductCasts = ({ casts, product }) => {
   return (
     <Box py={"30px"}>
       <Box fontSize={"24px"} mb={"30px"}>
@@ -41,7 +41,7 @@ export const ProductCasts = ({ casts }) => {
                 {cast.name}
               </Box>
               <Box fontSize={"14px"} fontWeight={"400"}>
-                {cast.character ? (
+                {product === "movie" ? (
                   cast.character
                 ) : (
                   <>

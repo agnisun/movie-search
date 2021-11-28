@@ -1,10 +1,4 @@
-import {
-  GET_CREDITS,
-  GET_PRODUCT,
-  GET_RAITING,
-  GET_VIDEOS,
-  PRODUCT_REQUEST,
-} from "./product.actions";
+import {CLEAR_PRODUCT, GET_CREDITS, GET_PRODUCT, GET_RAITING, GET_VIDEOS, PRODUCT_REQUEST,} from "./product.actions";
 
 const initialState = {
   product: {},
@@ -26,6 +20,8 @@ export const productReducer = (state = initialState, action) => {
           ...action.payload,
         },
       };
+    case CLEAR_PRODUCT:
+      return initialState;
     case GET_CREDITS:
       return { ...state, credits: action.payload };
     case GET_VIDEOS:

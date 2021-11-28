@@ -1,20 +1,15 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
+import {Box, Container, Flex, Grid, Heading, Input, VStack,} from "@chakra-ui/react";
+import {useDispatch, useSelector} from "react-redux";
 import {
-  Box,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Input,
-  VStack,
-} from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
-import {
+  nextPageAction,
+  prevPageAction,
   setSearchQueryAction,
   singleSearchRequestAction,
 } from "../../features/modules/singleSearch/singleSearch.actions";
-import { ProductCard } from "../ProductsCards/ProductCard";
-import { SearchDetails } from "./SearchDetails";
+import {ProductCard} from "../ProductsCards/ProductCard";
+import {SearchDetails} from "./SearchDetails";
+import {Pagination} from "../Pagination/Pagination";
 
 export const SearchCards = ({ product }) => {
   const dispatch = useDispatch();
@@ -24,17 +19,29 @@ export const SearchCards = ({ product }) => {
       ? state.singleSearch.searchMovies
       : state.singleSearch.searchSerials
   );
-
+  const page = products && products.page
+  const totalPages = products && products.total_pages
+  
   const handleSearch = (e) => {
     dispatch(setSearchQueryAction(e.target.value));
   };
+  
+  const handleNext = (currentPage) => {
+    dispatch(nextPageAction())
+    dispatch(singleSearchRequestAction(searchQuery, currentPage))
+  }
+  
+  const handlePrev = (currentPage) => {
+    dispatch(prevPageAction())
+    dispatch(singleSearchRequestAction(searchQuery, currentPage))
+  }
 
   useEffect(() => {
     if (searchQuery.trim()) {
       dispatch(singleSearchRequestAction(searchQuery, 1));
     }
   }, [searchQuery]);
-
+  
   return (
     <Container>
       <Box py={"24px"}>
@@ -61,12 +68,14 @@ export const SearchCards = ({ product }) => {
             <Grid
               templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
               gap={"20px"}
+              mb={"50px"}
             >
-              {products.results &&
+                {products.results &&
                 products.results.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
             </Grid>
+            <Pagination prevAction={handlePrev} nextAction={handleNext} totalPages={totalPages} page={page}/>
           </Box>
         </Flex>
       )}

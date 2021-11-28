@@ -12,7 +12,7 @@ import {
   SEARCH_REQUEST,
   SET_SORT,
 } from "./search.actions";
-import { currentDate } from "../../../core/currentDate";
+import {currentDate} from "../../../core/currentDate";
 
 const initialState = {
   products: {},

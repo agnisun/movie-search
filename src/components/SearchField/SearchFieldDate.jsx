@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Box, Flex, Input } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { filterReleaseAction } from "../../features/modules/search/search.actions";
-import { currentDate } from "../../core/currentDate";
+import React, {useEffect, useState} from "react";
+import {Box, Flex, Input} from "@chakra-ui/react";
+import {useDispatch} from "react-redux";
+import {filterReleaseAction} from "../../features/modules/search/search.actions";
+import {currentDate} from "../../core/currentDate";
 
 export const SearchFieldDate = () => {
   const [date, setDate] = useState({ from: "", to: currentDate(1) });

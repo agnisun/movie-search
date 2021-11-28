@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./App";
-import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
-import { theme } from "./theme/theme";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { persistor, store } from "./features";
+import {App} from "./App";
+import {ChakraProvider, ColorModeScript} from "@chakra-ui/react";
+import {theme} from "./theme/theme";
+import {Provider} from "react-redux";
+import {PersistGate} from "redux-persist/integration/react";
+import {persistor, store} from "./features";
 
 ReactDOM.render(
   <React.StrictMode>

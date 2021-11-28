@@ -1,6 +1,6 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
-import { FavouriteCards } from "../../components/FavouriteCards/FavouriteCards";
+import {Box} from "@chakra-ui/react";
+import {FavouriteCards} from "../../components/FavouriteCards/FavouriteCards";
 
 const FavouritePage = () => {
   return (

@@ -1,12 +1,12 @@
 import React from "react";
-import { Box, Image, Stack } from "@chakra-ui/react";
+import {Box, Image, Stack} from "@chakra-ui/react";
 import logo from "../../assets/logo.png";
 import home from "../../assets/home.svg";
 import movies from "../../assets/movies.svg";
 import serials from "../../assets/serials.svg";
 import star from "../../assets/star.svg";
 import search from "../../assets/search.svg";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export const NavBar = () => {
   return (

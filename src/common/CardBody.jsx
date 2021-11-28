@@ -1,10 +1,10 @@
 import React from "react";
-import { GenreInfo } from "./GenreInfo";
-import { Box, Image, Stack } from "@chakra-ui/react";
-import { setRating } from "../core/setRating";
-import { formatTitle } from "../core/formatTitle";
+import {GenreInfo} from "./GenreInfo";
+import {Box, Image, Stack} from "@chakra-ui/react";
+import {setRating} from "../core/setRating";
+import {formatTitle} from "../core/formatTitle";
 import noImage from "../assets/no-image.png";
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 
 export const CardBody = ({ genres, genre_ids, vote_average, title, image }) => {
   const config = useSelector((state) => state.data.config);

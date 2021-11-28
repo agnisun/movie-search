@@ -1,9 +1,4 @@
-import {
-  GET_SEARCH_MOVIES,
-  GET_SEARCH_SERIALS,
-  SET_SEARCH_QUERY,
-  SINGLE_SEARCH_REQUEST,
-} from "./singleSearch.actions";
+import {GET_SEARCH_MOVIES, GET_SEARCH_SERIALS, SET_SEARCH_QUERY, SINGLE_SEARCH_REQUEST,} from "./singleSearch.actions";
 
 const initialState = {
   searchQuery: "",

@@ -1,10 +1,6 @@
-import { API_KEY, language } from "../../../services/api";
-import { all, call, put, takeLatest } from "redux-saga/effects";
-import {
-  getMoviesAction,
-  getSerialsAction,
-  NOW_PLAYING_REQUEST,
-} from "./nowPlaying.actions";
+import {API_KEY, language} from "../../../services/api";
+import {all, call, put, takeLatest} from "redux-saga/effects";
+import {getMoviesAction, getSerialsAction, NOW_PLAYING_REQUEST,} from "./nowPlaying.actions";
 
 const URL = "https://api.themoviedb.org/3/";
 

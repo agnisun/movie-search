@@ -1,10 +1,6 @@
-import { API_KEY, language } from "../../../services/api";
-import { all, call, put, takeLatest } from "redux-saga/effects";
-import {
-  getSearchMoviesAction,
-  getSearchSerialsAction,
-  SINGLE_SEARCH_REQUEST,
-} from "./singleSearch.actions";
+import {API_KEY, language} from "../../../services/api";
+import {all, call, put, takeLatest} from "redux-saga/effects";
+import {getSearchMoviesAction, getSearchSerialsAction, SINGLE_SEARCH_REQUEST,} from "./singleSearch.actions";
 
 const URL = "https://api.themoviedb.org/3/search/";
 

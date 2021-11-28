@@ -1,5 +1,5 @@
 import React from "react";
-import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
+import {CircularProgress, CircularProgressLabel} from "@chakra-ui/react";
 
 export const RatedCircle = ({ value, size }) => {
   const formatValue = value * 10;

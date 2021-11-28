@@ -1,6 +1,6 @@
-import React, { lazy, Suspense } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { PageLoad } from "../components/PageLoad/PageLoad";
+import React, {lazy, Suspense} from "react";
+import {Redirect, Route, Switch} from "react-router-dom";
+import {PageLoad} from "../components/PageLoad/PageLoad";
 import SearchMoviePage from "../pages/SearchMoviePage/SearchMoviePage";
 
 export const Routes = () => {
@@ -28,9 +28,9 @@ export const Routes = () => {
       <Switch>
         <Route path={"/"} exact render={() => <Homepage />} />
         <Route path={"/movie"} exact render={() => <MoviesPage />} />
-        <Route path={"/movie/:id"} exact render={() => <ProductMoviePage />} />
+        <Route path={"/movie/:id"} render={() => <ProductMoviePage />} />
         <Route path={"/tv"} exact render={() => <SerialsPage />} />
-        <Route path={"/tv/:id"} exact render={() => <ProductSerialPage />} />
+        <Route path={"/tv/:id"} render={() => <ProductSerialPage />} />
         <Route
           path={"/search/movie"}
           exact

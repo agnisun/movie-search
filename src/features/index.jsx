@@ -1,10 +1,10 @@
-import { applyMiddleware, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import {applyMiddleware, createStore} from "redux";
+import {composeWithDevTools} from "redux-devtools-extension";
 import createSagaMiddleware from "redux-saga";
-import { rootReducer } from "./modules/root.reducer";
-import { rootWatcher } from "./modules/root.saga";
+import {rootReducer} from "./modules/root.reducer";
+import {rootWatcher} from "./modules/root.saga";
 import storage from "redux-persist/lib/storage";
-import { persistReducer, persistStore } from "redux-persist";
+import {persistReducer, persistStore} from "redux-persist";
 
 const sagaMiddleware = createSagaMiddleware();
 const middlewareEnhancer = applyMiddleware(sagaMiddleware);

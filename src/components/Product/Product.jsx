@@ -1,13 +1,13 @@
 import React from "react";
-import { Box, Container, Flex, Image } from "@chakra-ui/react";
-import { ProductTitle } from "./ProductTitle";
-import { ProductSubtitle } from "./ProductSubtitle";
-import { ProductInfo } from "./ProductInfo";
-import { useSelector } from "react-redux";
-import { ProductCasts } from "./ProductCasts";
-import { ProductDetails } from "./ProductDetails";
+import {Box, Container, Flex, Image} from "@chakra-ui/react";
+import {ProductTitle} from "./ProductTitle";
+import {ProductSubtitle} from "./ProductSubtitle";
+import {ProductInfo} from "./ProductInfo";
+import {useSelector} from "react-redux";
+import {ProductCasts} from "./ProductCasts";
+import {ProductDetails} from "./ProductDetails";
 import noImage from "../../assets/no-image.png";
-import { ProductBackground } from "./ProductBackground";
+import {ProductBackground} from "./ProductBackground";
 
 export const Product = ({
   data: {
@@ -100,7 +100,7 @@ export const Product = ({
         </Flex>
       </Box>
       <Container maxW={"1400px"} pl={{ base: "15px", "2md": "71px" }}>
-        {casts && casts.length > 0 && <ProductCasts casts={casts} />}
+        {casts && casts.length > 0 && <ProductCasts casts={casts} product={name ? "tv" : "movie"} />}
         <ProductDetails
           original_title={productName}
           original_language={original_language}

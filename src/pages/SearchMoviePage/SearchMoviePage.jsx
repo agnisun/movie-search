@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { Box } from "@chakra-ui/react";
-import { SearchCards } from "../../components/SearchCards/SearchCards";
-import { useDispatch } from "react-redux";
-import { setSearchQueryAction } from "../../features/modules/singleSearch/singleSearch.actions";
-import { useHistory } from "react-router-dom";
+import React, {useEffect} from "react";
+import {Box} from "@chakra-ui/react";
+import {SearchCards} from "../../components/SearchCards/SearchCards";
+import {useDispatch} from "react-redux";
+import {setSearchQueryAction} from "../../features/modules/singleSearch/singleSearch.actions";
+import {useHistory} from "react-router-dom";
 
 const SearchMoviePage = () => {
   const history = useHistory();

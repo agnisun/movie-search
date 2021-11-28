@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { CardBodyDown } from "../../common/CardBodyDown";
-import { CardDetails } from "../../common/CardDetails";
-import { GridItem } from "@chakra-ui/react";
+import {Link} from "react-router-dom";
+import {CardBodyDown} from "../../common/CardBodyDown";
+import {CardDetails} from "../../common/CardDetails";
+import {GridItem} from "@chakra-ui/react";
 
 export const ProductCard = ({
   product: {

@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { Box } from "@chakra-ui/react";
-import { ProductsCards } from "../../components/ProductsCards/ProductsCards";
-import { useDispatch } from "react-redux";
-import { searchDefaultAction } from "../../features/modules/search/search.actions";
+import React, {useEffect} from "react";
+import {Box} from "@chakra-ui/react";
+import {ProductsCards} from "../../components/ProductsCards/ProductsCards";
+import {useDispatch} from "react-redux";
+import {searchDefaultAction} from "../../features/modules/search/search.actions";
 
 const SerialsPage = () => {
   const dispatch = useDispatch();

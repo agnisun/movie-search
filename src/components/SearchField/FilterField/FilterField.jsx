@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Box, Flex, Stack } from "@chakra-ui/react";
-import { UpDownIcon } from "@chakra-ui/icons";
-import { SearchFieldTitle } from "../SearchFieldTitle";
-import { openTab } from "../../../core/openTab";
-import { SearchFieldDate } from "../SearchFieldDate";
-import { FilterFieldAge } from "./FilterFieldAge";
-import { FilterFieldGenre } from "./FilterFieldGenre";
+import React, {useState} from "react";
+import {Box, Flex, Stack} from "@chakra-ui/react";
+import {UpDownIcon} from "@chakra-ui/icons";
+import {SearchFieldTitle} from "../SearchFieldTitle";
+import {openTab} from "../../../core/openTab";
+import {SearchFieldDate} from "../SearchFieldDate";
+import {FilterFieldAge} from "./FilterFieldAge";
+import {FilterFieldGenre} from "./FilterFieldGenre";
 
 export const FilterField = ({ product }) => {
   const [tab, setTab] = useState(false);

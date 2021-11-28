@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { nowPlayingRequestAction } from "../../features/modules/nowPlaying/nowPlaying.actions";
-import { Box } from "@chakra-ui/react";
-import { IntroSlider } from "../../components/IntroSlider/IntroSlider";
-import { NewProducts } from "../../components/NewProducts/NewProducts";
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {nowPlayingRequestAction} from "../../features/modules/nowPlaying/nowPlaying.actions";
+import {Box} from "@chakra-ui/react";
+import {IntroSlider} from "../../components/IntroSlider/IntroSlider";
+import {NewProducts} from "../../components/NewProducts/NewProducts";
 
 const HomePage = () => {
   const dispatch = useDispatch();

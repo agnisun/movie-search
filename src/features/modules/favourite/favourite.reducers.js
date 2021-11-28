@@ -1,4 +1,4 @@
-import { ADD_TO_FAVOURITE, REMOVE_FROM_FAVOURITE } from "./favourite.actions";
+import {ADD_TO_FAVOURITE, REMOVE_FROM_FAVOURITE} from "./favourite.actions";
 
 const initialState = {
   favouriteList: [],

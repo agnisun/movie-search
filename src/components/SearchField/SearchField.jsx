@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, Button } from "@chakra-ui/react";
-import { SortField } from "./SortField/SortField";
-import { FilterField } from "./FilterField/FilterField";
-import { useDispatch, useSelector } from "react-redux";
-import { searchRequestAction } from "../../features/modules/search/search.actions";
+import {Box, Button} from "@chakra-ui/react";
+import {SortField} from "./SortField/SortField";
+import {FilterField} from "./FilterField/FilterField";
+import {useDispatch, useSelector} from "react-redux";
+import {searchRequestAction} from "../../features/modules/search/search.actions";
 
 export const SearchField = ({ product }) => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Flex, Heading, VStack } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import {Box, Flex, Heading, VStack} from "@chakra-ui/react";
+import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 export const SearchDetails = ({ product }) => {
   const totalMovies = useSelector((state) => state.singleSearch.searchMovies);
