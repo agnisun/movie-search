@@ -1,13 +1,13 @@
 export const setRating = (raiting) => {
   if (raiting >= 8) {
-    return "★★★★★";
+    return '★★★★★';
   } else if (raiting >= 6 && raiting < 8) {
-    return "★★★★☆";
+    return '★★★★☆';
   } else if (raiting >= 4 && raiting < 6) {
-    return "★★★☆☆";
+    return '★★★☆☆';
   } else if (raiting >= 2 && raiting < 4) {
-    return "★★☆☆☆";
+    return '★★☆☆☆';
   } else {
-    return "★☆☆☆☆";
+    return '★☆☆☆☆';
   }
 };

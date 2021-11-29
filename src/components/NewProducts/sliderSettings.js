@@ -6,6 +6,7 @@ export const settings = {
   slidesToShow: 6,
   slidesToScroll: 3,
   draggable: false,
+  initialSlide: 1,
   responsive: [
     {
       breakpoint: 1640,

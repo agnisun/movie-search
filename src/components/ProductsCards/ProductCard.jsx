@@ -1,8 +1,7 @@
-import React from "react";
-import {Link} from "react-router-dom";
-import {CardBodyDown} from "../../common/CardBodyDown";
-import {CardDetails} from "../../common/CardDetails";
-import {GridItem} from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
+import { CardBodyDown } from '../../common/CardBodyDown';
+import { CardDetails } from '../../common/CardDetails';
+import { GridItem } from '@chakra-ui/react';
 
 export const ProductCard = ({
   product: {
@@ -17,15 +16,15 @@ export const ProductCard = ({
   product,
 }) => {
   const productTitle = name ? name : title;
-  const productUrl = name ? "tv" : "movie";
+  const productUrl = name ? 'tv' : 'movie';
   const releaseDate = first_air_date ? first_air_date : release_date;
 
   return (
     <GridItem
-      bg={"rgba(255, 255, 255, .1);"}
-      borderRadius={"10px"}
-      overflow={"hidden"}
-      pos={"relative"}
+      bg={'rgba(255, 255, 255, .1);'}
+      borderRadius={'10px'}
+      overflow={'hidden'}
+      pos={'relative'}
     >
       <Link to={`/${productUrl}/${id}`}>
         <CardBodyDown

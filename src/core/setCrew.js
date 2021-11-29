@@ -1,14 +1,14 @@
 export const setCrew = (crew) => {
   const result = [];
 
-  for (let key of crew) {
+  for (const key of crew) {
     if (
-      key.job === "Story" ||
-      key.job === "Characters" ||
-      key.job === "Director" ||
-      key.job === "Novel" ||
-      key.job === "Writer" ||
-      key.job === "Screenplay"
+      key.job === 'Story' ||
+      key.job === 'Characters' ||
+      key.job === 'Director' ||
+      key.job === 'Novel' ||
+      key.job === 'Writer' ||
+      key.job === 'Screenplay'
     ) {
       const human = {
         name: key.name,

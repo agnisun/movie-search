@@ -5,5 +5,5 @@ export const setGenre = (genres, genreId) => {
     }
   }
 
-  return "Unknown";
+  return 'Unknown';
 };

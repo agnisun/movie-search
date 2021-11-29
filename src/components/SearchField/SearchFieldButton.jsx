@@ -1,13 +1,13 @@
-import React, {useState} from "react";
-import {Button} from "@chakra-ui/react";
-import {useDispatch} from "react-redux";
+import { useState } from 'react';
+import { Button } from '@chakra-ui/react';
+import { useDispatch } from 'react-redux';
 import {
   addAgeFilterAction,
   addGenresFilterAction,
   removeAgeFilterAction,
   removeGenresFilterAction,
   sortAgesFilterAction,
-} from "../../features/modules/search/search.actions";
+} from '../../features/modules/search/search.actions';
 
 export const SearchFieldButton = ({ text, id, variant }) => {
   const [active, setActive] = useState(false);
@@ -37,10 +37,10 @@ export const SearchFieldButton = ({ text, id, variant }) => {
 
   return (
     <Button
-      variant={active ? "searchFieldActive" : "searchField"}
-      m={"0 5px 5px 0"}
+      variant={active ? 'searchFieldActive' : 'searchField'}
+      m={'0 5px 5px 0'}
       value={text}
-      onClick={variant === "genres" ? handleGenres : handleAge}
+      onClick={variant === 'genres' ? handleGenres : handleAge}
     >
       {text}
     </Button>

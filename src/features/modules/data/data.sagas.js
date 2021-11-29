@@ -1,5 +1,5 @@
-import {all, call, put, takeLatest} from "redux-saga/effects";
-import {API_KEY, language} from "../../../services/api";
+import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { API_KEY, language } from '../../../services/api';
 import {
   DATA_REQUEST,
   getCertificationMoviesAction,
@@ -7,36 +7,36 @@ import {
   getConfigAction,
   getGenresMoviesAction,
   getGenresSerialsAction,
-} from "./data.actions";
+} from './data.actions';
 
-const URL = "https://api.themoviedb.org/3/";
+const URL = 'https://api.themoviedb.org/3/';
 
 function fetchGenres(product) {
   return fetch(
-    `${URL}genre/${product}/list?api_key=${API_KEY}${language}`
+    `${URL}genre/${product}/list?api_key=${API_KEY}${language}`,
   ).then((response) => response.json());
 }
 
 function fetchConfig() {
   return fetch(`${URL}configuration?api_key=${API_KEY}`).then((response) =>
-    response.json()
+    response.json(),
   );
 }
 
 function fetchCertification(product) {
   return fetch(`${URL}certification/${product}/list?api_key=${API_KEY}`).then(
-    (response) => response.json()
+    (response) => response.json(),
   );
 }
 
 function* getMoviesGenre() {
-  const genres = yield call(fetchGenres, "movie");
+  const genres = yield call(fetchGenres, 'movie');
 
   yield put(getGenresMoviesAction(genres));
 }
 
 function* getSerialsGenre() {
-  const genres = yield call(fetchGenres, "tv");
+  const genres = yield call(fetchGenres, 'tv');
 
   yield put(getGenresSerialsAction(genres));
 }
@@ -48,13 +48,13 @@ function* getConfig() {
 }
 
 function* getCertificationMovies() {
-  const certification = yield call(fetchCertification, "movie");
+  const certification = yield call(fetchCertification, 'movie');
 
   yield put(getCertificationMoviesAction(certification));
 }
 
 function* getCertificationSerials() {
-  const certification = yield call(fetchCertification, "tv");
+  const certification = yield call(fetchCertification, 'tv');
 
   yield put(getCertificationSerialsAction(certification));
 }

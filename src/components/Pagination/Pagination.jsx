@@ -1,6 +1,5 @@
-import React from "react";
-import {Box, Flex, IconButton} from "@chakra-ui/react";
-import {ChevronLeftIcon, ChevronRightIcon} from "@chakra-ui/icons";
+import { Box, Flex, IconButton } from '@chakra-ui/react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 export const Pagination = ({ nextAction, prevAction, page, totalPages }) => {
   const handleNextPage = () => {
@@ -10,9 +9,7 @@ export const Pagination = ({ nextAction, prevAction, page, totalPages }) => {
       window.scrollTo(0, 0);
       currentPage += 1;
 
-      nextAction(
-        currentPage
-      )
+      nextAction(currentPage);
     }
   };
 
@@ -22,22 +19,20 @@ export const Pagination = ({ nextAction, prevAction, page, totalPages }) => {
     if (currentPage > 1) {
       window.scrollTo(0, 0);
       currentPage -= 1;
-      prevAction(
-        currentPage
-      )
+      prevAction(currentPage);
     }
   };
 
   return totalPages !== 0 ? (
-    <Flex justifyContent={"center"}>
+    <Flex justifyContent={'center'}>
       <IconButton
         disabled={page <= 1}
         onClick={handlePrevPage}
-        colorScheme={"blue"}
-        aria-label={"prev-page"}
+        colorScheme={'blue'}
+        aria-label={'prev-page'}
         icon={<ChevronLeftIcon />}
       />
-      <Flex mx={"15px"} alignItems={"center"}>
+      <Flex mx={'15px'} alignItems={'center'}>
         <Box>
           {page} / {totalPages}
         </Box>
@@ -45,8 +40,8 @@ export const Pagination = ({ nextAction, prevAction, page, totalPages }) => {
       <IconButton
         disabled={page >= totalPages}
         onClick={handleNextPage}
-        colorScheme={"blue"}
-        aria-label={"next-page"}
+        colorScheme={'blue'}
+        aria-label={'next-page'}
         icon={<ChevronRightIcon />}
       />
     </Flex>

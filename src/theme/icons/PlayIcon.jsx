@@ -1,5 +1,4 @@
-import React from "react";
-import {Icon} from "@chakra-ui/icons";
+import { Icon } from '@chakra-ui/icons';
 
 export const PlayIcon = (props) => {
   return (

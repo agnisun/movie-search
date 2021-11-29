@@ -1,5 +1,4 @@
-import React from "react";
-import {CircularProgress, CircularProgressLabel} from "@chakra-ui/react";
+import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
 
 export const RatedCircle = ({ value, size }) => {
   const formatValue = value * 10;
@@ -7,24 +6,24 @@ export const RatedCircle = ({ value, size }) => {
     const newValue = value * 10;
 
     if (newValue >= 70) {
-      return "green.400";
+      return 'green.400';
     } else if (newValue < 70 && newValue >= 50) {
-      return "yellow.400";
+      return 'yellow.400';
     } else {
-      return "red.400";
+      return 'red.400';
     }
   };
 
   return (
     <CircularProgress
-      bg={"black"}
-      borderRadius={"50%"}
+      bg={'black'}
+      borderRadius={'50%'}
       thickness="8px"
       size={size}
       value={formatValue}
       color={setColor(value)}
     >
-      <CircularProgressLabel>{formatValue + "%"}</CircularProgressLabel>
+      <CircularProgressLabel>{formatValue + '%'}</CircularProgressLabel>
     </CircularProgress>
   );
 };

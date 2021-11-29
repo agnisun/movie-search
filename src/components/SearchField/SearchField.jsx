@@ -1,9 +1,8 @@
-import React from "react";
-import {Box, Button} from "@chakra-ui/react";
-import {SortField} from "./SortField/SortField";
-import {FilterField} from "./FilterField/FilterField";
-import {useDispatch, useSelector} from "react-redux";
-import {searchRequestAction} from "../../features/modules/search/search.actions";
+import { Box, Button } from '@chakra-ui/react';
+import { SortField } from './SortField/SortField';
+import { FilterField } from './FilterField/FilterField';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchRequestAction } from '../../features/modules/search/search.actions';
 
 export const SearchField = ({ product }) => {
   const dispatch = useDispatch();
@@ -22,19 +21,19 @@ export const SearchField = ({ product }) => {
 
   return (
     <Box
-      minW={{ base: "100%", "2md": "260px" }}
-      w={{ base: "100%", "2md": "260px" }}
-      color={"black"}
-      mr={{ base: "0", "2md": "30px" }}
-      mb={{ base: "50px", "2md": "0" }}
+      minW={{ base: '100%', '2md': '260px' }}
+      w={{ base: '100%', '2md': '260px' }}
+      color={'black'}
+      mr={{ base: '0', '2md': '30px' }}
+      mb={{ base: '50px', '2md': '0' }}
     >
       <SortField />
       <FilterField product={product} />
       <Button
         disabled={!isChanging}
         onClick={handleSearch}
-        colorScheme={"blue"}
-        w={"100%"}
+        colorScheme={'blue'}
+        w={'100%'}
       >
         Search
       </Button>

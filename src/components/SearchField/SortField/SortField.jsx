@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import {Box, Flex, Select} from "@chakra-ui/react";
-import {UpDownIcon} from "@chakra-ui/icons";
-import {SearchFieldTitle} from "../SearchFieldTitle";
-import {openTab} from "../../../core/openTab";
-import {useDispatch} from "react-redux";
-import {setSortAction} from "../../../features/modules/search/search.actions";
+import { useState } from 'react';
+import { Box, Flex, Select } from '@chakra-ui/react';
+import { UpDownIcon } from '@chakra-ui/icons';
+import { SearchFieldTitle } from '../SearchFieldTitle';
+import { openTab } from '../../../core/openTab';
+import { useDispatch } from 'react-redux';
+import { setSortAction } from '../../../features/modules/search/search.actions';
 
 export const SortField = () => {
   const [tab, setTab] = useState(false);
@@ -19,20 +19,20 @@ export const SortField = () => {
   };
 
   return (
-    <Box p={"20px 15px"} bg={"#fff"} borderRadius={"10px"} mb={"20px"}>
+    <Box p={'20px 15px'} bg={'#fff'} borderRadius={'10px'} mb={'20px'}>
       <Flex
-        w={"100%"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
+        w={'100%'}
+        justifyContent={'space-between'}
+        alignItems={'center'}
         onClick={handleTab}
-        cursor={"pointer"}
+        cursor={'pointer'}
       >
-        <Box as={"h4"}>Sort</Box>
+        <Box as={'h4'}>Sort</Box>
         {<UpDownIcon />}
       </Flex>
-      <Box d={tab ? "block" : "none"}>
-        <SearchFieldTitle text={"Sort results by"} />
-        <Select bg={"gray.400"} onChange={setSortValue}>
+      <Box d={tab ? 'block' : 'none'}>
+        <SearchFieldTitle text={'Sort results by'} />
+        <Select bg={'gray.400'} onChange={setSortValue}>
           <option value="popularity.desc">Popularity descending</option>
           <option value="popularity.asc">Popularity ascending</option>
           <option value="vote_count.desc">Rating descending</option>

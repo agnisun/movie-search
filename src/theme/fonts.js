@@ -1,3 +1,3 @@
 export const fonts = {
-  body: "Roboto, sans-serif",
+  body: 'Roboto, sans-serif',
 };
