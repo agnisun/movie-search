@@ -1,13 +1,9 @@
-import { Box, Container, Flex, Grid, Heading } from '@chakra-ui/react';
-import { SearchField } from '../SearchField/SearchField';
-import { Pagination } from '../Pagination/Pagination';
-import { useDispatch, useSelector } from 'react-redux';
-import { ProductCard } from './ProductCard';
-import {
-  nextPageAction,
-  prevPageAction,
-  searchRequestAction,
-} from '../../features/modules/search/search.actions';
+import {Box, Container, Flex, Grid, Heading} from '@chakra-ui/react';
+import {SearchField} from '../SearchField/SearchField';
+import {Pagination} from '../Pagination/Pagination';
+import {useDispatch, useSelector} from 'react-redux';
+import {ProductCard} from './ProductCard';
+import {nextPageAction, prevPageAction, searchRequestAction,} from '../../features/modules/search/search.actions';
 
 export const ProductsCards = ({ product }) => {
   const dispatch = useDispatch();
@@ -25,11 +21,11 @@ export const ProductsCards = ({ product }) => {
     dispatch(
       searchRequestAction(
         product,
+        currentPage,
         sort,
         release,
         genres,
         certification,
-        currentPage
       )
     );
   };
@@ -39,11 +35,11 @@ export const ProductsCards = ({ product }) => {
     dispatch(
       searchRequestAction(
         product,
+        currentPage,
         sort,
         release,
         genres,
         certification,
-        currentPage
       )
     );
   };

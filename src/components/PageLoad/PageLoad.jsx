@@ -1,4 +1,4 @@
-import { CircularProgress, Flex } from '@chakra-ui/react';
+import {CircularProgress, Flex} from '@chakra-ui/react';
 
 export const PageLoad = () => {
   return (

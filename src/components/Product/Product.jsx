@@ -1,12 +1,12 @@
-import { Box, Container, Flex, Image } from '@chakra-ui/react';
-import { ProductTitle } from './ProductTitle';
-import { ProductSubtitle } from './ProductSubtitle';
-import { ProductInfo } from './ProductInfo';
-import { useSelector } from 'react-redux';
-import { ProductCasts } from './ProductCasts';
-import { ProductDetails } from './ProductDetails';
+import {Box, Container, Flex, Image} from '@chakra-ui/react';
+import {ProductTitle} from './ProductTitle';
+import {ProductSubtitle} from './ProductSubtitle';
+import {ProductInfo} from './ProductInfo';
+import {useSelector} from 'react-redux';
+import {ProductCasts} from './ProductCasts';
+import {ProductDetails} from './ProductDetails';
 import noImage from '../../assets/no-image.png';
-import { ProductBackground } from './ProductBackground';
+import {ProductBackground} from './ProductBackground';
 
 export const Product = ({
   data: {
@@ -78,7 +78,7 @@ export const Product = ({
                   : noImage
               }
             />
-            <Box p={{ base: '0', '3md': '10px 0 10px 30px' }}>
+            <Box w={'100%'} p={{ base: '0', '3md': '10px 0 10px 30px' }}>
               <ProductTitle title={productTitle} release_date={releaseDate} />
               <ProductSubtitle
                 genres={genres}

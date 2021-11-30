@@ -1,14 +1,15 @@
-import { useState } from 'react';
-import { Box, Flex, Select } from '@chakra-ui/react';
-import { UpDownIcon } from '@chakra-ui/icons';
-import { SearchFieldTitle } from '../SearchFieldTitle';
-import { openTab } from '../../../core/openTab';
-import { useDispatch } from 'react-redux';
-import { setSortAction } from '../../../features/modules/search/search.actions';
+import {useState} from 'react';
+import {Box, Flex, Select} from '@chakra-ui/react';
+import {UpDownIcon} from '@chakra-ui/icons';
+import {SearchFieldTitle} from '../SearchFieldTitle';
+import {openTab} from '../../../core/openTab';
+import {useDispatch, useSelector} from 'react-redux';
+import {setSortAction} from '../../../features/modules/search/search.actions';
 
 export const SortField = () => {
   const [tab, setTab] = useState(false);
   const dispatch = useDispatch();
+  const sortBy = useSelector(state => state.search.sort);
 
   const handleTab = () => {
     openTab(setTab);
@@ -32,7 +33,7 @@ export const SortField = () => {
       </Flex>
       <Box d={tab ? 'block' : 'none'}>
         <SearchFieldTitle text={'Sort results by'} />
-        <Select bg={'gray.400'} onChange={setSortValue}>
+        <Select bg={'gray.400'} onChange={setSortValue} value={sortBy}>
           <option value="popularity.desc">Popularity descending</option>
           <option value="popularity.asc">Popularity ascending</option>
           <option value="vote_count.desc">Rating descending</option>

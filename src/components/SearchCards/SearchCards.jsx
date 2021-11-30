@@ -1,23 +1,16 @@
-import { useEffect } from 'react';
-import {
-  Box,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Input,
-  VStack,
-} from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
+import {useEffect} from 'react';
+import {Box, Container, Flex, Grid, Heading, Input, VStack,} from '@chakra-ui/react';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   nextPageAction,
   prevPageAction,
   setSearchQueryAction,
   singleSearchRequestAction,
 } from '../../features/modules/singleSearch/singleSearch.actions';
-import { ProductCard } from '../ProductsCards/ProductCard';
-import { SearchDetails } from './SearchDetails';
-import { Pagination } from '../Pagination/Pagination';
+import {ProductCard} from '../ProductsCards/ProductCard';
+import {SearchDetails} from './SearchDetails';
+import {Pagination} from '../Pagination/Pagination';
+import {PageLoad} from '../PageLoad/PageLoad';
 
 export const SearchCards = ({ product }) => {
   const dispatch = useDispatch();
@@ -29,6 +22,7 @@ export const SearchCards = ({ product }) => {
   );
   const page = products && products.page;
   const totalPages = products && products.total_pages;
+  const isLoading = useSelector((state) => state.singleSearch.loading);
 
   const handleSearch = (e) => {
     dispatch(setSearchQueryAction(e.target.value));
@@ -65,13 +59,13 @@ export const SearchCards = ({ product }) => {
           />
         </VStack>
       </Box>
-      {searchQuery.trim().length > 0 && (
-        <Flex
-          w={'100%'}
-          alignItems={{ base: 'center', '2md': 'flex-start' }}
-          flexDir={{ base: 'column', '2md': 'row' }}
-        >
-          <SearchDetails product={product} />
+      <Flex
+        w={'100%'}
+        alignItems={{ base: 'center', '2md': 'flex-start' }}
+        flexDir={{ base: 'column', '2md': 'row' }}
+      >
+        {searchQuery.trim().length > 0 &&  <SearchDetails product={product} />}
+        {isLoading ? <PageLoad/> : searchQuery.trim().length > 0 && (
           <Box flex={'1 1 auto'} w={{ base: '100%', '2md': 'auto' }}>
             <Grid
               templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
@@ -83,15 +77,15 @@ export const SearchCards = ({ product }) => {
                   <ProductCard key={product.id} product={product} />
                 ))}
             </Grid>
-            <Pagination
+            {products.results && <Pagination
               prevAction={handlePrev}
               nextAction={handleNext}
               totalPages={totalPages}
               page={page}
-            />
+            />}
           </Box>
-        </Flex>
-      )}
+        )}
+      </Flex>
     </Container>
   );
 };

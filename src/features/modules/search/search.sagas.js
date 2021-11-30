@@ -1,14 +1,10 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { API_KEY, language } from '../../../services/api';
-import {
-  getProductsAction,
-  SEARCH_DEFAULT,
-  SEARCH_REQUEST,
-} from './search.actions';
+import {all, call, put, takeLatest} from 'redux-saga/effects';
+import {API_KEY, BASE_URL, language} from '../../../services/api';
+import {SEARCH_DEFAULT_REQUEST, SEARCH_REQUEST, searchDefaultAction, searchSuccessAction,} from './search.actions';
 
-const URL = 'https://api.themoviedb.org/3/discover/';
+const URL = `${BASE_URL}discover/`;
 
-function fetchSearch(product, sort, release, genres, certification, page) {
+function fetchSearch(product, page, sort, release, genres, certification) {
   if (product === 'movie') {
     return fetch(
       `${URL}movie?api_key=${API_KEY}${language}&sort_by=${sort}&page=${page}${
@@ -50,29 +46,29 @@ function fetchDefaultSearch(product, page) {
   ).then((response) => response.json());
 }
 
-function* getProducts({product, sort, release, genres, certification, page}) {
+function* getProducts({product, page, sort, release, genres, certification}) {
   const products = yield call(
     fetchSearch,
     product,
+    page,
     sort,
     release,
     genres,
     certification,
-    page,
   );
-
-  yield put(getProductsAction(products));
+  
+  yield put(searchSuccessAction(products));
 }
 
 function* getDefaultSearch({product, page}) {
   const products = yield call(fetchDefaultSearch, product, page);
 
-  yield put(getProductsAction(products));
+  yield put(searchDefaultAction(products));
 }
 
 export function* watcherSearch() {
   yield all([
     takeLatest(SEARCH_REQUEST, getProducts),
-    takeLatest(SEARCH_DEFAULT, getDefaultSearch),
+    takeLatest(SEARCH_DEFAULT_REQUEST, getDefaultSearch),
   ]);
 }

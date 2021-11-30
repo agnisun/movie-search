@@ -1,4 +1,4 @@
-import { Box, VStack } from '@chakra-ui/react';
+import {Box, VStack} from '@chakra-ui/react';
 
 export const ProductDetails = ({
   original_title,

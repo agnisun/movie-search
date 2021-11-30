@@ -1,12 +1,12 @@
 export const NOW_PLAYING_REQUEST = 'NOW_PLAYING_REQUEST';
-export const GET_MOVIES = 'GET_MOVIES';
-export const GET_SERIALS = 'GET_SERIALS';
+export const NOW_PLAYING_MOVIES_SUCCESS = 'NOW_PLAYING_MOVIES_SUCCESS';
+export const NOW_PLAYING_SERIALS_SUCCESS = 'NOW_PLAYING_SERIALS_SUCCESS';
 
 export const nowPlayingRequestAction = () => ({
   type: NOW_PLAYING_REQUEST,
 });
-export const getMoviesAction = (payload) => ({
-  type: GET_MOVIES,
+export const nowPlayingMoviesAction = (payload) => ({
+  type: NOW_PLAYING_MOVIES_SUCCESS,
   payload,
 });
-export const getSerialsAction = (payload) => ({type: GET_SERIALS, payload});
+export const nowPlayingSerialsAction = (payload) => ({type: NOW_PLAYING_SERIALS_SUCCESS, payload});

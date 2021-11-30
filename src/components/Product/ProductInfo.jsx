@@ -1,5 +1,5 @@
-import { Box, List, ListItem, Text } from '@chakra-ui/react';
-import { setCrew } from '../../core/setCrew';
+import {Box, List, ListItem, Text} from '@chakra-ui/react';
+import {setCrew} from '../../core/setCrew';
 
 export const ProductInfo = ({ crew, tagline, productOverview }) => {
   return (

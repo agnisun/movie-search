@@ -5,14 +5,15 @@ import {
   FILTER_REMOVE_AGE,
   FILTER_REMOVE_GENRES,
   FILTER_SORT_AGES,
-  GET_PRODUCTS,
   NEXT_PAGE,
   PREV_PAGE,
   SEARCH_DEFAULT,
+  SEARCH_DEFAULT_REQUEST,
   SEARCH_REQUEST,
+  SEARCH_SUCCESS,
   SET_SORT,
 } from './search.actions';
-import { currentDate } from '../../../core/currentDate';
+import {currentDate} from '../../../core/currentDate';
 
 const initialState = {
   products: {},
@@ -22,17 +23,18 @@ const initialState = {
   release: ['', currentDate(1)],
   changing: false,
   loading: false,
-  error: false,
 };
 
 export const searchReducer = (state = initialState, action) => {
   switch (action.type) {
   case SEARCH_REQUEST:
-    return {...state};
+    return {...state, loading: true};
+  case SEARCH_DEFAULT_REQUEST:
+    return {...initialState, loading: true};
   case SEARCH_DEFAULT:
-    return {...initialState};
-  case GET_PRODUCTS:
-    return {...state, products: action.payload};
+    return {...initialState, products: action.payload, loading: false, changing: false,};
+  case SEARCH_SUCCESS:
+    return {...state, products: action.payload, loading: false, changing: false,};
   case SET_SORT:
     return {...state, sort: action.payload, changing: true};
   case FILTER_RELEASE:

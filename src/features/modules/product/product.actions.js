@@ -1,5 +1,5 @@
 export const PRODUCT_REQUEST = 'PRODUCT_REQUEST';
-export const GET_PRODUCT = 'GET_PRODUCT';
+export const PRODUCT_SUCCESS = 'PRODUCT_SUCCESS';
 export const CLEAR_PRODUCT = 'CLEAR_PRODUCT';
 export const GET_CREDITS = 'GET_CREDITS';
 export const GET_VIDEOS = 'GET_VIDEOS';
@@ -10,7 +10,7 @@ export const productRequestAction = (id, product) => ({
   id,
   product,
 });
-export const getProductAction = (payload) => ({type: GET_PRODUCT, payload});
+export const productSuccessAction = (payload) => ({type: PRODUCT_SUCCESS, payload});
 export const clearProductAction = () => ({type: CLEAR_PRODUCT});
 export const getRaitingAction = (payload) => ({type: GET_RAITING, payload});
 export const getCreditsAction = (payload) => ({type: GET_CREDITS, payload});

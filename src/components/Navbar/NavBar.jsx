@@ -1,11 +1,11 @@
-import { Box, Image, Stack } from '@chakra-ui/react';
+import {Box, Image, Stack} from '@chakra-ui/react';
 import logo from '../../assets/logo.png';
 import home from '../../assets/home.svg';
 import movies from '../../assets/movies.svg';
 import serials from '../../assets/serials.svg';
 import star from '../../assets/star.svg';
 import search from '../../assets/search.svg';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export const NavBar = () => {
   return (
@@ -30,7 +30,7 @@ export const NavBar = () => {
         spacing={{ base: '0', '2md': '90px' }}
       >
         <Box px={'5px'}>
-          <Image src={logo} />
+          <Image w={{base: '45px', sm: '100%'}} src={logo} />
         </Box>
         <Box p={'8px'}>
           <Link to={'/'}>

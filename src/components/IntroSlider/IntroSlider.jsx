@@ -1,10 +1,10 @@
-import { Box } from '@chakra-ui/react';
+import {Box} from '@chakra-ui/react';
 import Slider from 'react-slick';
 import '../../slider/slider.css';
-import { IntroSliderItem } from './IntroSliderItem';
-import { useSelector } from 'react-redux';
-import { settings } from './sliderSettings';
-import {useState, useEffect} from 'react';
+import {IntroSliderItem} from './IntroSliderItem';
+import {useSelector} from 'react-redux';
+import {settings} from './sliderSettings';
+import {useEffect, useState} from 'react';
 
 export const IntroSlider = () => {
   const movies = useSelector((state) => state.nowPlaying.movies.results);
