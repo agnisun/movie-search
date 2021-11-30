@@ -1,7 +1,7 @@
-import { Box } from '@chakra-ui/react';
-import { FavouriteCards } from '../../components/FavouriteCards/FavouriteCards';
+import {Box} from '@chakra-ui/react';
+import {FavouriteCards} from '../../components/FavouriteCards/FavouriteCards';
 
-const FavouritePage = () => {
+export const FavouritePage = () => {
   return (
     <Box
       minH={'100vh'}
@@ -13,5 +13,3 @@ const FavouritePage = () => {
     </Box>
   );
 };
-
-export default FavouritePage;

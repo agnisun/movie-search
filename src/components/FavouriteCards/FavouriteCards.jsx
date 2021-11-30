@@ -1,6 +1,6 @@
-import { Box, Container, Grid, Heading } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
-import { ProductCard } from '../ProductsCards/ProductCard';
+import {Box, Container, Grid, Heading} from '@chakra-ui/react';
+import {useSelector} from 'react-redux';
+import {ProductCard} from '../ProductsCards/ProductCard';
 
 export const FavouriteCards = () => {
   const favouriteList = useSelector((state) => state.favourite.favouriteList);

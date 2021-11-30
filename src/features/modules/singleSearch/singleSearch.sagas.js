@@ -1,12 +1,12 @@
-import { API_KEY, language } from '../../../services/api';
-import { all, call, put, takeLatest } from 'redux-saga/effects';
+import {API_KEY, BASE_URL, language} from '../../../services/api';
+import {all, call, debounce, put} from 'redux-saga/effects';
 import {
-  getSearchMoviesAction,
-  getSearchSerialsAction,
   SINGLE_SEARCH_REQUEST,
+  singleSearchSuccessMoviesAction,
+  singleSearchSuccessSerialsAction,
 } from './singleSearch.actions';
 
-const URL = 'https://api.themoviedb.org/3/search/';
+const URL = `${BASE_URL}search/`;
 
 function fetchSingleSearchMovies(query, page) {
   return fetch(
@@ -22,19 +22,19 @@ function fetchSingleSearchSerials(query, page) {
 
 function* singleSearchMovies({searchQuery, page}) {
   const search = yield call(fetchSingleSearchMovies, searchQuery, page);
-
-  yield put(getSearchMoviesAction(search));
+  
+  yield put(singleSearchSuccessMoviesAction(search));
 }
 
 function* singleSearchSerials({searchQuery, page}) {
   const search = yield call(fetchSingleSearchSerials, searchQuery, page);
-
-  yield put(getSearchSerialsAction(search));
+  
+  yield put(singleSearchSuccessSerialsAction(search));
 }
 
 export function* watcherSingleSearch() {
   yield all([
-    takeLatest(SINGLE_SEARCH_REQUEST, singleSearchMovies),
-    takeLatest(SINGLE_SEARCH_REQUEST, singleSearchSerials),
+    debounce(300,SINGLE_SEARCH_REQUEST, singleSearchMovies),
+    debounce(300,SINGLE_SEARCH_REQUEST, singleSearchSerials),
   ]);
 }

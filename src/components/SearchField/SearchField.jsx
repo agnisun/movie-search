@@ -1,8 +1,8 @@
-import { Box, Button } from '@chakra-ui/react';
-import { SortField } from './SortField/SortField';
-import { FilterField } from './FilterField/FilterField';
-import { useDispatch, useSelector } from 'react-redux';
-import { searchRequestAction } from '../../features/modules/search/search.actions';
+import {Box, Button} from '@chakra-ui/react';
+import {SortField} from './SortField/SortField';
+import {FilterField} from './FilterField/FilterField';
+import {useDispatch, useSelector} from 'react-redux';
+import {searchRequestAction} from '../../features/modules/search/search.actions';
 
 export const SearchField = ({ product }) => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export const SearchField = ({ product }) => {
   const handleSearch = () => {
     window.scrollTo(0, 0);
     dispatch(
-      searchRequestAction(product, sort, release, genres, certification, 1)
+      searchRequestAction(product, 1, sort, release, genres, certification)
     );
   };
 

@@ -1,5 +1,5 @@
-import { Box, Flex, IconButton } from '@chakra-ui/react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import {Box, Flex, IconButton} from '@chakra-ui/react';
+import {ChevronLeftIcon, ChevronRightIcon} from '@chakra-ui/icons';
 
 export const Pagination = ({ nextAction, prevAction, page, totalPages }) => {
   const handleNextPage = () => {

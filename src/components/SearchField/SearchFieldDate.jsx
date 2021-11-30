@@ -1,16 +1,30 @@
-import { useEffect, useState } from 'react';
-import { Box, Flex, Input } from '@chakra-ui/react';
-import { useDispatch } from 'react-redux';
-import { filterReleaseAction } from '../../features/modules/search/search.actions';
-import { currentDate } from '../../core/currentDate';
+import {useEffect, useState} from 'react';
+import {Box, Flex, Input} from '@chakra-ui/react';
+import {useDispatch} from 'react-redux';
+import {filterReleaseAction} from '../../features/modules/search/search.actions';
+import {currentDate} from '../../core/currentDate';
 
 export const SearchFieldDate = () => {
-  const [date, setDate] = useState({ from: '', to: currentDate(1) });
+  const initialDate = {
+    from: '',
+    to: currentDate(1)
+  };
+  const [date, setDate] = useState(initialDate);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(filterReleaseAction([date.from, date.to]));
+    if (JSON.stringify(date) !== JSON.stringify(initialDate)) {
+      dispatch(filterReleaseAction([date.from, date.to]));
+    }
   }, [date]);
+  
+  const handleDateFrom = (e) => {
+    setDate({ ...date, from: e.target.value });
+  };
+  
+  const handleDateTo = (e) => {
+    setDate({ ...date, to: e.target.value });
+  };
 
   return (
     <>
@@ -21,7 +35,8 @@ export const SearchFieldDate = () => {
         <Input
           w={'100%'}
           type={'date'}
-          onChange={(e) => setDate({ ...date, from: e.target.value })}
+          value={date.from}
+          onChange={handleDateFrom}
         />
       </Flex>
 
@@ -33,7 +48,7 @@ export const SearchFieldDate = () => {
           w={'100%'}
           type={'date'}
           value={date.to}
-          onChange={(e) => setDate({ ...date, to: e.target.value })}
+          onChange={handleDateTo}
         />
       </Flex>
     </>

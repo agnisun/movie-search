@@ -1,6 +1,7 @@
 export const SEARCH_REQUEST = 'SEARCH_REQUEST';
+export const SEARCH_DEFAULT_REQUEST = 'SEARCH_DEFAULT_REQUEST';
 export const SEARCH_DEFAULT = 'SEARCH_DEFAULT';
-export const GET_PRODUCTS = 'GET_PRODUCTS';
+export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
 export const SET_SORT = 'SET_SORT';
 export const FILTER_RELEASE = 'FILTER_RELEASE';
 export const FILTER_ADD_GENRES = 'FILTER_ADD_GENRES';
@@ -13,27 +14,30 @@ export const PREV_PAGE = 'PREV_PAGE';
 
 export const searchRequestAction = (
   product,
+  page,
   sort,
   release,
   genres,
   certification,
-  page,
 ) => ({
   type: SEARCH_REQUEST,
   product,
+  page,
   sort,
   release,
   genres,
   certification,
-  page,
 });
-export const searchDefaultAction = (product, page) => ({
+export const searchDefaultRequestAction = (product, page) => ({
+  type: SEARCH_DEFAULT_REQUEST,
+  product, page
+});
+export const searchDefaultAction = (payload) => ({
   type: SEARCH_DEFAULT,
-  product,
-  page,
+  payload
 });
-export const getProductsAction = (payload) => ({
-  type: GET_PRODUCTS,
+export const searchSuccessAction = (payload) => ({
+  type: SEARCH_SUCCESS,
   payload,
 });
 export const setSortAction = (payload) => ({type: SET_SORT, payload});

@@ -1,17 +1,15 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { API_KEY, language } from '../../../services/api';
+import {all, call, put, takeLatest} from 'redux-saga/effects';
+import {API_KEY, BASE_URL, language} from '../../../services/api';
 import {
   getCreditsAction,
-  getProductAction,
   getRaitingAction,
   getVideosAction,
   PRODUCT_REQUEST,
+  productSuccessAction,
 } from './product.actions';
 
-const URL = 'https://api.themoviedb.org/3/';
-
 function fetchProduct(id, product) {
-  return fetch(`${URL}${product}/${id}?api_key=${API_KEY}${language}`).then(
+  return fetch(`${BASE_URL}${product}/${id}?api_key=${API_KEY}${language}`).then(
     (response) => response.json(),
   );
 }
@@ -19,37 +17,37 @@ function fetchProduct(id, product) {
 function fetchCredits(id, product) {
   if (product === 'movie') {
     return fetch(
-      `${URL}movie/${id}/credits?api_key=${API_KEY}${language}`,
+      `${BASE_URL}movie/${id}/credits?api_key=${API_KEY}${language}`,
     ).then((response) => response.json());
   } else {
     return fetch(
-      `${URL}tv/${id}/aggregate_credits?api_key=${API_KEY}${language}`,
+      `${BASE_URL}tv/${id}/aggregate_credits?api_key=${API_KEY}${language}`,
     ).then((response) => response.json());
   }
 }
 
 function fetchVideos(id, product) {
   return fetch(
-    `${URL}${product}/${id}/videos?api_key=${API_KEY}${language}`,
+    `${BASE_URL}${product}/${id}/videos?api_key=${API_KEY}${language}`,
   ).then((response) => response.json());
 }
 
 function fetchRaiting(id, product) {
   if (product === 'movie') {
     return fetch(
-      `${URL}movie/${id}/release_dates?api_key=${API_KEY}${language}`,
+      `${BASE_URL}movie/${id}/release_dates?api_key=${API_KEY}${language}`,
     ).then((response) => response.json());
   } else {
     return fetch(
-      `${URL}tv/${id}/content_ratings?api_key=${API_KEY}${language}`,
+      `${BASE_URL}tv/${id}/content_ratings?api_key=${API_KEY}${language}`,
     ).then((response) => response.json());
   }
 }
 
 function* getProduct({id, product}) {
   const currentProduct = yield call(fetchProduct, id, product);
-
-  yield put(getProductAction(currentProduct));
+  
+  yield put(productSuccessAction(currentProduct));
 }
 
 function* getCredits({id, product}) {

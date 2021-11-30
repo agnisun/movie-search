@@ -1,10 +1,10 @@
 import {
   CLEAR_PRODUCT,
   GET_CREDITS,
-  GET_PRODUCT,
   GET_RAITING,
   GET_VIDEOS,
   PRODUCT_REQUEST,
+  PRODUCT_SUCCESS,
 } from './product.actions';
 
 const initialState = {
@@ -13,19 +13,18 @@ const initialState = {
   videos: {},
   content_raiting: '',
   loading: false,
-  error: false,
 };
 
 export const productReducer = (state = initialState, action) => {
   switch (action.type) {
   case PRODUCT_REQUEST:
-    return {...state};
-  case GET_PRODUCT:
+    return {...state, loading: true};
+  case PRODUCT_SUCCESS:
     return {
       ...state,
       product: {
         ...action.payload,
-      },
+      }, loading: false,
     };
   case CLEAR_PRODUCT:
     return initialState;

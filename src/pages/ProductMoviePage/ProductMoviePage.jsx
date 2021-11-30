@@ -1,14 +1,12 @@
-import { useEffect } from 'react';
-import { Box } from '@chakra-ui/react';
-import { useHistory, useParams } from 'react-router-dom';
-import { Product } from '../../components/Product/Product';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  clearProductAction,
-  productRequestAction,
-} from '../../features/modules/product/product.actions';
+import {useEffect} from 'react';
+import {Box} from '@chakra-ui/react';
+import {useHistory, useParams} from 'react-router-dom';
+import {Product} from '../../components/Product/Product';
+import {useDispatch, useSelector} from 'react-redux';
+import {clearProductAction, productRequestAction,} from '../../features/modules/product/product.actions';
+import {PageLoad} from '../../components/PageLoad/PageLoad';
 
-const ProductMoviePage = () => {
+export const ProductMoviePage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -22,12 +20,13 @@ const ProductMoviePage = () => {
   }, []);
 
   const movie = useSelector((state) => state.product.product);
+  const isLoading = useSelector(state => state.product.loading);
 
   return (
-    <Box minH={'100vh'}>
-      <Product id={id} data={movie} />
-    </Box>
+    isLoading ? <PageLoad/> : (
+      <Box minH={'100vh'}>
+        <Product id={id} data={movie} />
+      </Box>
+    )
   );
 };
-
-export default ProductMoviePage;

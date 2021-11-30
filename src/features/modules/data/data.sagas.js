@@ -1,5 +1,5 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { API_KEY, language } from '../../../services/api';
+import {all, call, put, takeLatest} from 'redux-saga/effects';
+import {API_KEY, BASE_URL, language} from '../../../services/api';
 import {
   DATA_REQUEST,
   getCertificationMoviesAction,
@@ -9,22 +9,20 @@ import {
   getGenresSerialsAction,
 } from './data.actions';
 
-const URL = 'https://api.themoviedb.org/3/';
-
 function fetchGenres(product) {
   return fetch(
-    `${URL}genre/${product}/list?api_key=${API_KEY}${language}`,
+    `${BASE_URL}genre/${product}/list?api_key=${API_KEY}${language}`,
   ).then((response) => response.json());
 }
 
 function fetchConfig() {
-  return fetch(`${URL}configuration?api_key=${API_KEY}`).then((response) =>
+  return fetch(`${BASE_URL}configuration?api_key=${API_KEY}`).then((response) =>
     response.json(),
   );
 }
 
 function fetchCertification(product) {
-  return fetch(`${URL}certification/${product}/list?api_key=${API_KEY}`).then(
+  return fetch(`${BASE_URL}certification/${product}/list?api_key=${API_KEY}`).then(
     (response) => response.json(),
   );
 }

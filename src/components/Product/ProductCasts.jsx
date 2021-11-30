@@ -1,4 +1,4 @@
-import { Box, HStack, Image } from '@chakra-ui/react';
+import {Box, HStack, Image} from '@chakra-ui/react';
 import noImage from '../../assets/no-image.png';
 
 export const ProductCasts = ({ casts, product }) => {
@@ -10,9 +10,10 @@ export const ProductCasts = ({ casts, product }) => {
       <HStack
         overflowX={'scroll'}
         w={'100%'}
-        h={'315px'}
+        h={'330px'}
         pb={'15px'}
         pos={'relative'}
+        alignItems={'flex-start'}
       >
         {casts.map((cast) => (
           <Box
